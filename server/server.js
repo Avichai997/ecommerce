@@ -2,7 +2,6 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
-import morgan from 'morgan';
 import path from 'path';
 import config from './config';
 import userRouter from './routers/userRouter';
@@ -23,9 +22,6 @@ mongoose
     console.log(error.reason);
   });
 const app = express();
-if (process.env.NODE_ENV === 'development') {
-  app.use(morgan('dev'));
-}
 app.use(cors());
 app.use(bodyParser.json());
 app.use('/api/uploads', uploadRouter);

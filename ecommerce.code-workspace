@@ -11,11 +11,11 @@
 				"splitTerminals": [
 					{
 						"name": "Server",
-						"commands": ["npm start"]
+						"commands": ["npm i", "npm start"]
 					},
 					{
 						"name": "Client",
-						"commands": ["cd client", "npm start"]
+						"commands": ["cd client", "npm i", "npm run dev"]
 					}
 				]
 			}

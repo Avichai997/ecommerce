@@ -1,7 +1,5 @@
 # JS AMAZONA
-
 # Amazona ECommerce Website
-
 ![amazona](/frontend/images/jsamazona.jpg)
 
 # JavaScript Tutorial - Full ECommerce in 7 Hours [2021]
@@ -9,13 +7,13 @@
 Welcome to my React and Node tutorial to build a fully-functional e-commerce website exactly like amazon. Open your code editor and follow me for the next hours to build an e-commerce website using Vanilla JavaScript and Node.JS, ExpressJS and MongoDB.
 
 ## Watch YouTube Video
-
 [https://www.youtube.com/watch?v=N3FDyheHVMM](https://www.youtube.com/watch?v=N3FDyheHVMM)
 
 ## Demo Website
 
 - 👉 Heroku : [https://jsamazona.herokuapp.com](https://jsamazona.herokuapp.com)
 - 👉 AWS : [https://jsamazona.webacademy.pro](https://jsamazona.webacademy.pro)
+
 
 ## You Will Learn
 
@@ -37,11 +35,9 @@ $ cd node-javascript-ecommerce
 ```
 
 ### 2. Setup MongoDB
-
-- Download and Install it from [mongodb.com](https://www.mongodb.com/try/download/community)
+ - Download and Install it from [mongodb.com](https://www.mongodb.com/try/download/community)
 
 ### 3. Create .env file
-
 - Create .env file in project folder
 - Enter these lines to that:
 
@@ -51,7 +47,7 @@ JWT_SECRET=somethingsecret
 PAYPAL_CLIENT_ID="your paypal client id" or sb
 ```
 
-### 4. Run server
+### 4. Run Backend
 
 ```
 $ npm install
@@ -63,7 +59,7 @@ $ npm start
 
 ```
 # open new terminal
-$ cd client
+$ cd frontend
 $ npm install
 $ npm start
 ```
@@ -88,6 +84,7 @@ $ npm start
 - Q/A: https://codingwithbasir.com
 - Contact Instructor: [Basir](mailto:basir.jafarzadeh@gmail.com)
 
+
 # Features
 
 1. Home Screen
@@ -104,7 +101,7 @@ $ npm start
    4. re-render screen based on changes in item count
 4. Sign-in and Register Screen
    1. Create dynamic form
-   2. Input validation in frontend and server
+   2. Input validation in frontend and backend
    3. Create web server using node.js
    4. Connect to Mongodb database
    5. Add registered user to the database
@@ -137,7 +134,7 @@ $ npm start
 
 1. Create Folder Structure
    1. create root folder as jsamazona
-   2. add frontend and server folder
+   2. add frontend and backend folder
    3. create src folder in frontend
    4. create index.html with heading jsamazona in src
    5. run npm init in frontend folder
@@ -188,21 +185,21 @@ $ npm start
    1. run npm init in root jsamazona folder
    2. npm install express
    3. create server.js
-   4. add start command as node server/server.js
+   4. add start command as node backend/server.js
    5. require express
-   6. move data.js from frontend to server
+   6. move data.js from frontend to backend
    7. create route for /api/products
    8. return products in data.js
    9. run npm start
-7. Load Products From server
+7. Load Products From Backend
    1. edit HomeScreen.js
    2. make render async
    3. fetch products from '/api/products' in render()
    4. make router() async and call await HomeScreen.render()
-   5. use cors on server
+   5. use cors on backend
    6. check the result
 8. Add Webpack
-   1. cd client
+   1. cd frontend
    2. npm install -D webpack webpack-cli webpack-dev-server
    3. npm uninstall live-server
    4. "start": "webpack-dev-server --mode development --watch-content-base --open"
@@ -217,7 +214,7 @@ $ npm start
    1. npm install -D babel core, cli, node, preset-env
    2. Create .babelrc and set presets to @babel/preset-env
    3. npm install -D nodemon
-   4. set start: nodemon --watch server --exec babel-node server/server.js
+   4. set start: nodemon --watch backend --exec babel-node backend/server.js
    5. convert require to import in server.js
    6. npm start
 10. Enable Code Linting
@@ -312,8 +309,8 @@ $ npm start
     1. create SigninScreen
     2. render email and password fields
     3. style signin form
-21. Sign-in Screen server
-    1. create signin api in server
+21. Sign-in Screen Backend
+    1. create signin api in backend
     2. create route for /api/users/signin
     3. create check user name and password
     4. if it is not ok the return 401 error
@@ -356,13 +353,13 @@ $ npm start
     2. add form elements
     3. after_render handle form submit
     4. create register request in frontend
-    5. create register api in server
+    5. create register api in backend
 25. User Profile Screen
     1. create ProfileScreen.js
     2. add form elements
     3. after_render handle form submit
     4. create profile update request in frontend
-    5. create profile update api in server
+    5. create profile update api in backend
     6. create isAuth in utils.js and use in update profile
     7. implement sign out
 26. Checkout Wizard
@@ -421,13 +418,13 @@ $ npm start
     5. redirect to edit product
 35. Edit Product UI
     1. create ProductEditScreen.js
-    2. load product data from server
+    2. load product data from backend
     3. handle form submit
-    4. save product in server
-36. Edit Product server
+    4. save product in backend
+36. Edit Product Backend
     1. handle form submit
     2. create updateProduct
-    3. save product in server
+    3. save product in backend
 37. Upload Product Image
     1. npm install multer
     2. create routes/uploadRoute.js
@@ -447,7 +444,7 @@ $ npm start
     16. update server.js
 38. Build Project
     1. create build script for frontend
-    2. create build script for server
+    2. create build script for backend
     3. update sever.js to serve frontend build folder and uploads folder
     4. stop running frontend
     5. npm run build
@@ -459,7 +456,7 @@ $ npm start
 40. Admin Orders
     1. create Admin Order menu in header
     2. create AdminOrder.js
-    3. load orders from server
+    3. load orders from backend
     4. list them in the screen
     5. show delete and edit button
     6. redirect to order details on edit action
@@ -470,7 +467,7 @@ $ npm start
 42. Show Summary Report in Dashboard
     1. create summary section
     2. style summary
-    3. create summary server
+    3. create summary backend
     4. create getSummary in api.js
     5. load data in dashboard screen
     6. show 3 boxes for Users, Orders and Sales
@@ -516,7 +513,7 @@ $ npm start
     8. call getCategories
     9. create getCategories in api.js
 47. Review Products
-    1. create review model
-    2. create review form
-    3. create review api
-    4. style review form
+    1.  create review model
+    2.  create review form
+    3.  create review api
+    4.  style review form

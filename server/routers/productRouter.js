@@ -16,12 +16,11 @@ productRouter.get(
         }
       : {};
     const products = await Product.find({ ...searchKeyword });
-    console.log(products);
     res.send(products);
   })
 );
 productRouter.get(
-  '/:id', 
+  '/:id',
   expressAsyncHandler(async (req, res) => {
     const product = await Product.findById(req.params.id);
     res.send(product);
@@ -42,7 +41,9 @@ productRouter.post(
     });
     const createdProduct = await product.save();
     if (createdProduct) {
-      res.status(201).send({ message: 'Product Created', product: createdProduct });
+      res
+        .status(201)
+        .send({ message: 'Product Created', product: createdProduct });
     } else {
       res.status(500).send({ message: 'Error in creating product' });
     }
@@ -102,7 +103,9 @@ productRouter.post(
         name: req.user.name,
       };
       product.reviews.push(review);
-      product.rating = product.reviews.reduce((a, c) => c.rating + a, 0) / product.reviews.length;
+      product.rating =
+        product.reviews.reduce((a, c) => c.rating + a, 0) /
+        product.reviews.length;
       product.numReviews = product.reviews.length;
       const updatedProduct = await product.save();
       res.status(201).send({
