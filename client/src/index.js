@@ -56,5 +56,6 @@ const router = async () => {
   if (screen.after_render) await screen.after_render();
   hideLoading();
 };
+
 window.addEventListener("load", router);
 window.addEventListener("hashchange", router);

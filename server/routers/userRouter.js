@@ -11,8 +11,8 @@ userRouter.get(
     try {
       const user = new User({
         name: 'admin',
-        email: 'admin@example.com',
-        password: 'jsamazona',
+        email: 'avichai997@gmail.com',
+        password: 'Motorola1!',
         isAdmin: true,
       });
       const createdUser = await user.save();
@@ -22,6 +22,7 @@ userRouter.get(
     }
   })
 );
+
 userRouter.post(
   '/signin',
   expressAsyncHandler(async (req, res) => {
@@ -44,6 +45,7 @@ userRouter.post(
     }
   })
 );
+
 userRouter.post(
   '/register',
   expressAsyncHandler(async (req, res) => {
@@ -68,6 +70,7 @@ userRouter.post(
     }
   })
 );
+
 userRouter.put(
   '/:id',
   isAuth,

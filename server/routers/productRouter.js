@@ -4,6 +4,7 @@ import { isAuth, isAdmin } from '../utils';
 import Product from '../models/productModel';
 
 const productRouter = express.Router();
+
 productRouter.get(
   '/',
   expressAsyncHandler(async (req, res) => {
@@ -19,6 +20,7 @@ productRouter.get(
     res.send(products);
   })
 );
+
 productRouter.get(
   '/:id',
   expressAsyncHandler(async (req, res) => {

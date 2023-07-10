@@ -18,6 +18,7 @@ export const parseRequestUrl = () => {
     value: q[1],
   };
 };
+
 export const rerender = async (component) => {
   document.getElementById('main-container').innerHTML =
     await component.render();
@@ -31,6 +32,7 @@ export const showLoading = () => {
 export const hideLoading = () => {
   document.getElementById('loading-overlay').classList.remove('active');
 };
+
 export const showMessage = (message, callback) => {
   document.getElementById('message-overlay').innerHTML = `
   <div>
@@ -48,6 +50,7 @@ export const showMessage = (message, callback) => {
       }
     });
 };
+
 export const redirectUser = () => {
   console.log(getCartItems().length);
   if (getCartItems().length !== 0) {
