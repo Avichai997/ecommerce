@@ -1,0 +1,38 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"restoreTerminals.keepExistingTerminalsOpen": false,
+		"restoreTerminals.terminals": [
+			{
+				"splitTerminals": [
+					{
+						"name": "Server",
+						"commands": ["npm start"]
+					},
+					{
+						"name": "Client",
+						"commands": ["cd client", "npm start"]
+					}
+				]
+			}
+		],
+		"typescript.tsdk": "Source/client/node_modules/typescript/lib",
+		"eslint.workingDirectories": [
+			{
+				"mode": "auto"
+			}
+		],
+		"editor.formatOnSave": true,
+		"editor.formatOnSaveMode": "file",
+		"files.autoSave": "afterDelay",
+		"cSpell.autoFormatConfigFile": true,
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.formatOnPaste": true,
+		"editor.mouseWheelZoom": true,
+		"prettier.printWidth": 100
+	}
+}
