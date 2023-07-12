@@ -121,20 +121,23 @@ orderRouter.put(
   '/:id/pay',
   isAuth,
   expressAsyncHandler(async (req, res) => {
-    const order = await Order.findByIdAndUpdate(req.params.id, {
-      ...req.body,
-      isPaid: true,
-      paidAt: Date.now(),
-      payment: {
-        ...req.body.payment,
-        paymentResult: {
-          payerID: req.body.payerID,
-          paymentID: req.body.paymentID,
-          orderID: req.body.orderID,
-        },
-      },
-    });
+    const order = await Order.findById(req.params.id);
     if (!order) res.status(404).send({ message: 'Order Not Found.' });
+
+    // update order data
+    order.isPaid = true;
+    order.paidAt = Date.now();
+    order.payment.paymentResult = {
+      payerID: req.body.payerID,
+      paymentID: req.body.paymentID,
+      orderID: req.body.orderID,
+    };
+
+    const updatedOrder = await order.save();
+    if (!updatedOrder)
+      res.status(500).send({
+        message: 'error paying order',
+      });
 
     // update all orderItems products quantity
     const updateOrderItemsProductsQty = Promise.all(

@@ -35,6 +35,9 @@ button:hover {
 button.primary {
   background-color: #f0c040;
 }
+button:disabled {
+  cursor: not-allowed;
+}
 .overlay {
   display: none;
   position: fixed;
@@ -75,9 +78,9 @@ button.primary {
 .grid-container {
   display: grid;
   grid-template-areas:
-    "header"
-    "main"
-    "footer";
+    'header'
+    'main'
+    'footer';
   grid-template-columns: 1fr;
   grid-template-rows: 5rem 1fr 5rem;
   height: 100%;
@@ -463,7 +466,7 @@ td {
 .search {
   width: 40%;
 }
-form.search-form input[type="text"] {
+form.search-form input[type='text'] {
   float: left;
   width: 80%;
   border-right: none;
@@ -485,7 +488,7 @@ form.search-form button:hover {
 }
 /* Clear floats */
 form.search-form::after {
-  content: "";
+  content: '';
   clear: both;
   display: table;
 }
