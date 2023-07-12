@@ -1,9 +1,4 @@
-import {
-  getCartItems,
-  getShipping,
-  getPayment,
-  cleanCart,
-} from '../localStorage';
+import { getCartItems, getShipping, getPayment, cleanCart } from '../localStorage';
 import CheckoutSteps from '../components/CheckoutSteps';
 import { showLoading, hideLoading, showMessage } from '../utils';
 import { createOrder } from '../api';
@@ -11,7 +6,7 @@ import { createOrder } from '../api';
 const convertCartToOrder = () => {
   const orderItems = getCartItems();
   if (orderItems.length === 0) {
-    document.location.hash = '/cart';
+    showMessage('Your cart is empty!', () => (document.location.hash = '/cart'));
   }
   const shipping = getShipping();
   if (!shipping.address) {
@@ -23,7 +18,8 @@ const convertCartToOrder = () => {
   }
   const itemsPrice = orderItems.reduce((a, c) => a + c.price * c.qty, 0);
   const shippingPrice = itemsPrice > 100 ? 0 : 10;
-  const taxPrice = Math.round(0.15 * itemsPrice * 100) / 100;
+  const ISRAEL_TAX_FEE = 0.17;
+  const taxPrice = Math.round(ISRAEL_TAX_FEE * itemsPrice * 100) / 100;
   const totalPrice = itemsPrice + shippingPrice + taxPrice;
   return {
     orderItems,
@@ -37,31 +33,22 @@ const convertCartToOrder = () => {
 };
 const PlaceOrderScreen = {
   after_render: async () => {
-    document
-      .getElementById('placeorder-button')
-      .addEventListener('click', async () => {
-        const order = convertCartToOrder();
-        showLoading();
-        const data = await createOrder(order);
-        hideLoading();
-        if (data.error) {
-          showMessage(data.error);
-        } else {
-          cleanCart();
-          document.location.hash = `/order/${data.order._id}`;
-        }
-      });
+    document.getElementById('place-order-button').addEventListener('click', async () => {
+      const order = convertCartToOrder();
+      showLoading();
+      const data = await createOrder(order);
+      hideLoading();
+      if (data.error) {
+        showMessage(data.error);
+      } else {
+        cleanCart();
+        document.location.hash = `/order/${data.order._id}`;
+      }
+    });
   },
   render: () => {
-    const {
-      orderItems,
-      shipping,
-      payment,
-      itemsPrice,
-      shippingPrice,
-      taxPrice,
-      totalPrice,
-    } = convertCartToOrder();
+    const { orderItems, shipping, payment, itemsPrice, shippingPrice, taxPrice, totalPrice } =
+      convertCartToOrder();
     return `
     <div>
       ${CheckoutSteps.render({
@@ -122,7 +109,7 @@ const PlaceOrderScreen = {
                  <li><div>Tax</div><div>$${taxPrice}</div></li>
                  <li class="total"><div>Order Total</div><div>$${totalPrice}</div></li> 
                  <li>
-                 <button id="placeorder-button" class="primary fw">
+                 <button id="place-order-button" class="primary fw">
                  Place Order
                  </button>
         </div>

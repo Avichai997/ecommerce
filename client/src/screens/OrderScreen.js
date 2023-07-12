@@ -1,14 +1,14 @@
-import { parseRequestUrl, showLoading, hideLoading, showMessage, rerender } from "../utils";
-import { getOrder, getPaypalClientId, payOrder, deliverOrder } from "../api";
-import { getUserInfo } from "../localStorage";
+import { parseRequestUrl, showLoading, hideLoading, showMessage, rerender } from '../utils';
+import { getOrder, getPaypalClientId, payOrder, deliverOrder } from '../api';
+import { getUserInfo } from '../localStorage';
 
 const addPaypalSdk = async (totalPrice) => {
   const clientId = await getPaypalClientId();
   showLoading();
   if (!window.paypal) {
-    const script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src = "https://www.paypalobjects.com/api/checkout.js";
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'https://www.paypalobjects.com/api/checkout.js';
     script.async = true;
     script.onload = () => handlePayment(clientId, totalPrice);
     document.body.appendChild(script);
@@ -19,18 +19,17 @@ const addPaypalSdk = async (totalPrice) => {
 const handlePayment = (clientId, totalPrice) => {
   window.paypal.Button.render(
     {
-      env: "sandbox",
+      env: 'sandbox',
       client: {
         sandbox: clientId,
-        production: "",
+        production: '',
       },
-      locale: "en_US",
+      locale: 'he_IL',
       style: {
-        size: "responsive",
-        color: "gold",
-        shape: "pill",
+        size: 'responsive',
+        color: 'gold',
+        shape: 'pill',
       },
-
       commit: true,
       payment(data, actions) {
         return actions.payment.create({
@@ -38,7 +37,7 @@ const handlePayment = (clientId, totalPrice) => {
             {
               amount: {
                 total: totalPrice,
-                currency: "USD",
+                currency: 'USD',
               },
             },
           ],
@@ -53,13 +52,13 @@ const handlePayment = (clientId, totalPrice) => {
             paymentID: data.paymentID,
           });
           hideLoading();
-          showMessage("Payment was successfull.", () => {
+          showMessage('Payment was successful.', () => {
             rerender(OrderScreen);
           });
         });
       },
     },
-    "#paypal-button"
+    '#paypal-button'
   ).then(() => {
     hideLoading();
   });
@@ -67,13 +66,13 @@ const handlePayment = (clientId, totalPrice) => {
 const OrderScreen = {
   after_render: async () => {
     const request = parseRequestUrl();
-    if (document.getElementById("deliver-order-button")) {
-      document.addEventListener("click", async () => {
+    const deliverOrderBtn = document.getElementById('deliver-order-button');
+    if (deliverOrderBtn) {
+      deliverOrderBtn.addEventListener('click', async () => {
         showLoading();
         await deliverOrder(request.id);
         hideLoading();
-        showMessage("Order Delivered.");
-        rerender(OrderScreen);
+        showMessage('Order Delivered.', () => rerender(OrderScreen));
       });
     }
   },
@@ -149,7 +148,7 @@ const OrderScreen = {
                 </li>
                 `
                 )
-                .join("\n")}
+                .join('\n')}
             </ul>
           </div>
         </div>
@@ -167,7 +166,7 @@ const OrderScreen = {
                  ${
                    isPaid && !isDelivered && isAdmin
                      ? `<button id="deliver-order-button" class="primary fw">Deliver Order</button>`
-                     : ""
+                     : ''
                  }
                  <li>
                

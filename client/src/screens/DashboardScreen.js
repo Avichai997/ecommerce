@@ -1,12 +1,12 @@
 /* eslint-disable no-new */
-import * as Chartist from 'chartist';
+import { LineChart, PieChart } from 'chartist';
 import DashboardMenu from '../components/DashboardMenu';
 import { getSummary } from '../api';
 
 let summary = {};
 const DashboardScreen = {
   after_render: () => {
-    new Chartist.Line(
+    new LineChart(
       '.ct-chart-line',
       {
         labels: summary.dailyOrders.map((x) => x._id),
@@ -16,7 +16,7 @@ const DashboardScreen = {
         showArea: true,
       }
     );
-    new Chartist.Pie(
+    new PieChart(
       '.ct-chart-pie',
       {
         labels: summary.productCategories.map((x) => x._id),
