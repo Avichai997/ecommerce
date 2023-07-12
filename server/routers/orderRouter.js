@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-return */
 import express from 'express';
 import expressAsyncHandler from 'express-async-handler';
 import { isAuth, isAdmin } from '../utils';
@@ -120,20 +121,44 @@ orderRouter.put(
   '/:id/pay',
   isAuth,
   expressAsyncHandler(async (req, res) => {
-    const order = await Order.findById(req.params.id);
-    if (order) {
-      order.isPaid = true;
-      order.paidAt = Date.now();
-      order.payment.paymentResult = {
-        payerID: req.body.payerID,
-        paymentID: req.body.paymentID,
-        orderID: req.body.orderID,
-      };
-      const updatedOrder = await order.save();
-      res.send({ message: 'Order Paid', order: updatedOrder });
-    } else {
-      res.status(404).send({ message: 'Order Not Found.' });
-    }
+    const order = await Order.findByIdAndUpdate(req.params.id, {
+      ...req.body,
+      isPaid: true,
+      paidAt: Date.now(),
+      payment: {
+        ...req.body.payment,
+        paymentResult: {
+          payerID: req.body.payerID,
+          paymentID: req.body.paymentID,
+          orderID: req.body.orderID,
+        },
+      },
+    });
+    if (!order) res.status(404).send({ message: 'Order Not Found.' });
+
+    // update all orderItems products quantity
+    const updateOrderItemsProductsQty = Promise.all(
+      order.orderItems.map(async (orderItem) => {
+        // 1) find the product
+        const product = await Product.findById(orderItem.product);
+        if (!product) res.status(404).send({ message: `Product ${orderItem.product} Not Found.` });
+
+        if (product.countInStock - orderItem.qty < 0)
+          res.status(500).send({
+            message: `The product: "${product.name}" is out of stock, we are very sorry...`,
+          });
+        else {
+          // 2) update the product's countInStock
+          await Product.findByIdAndUpdate(product._id, {
+            countInStock: product.countInStock - orderItem.qty,
+          });
+        }
+      })
+    );
+
+    await updateOrderItemsProductsQty;
+
+    res.send({ message: 'Order Paid', order });
   })
 );
 

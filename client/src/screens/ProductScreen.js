@@ -78,12 +78,14 @@ const ProductScreen = {
                 Status : 
                   ${
                     product.countInStock > 0
-                      ? `<span class="success">In Stock</span>`
+                      ? `<span class="success">In Stock (${product.countInStock} available)</span>`
                       : `<span class="error">Unavailable</span>`
                   }
               </li>
               <li>
-                  <button id="add-button" class="fw primary">Add to Cart </div>
+                  <button id="add-button" class="fw primary" ${
+                    product.countInStock > 0 ? '' : 'disabled'
+                  }>Add to Cart </div>
             </ul>
         </div>
       </div>

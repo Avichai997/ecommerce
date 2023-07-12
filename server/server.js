@@ -11,11 +11,8 @@ import productRouter from './routers/productRouter';
 import uploadRouter from './routers/uploadRouter';
 
 mongoose
-  .connect(config.MONGODB_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-  })
+  .set('strictQuery', true)
+  .connect(config.MONGODB_URL)
   .then(() => {
     console.log('Connected to mongodb.');
   })
