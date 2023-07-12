@@ -1,5 +1,5 @@
 /* eslint-disable no-new */
-import Chartist from 'chartist';
+import * as Chartist from 'chartist';
 import DashboardMenu from '../components/DashboardMenu';
 import { getSummary } from '../api';
 

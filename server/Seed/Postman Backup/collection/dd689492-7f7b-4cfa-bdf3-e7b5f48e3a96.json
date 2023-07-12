@@ -1,0 +1,159 @@
+{
+  "info": {
+    "_postman_id": "dd689492-7f7b-4cfa-bdf3-e7b5f48e3a96",
+    "name": "E-commerce Users",
+    "description": "For E-commerce Project",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET all users",
+      "id": "b05ac76e-aae9-49e1-8e5f-1e43b4410227",
+      "protocolProfileBehavior": { "disableBodyPruning": true },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }]
+        },
+        "method": "GET",
+        "header": [],
+        "url": { "raw": "{{URL}}/users", "host": ["{{URL}}"], "path": ["users"] }
+      },
+      "response": []
+    },
+    {
+      "name": "GET User",
+      "id": "c164035d-e9e3-4ef6-b5f7-a00e7118ab09",
+      "protocolProfileBehavior": { "disableBodyPruning": true },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{URL}}/users/62ea75394647a02859edb8d7",
+          "host": ["{{URL}}"],
+          "path": ["users", "62ea75394647a02859edb8d7"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Current User",
+      "id": "02e166d3-3565-43f6-807f-263d22ae2c1a",
+      "protocolProfileBehavior": { "disableBodyPruning": true },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }]
+        },
+        "method": "GET",
+        "header": [],
+        "url": { "raw": "{{URL}}/users/me", "host": ["{{URL}}"], "path": ["users", "me"] }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Current User Data",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "067ecb0d-5877-43f0-97e0-e36f7e159a76",
+            "exec": [""],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "3f4520f6-b1d3-4473-95bb-551c2df2ba5d",
+      "protocolProfileBehavior": { "disableBodyPruning": true },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }]
+        },
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            { "key": "name", "value": "avichai997", "type": "text", "disabled": true },
+            { "key": "email", "value": "avichai997@gmail.com", "type": "text", "disabled": true },
+            {
+              "key": "photo",
+              "type": "file",
+              "src": "/C:/Users/Avichai Iluz/Downloads/avichai.jpg"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{URL}}/users/updateMe",
+          "host": ["{{URL}}"],
+          "path": ["users", "updateMe"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Current User",
+      "id": "4a1dbcd7-2cd5-4988-9022-fa61f52ad683",
+      "protocolProfileBehavior": { "disableBodyPruning": true },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }]
+        },
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{URL}}/users/deleteMe",
+          "host": ["{{URL}}"],
+          "path": ["users", "deleteMe"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete User",
+      "id": "1305ba00-d8b7-464f-a957-2910c96c8bf4",
+      "protocolProfileBehavior": { "disableBodyPruning": true },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }]
+        },
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{URL}}/users/62b02a801295212cacb65900",
+          "host": ["{{URL}}"],
+          "path": ["users", "62b02a801295212cacb65900"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "031bbccb-755b-492a-9855-2014b2391906",
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "b9d3c579-327c-40d7-9e63-38cdf9c7abeb",
+        "type": "text/javascript",
+        "exec": [
+          "//Evaluate the visualizer script that is stored as an environment variable.",
+          "eval(pm.variables.get(\"dataTableVisualizerScript\"));"
+        ]
+      }
+    }
+  ]
+}

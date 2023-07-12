@@ -19,6 +19,7 @@ const ProductListScreen = {
     const deleteButtons = document.getElementsByClassName("delete-button");
     Array.from(deleteButtons).forEach((deleteButton) => {
       deleteButton.addEventListener("click", async () => {
+        // eslint-disable-next-line no-restricted-globals, no-alert
         if (confirm("Are you sure to delete this product?")) {
           showLoading();
           const data = await deleteProduct(deleteButton.id);
@@ -57,19 +58,18 @@ const ProductListScreen = {
           <tbody>
             ${products
               .map(
-                (product) => `
-            <tr>
-              <td>${product._id}</td>
-              <td>${product.name}</td>
-              <td>${product.price}</td>
-              <td>${product.category}</td>
-              <td>${product.brand}</td>
-              <td>
-              <button id="${product._id}" class="edit-button">Edit</button>
-              <button id="${product._id}" class="delete-button">Delete</button>
-              </td>
-            </tr>
-            `
+                (product) => 
+                  `<tr>
+                    <td>${product._id}</td>
+                    <td>${product.name}</td>
+                    <td>${product.price}</td>
+                    <td>${product.category}</td>
+                    <td>${product.brand}</td>
+                    <td>
+                    <button id="${product._id}" class="edit-button">Edit</button>
+                    <button id="${product._id}" class="delete-button">Delete</button>
+                    </td>
+                  </tr>`
               )
               .join("\n")}
           </tbody>
