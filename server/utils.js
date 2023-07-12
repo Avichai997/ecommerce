@@ -1,8 +1,8 @@
 import jwt from 'jsonwebtoken';
 import config from './config';
 
-export const generateToken = (user) => {
-  return jwt.sign(
+export const generateToken = (user) =>
+  jwt.sign(
     {
       _id: user._id,
       name: user.name,
@@ -11,9 +11,9 @@ export const generateToken = (user) => {
     },
     config.JWT_SECRET
   );
-};
+
 export const isAuth = (req, res, next) => {
-  const bearerToken = req.headers.authorization;
+  const bearerToken = req.headers.authorization || req.headers.Authorization;
   if (!bearerToken) {
     res.status(401).send({ message: 'Token is not supplied' });
   } else {
@@ -28,6 +28,7 @@ export const isAuth = (req, res, next) => {
     });
   }
 };
+
 export const isAdmin = (req, res, next) => {
   if (req.user && req.user.isAdmin) {
     next();
