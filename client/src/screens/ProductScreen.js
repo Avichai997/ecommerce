@@ -1,10 +1,4 @@
-import {
-  parseRequestUrl,
-  showLoading,
-  hideLoading,
-  showMessage,
-  rerender,
-} from '../utils';
+import { parseRequestUrl, showLoading, hideLoading, showMessage, rerender } from '../utils';
 import { createReview, getProduct } from '../api';
 import Rating from '../components/Rating';
 import { getUserInfo } from '../localStorage';
@@ -17,24 +11,22 @@ const ProductScreen = {
     });
 
     if (document.getElementById('review-form')) {
-      document
-        .getElementById('review-form')
-        .addEventListener('submit', async (e) => {
-          e.preventDefault();
-          showLoading();
-          const data = await createReview(request.id, {
-            comment: document.getElementById('comment').value,
-            rating: document.getElementById('rating').value,
-          });
-          hideLoading();
-          if (data.error) {
-            showMessage(data.error);
-          } else {
-            showMessage('Review Added Successfully', () => {
-              rerender(ProductScreen);
-            });
-          }
+      document.getElementById('review-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        showLoading();
+        const data = await createReview(request.id, {
+          comment: document.getElementById('comment').value,
+          rating: document.getElementById('rating').value,
         });
+        hideLoading();
+        if (data.error) {
+          showMessage(data.error);
+        } else {
+          showMessage('Review Added Successfully', () => {
+            rerender(ProductScreen);
+          });
+        }
+      });
     }
   },
   render: async () => {
@@ -48,8 +40,8 @@ const ProductScreen = {
     const userInfo = getUserInfo();
     return `
     <div class="content">
-      <div class="back-to-result">
-        <a href="/#/">Back to result </a>
+      <div class="back-to-home-page">
+        <a href="/#/">Back to home page </a>
       </div>
       <div class="details">
         <div class="details-image">
