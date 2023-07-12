@@ -13,6 +13,7 @@ uploads/*.png
 /coverage
 
 # production
+/dist
 /build
 
 # misc

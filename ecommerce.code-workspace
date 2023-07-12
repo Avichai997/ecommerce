@@ -11,7 +11,7 @@
 				"splitTerminals": [
 					{
 						"name": "Server",
-						"commands": ["npm i", "npm start"]
+						"commands": ["cd server", "npm i", "npm start"]
 					},
 					{
 						"name": "Client",
