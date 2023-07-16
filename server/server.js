@@ -34,8 +34,8 @@ app.get('/api/paypal/clientId', (req, res) => {
 });
 app.use('/uploads', express.static(path.join(__dirname, './uploads')));
 
-app.all('*', (req, res, next) => {
-  next(`הכתובת ${req.originalUrl} לא קיימת בשרת!`);
+app.all('*', (req, res) => {
+  res.status(404).send({ message: `הכתובת ${req.originalUrl} לא קיימת בשרת!` });
 });
 
 // eslint-disable-next-line no-unused-vars
