@@ -1,21 +1,492 @@
 [
   {
+    "_id": {
+      "$oid": "64aeb5eccb57e65dbb4a8b02"
+    },
     "orderItems": [
       {
-        "quantity": 3,
-        "product": "5fcfc406ae79b0a6a90d2585"
-      },
-      {
-        "quantity": 2,
-        "product": "5fd293c7d3abe7295b1403c4"
+        "name": "Adidas Mens Long Sleeve Hoodie",
+        "image": "/images/product-3.jpg",
+        "price": 59,
+        "qty": 1,
+        "product": {
+          "$oid": "333333333333333333333333"
+        },
+        "_id": {
+          "$oid": "64aeb5eccb57e65dbb4a8b03"
+        }
       }
     ],
-    "shippingAddress1": "נחושה הלוטם 43",
-    "shippingAddress2": "שדות מיכה 1",
-    "city": "נחושה",
-    "zip": "998183",
-    "country": "ישראל",
-    "phone": "+0504838353",
-    "user": "64779bdbeae51be36ef1f187"
+    "user": {
+      "$oid": "64ac3fb7fe2e9505288635f7"
+    },
+    "shipping": {
+      "address": "שדות מיכה 1",
+      "city": "שדות מיכה",
+      "postalCode": "9981000",
+      "country": "ישראל"
+    },
+    "payment": {
+      "paymentMethod": "Paypal",
+      "paymentResult": {}
+    },
+    "itemsPrice": 59,
+    "taxPrice": 10.03,
+    "shippingPrice": 10,
+    "totalPrice": 79.03,
+    "isPaid": true,
+    "isDelivered": false,
+    "createdAt": {
+      "$date": "2023-07-12T14:17:16.462Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-12T15:24:16.764Z"
+    },
+    "paidAt": {
+      "$date": "2023-07-12T15:24:16.760Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "64aeb763cb57e65dbb4a8b38"
+    },
+    "orderItems": [
+      {
+        "name": "Hiskywin Full Zip Running Shirts Thermal Workout",
+        "image": "/images/product-1.jpg",
+        "price": 59,
+        "qty": 1,
+        "product": {
+          "$oid": "111111111111111111111111"
+        },
+        "_id": {
+          "$oid": "64aeb763cb57e65dbb4a8b39"
+        }
+      }
+    ],
+    "user": {
+      "$oid": "64ac3fb7fe2e9505288635f7"
+    },
+    "shipping": {
+      "address": "שדות מיכה 1",
+      "city": "שדות מיכה",
+      "postalCode": "9981000",
+      "country": "ישראל"
+    },
+    "payment": {
+      "paymentMethod": "Paypal",
+      "paymentResult": {
+        "orderID": "EC-4H632309X3717964P",
+        "payerID": "98KRPM9XRGPE4",
+        "paymentID": "PAYID-MSXLOZY4UD889292J5173234"
+      }
+    },
+    "itemsPrice": 59,
+    "taxPrice": 10.03,
+    "shippingPrice": 10,
+    "totalPrice": 79.03,
+    "isPaid": true,
+    "isDelivered": true,
+    "createdAt": {
+      "$date": "2023-07-12T14:23:31.367Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-12T14:23:53.815Z"
+    },
+    "paidAt": {
+      "$date": "2023-07-12T14:23:46.137Z"
+    },
+    "deliveredAt": {
+      "$date": "2023-07-12T14:23:53.814Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "64aec4d9d76ea35a2ad5e9ce"
+    },
+    "orderItems": [
+      {
+        "name": "Hiskywin Full Zip Running Shirts Thermal Workout",
+        "image": "/images/product-1.jpg",
+        "price": 59,
+        "qty": 3,
+        "product": {
+          "$oid": "111111111111111111111111"
+        },
+        "_id": {
+          "$oid": "64aec4d9d76ea35a2ad5e9cf"
+        }
+      }
+    ],
+    "user": {
+      "$oid": "64ac3fb7fe2e9505288635f7"
+    },
+    "shipping": {
+      "address": "שדות מיכה 1",
+      "city": "שדות מיכה",
+      "postalCode": "9981000",
+      "country": "ישראל"
+    },
+    "payment": {
+      "paymentResult": {
+        "payerID": "98KRPM9XRGPE4",
+        "paymentID": "PAYID-MSXMJYQ64W0423970780091L",
+        "orderID": "EC-58R46857LF970745D"
+      }
+    },
+    "itemsPrice": 177,
+    "taxPrice": 30.09,
+    "shippingPrice": 0,
+    "totalPrice": 207.09,
+    "isPaid": true,
+    "isDelivered": false,
+    "createdAt": {
+      "$date": "2023-07-12T15:20:57.514Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-12T15:21:28.248Z"
+    },
+    "paidAt": {
+      "$date": "2023-07-12T15:21:28.248Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "64aec61f563d1628124d74dc"
+    },
+    "orderItems": [
+      {
+        "name": "Under Armour Mens Sportstyle Tricot Joggers",
+        "image": "/images/product-4.jpg",
+        "price": 90,
+        "qty": 1,
+        "product": {
+          "$oid": "444444444444444444444444"
+        },
+        "_id": {
+          "$oid": "64aec61f563d1628124d74dd"
+        }
+      }
+    ],
+    "user": {
+      "$oid": "64ac3fb7fe2e9505288635f7"
+    },
+    "shipping": {
+      "address": "שדות מיכה 1",
+      "city": "שדות מיכה",
+      "postalCode": "9981000",
+      "country": "ישראל"
+    },
+    "payment": {
+      "paymentMethod": "Paypal"
+    },
+    "itemsPrice": 90,
+    "taxPrice": 15.3,
+    "shippingPrice": 10,
+    "totalPrice": 115.3,
+    "isPaid": false,
+    "isDelivered": false,
+    "createdAt": {
+      "$date": "2023-07-12T15:26:23.058Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-12T15:26:23.058Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "64aec7927f409f12eb2f4e03"
+    },
+    "orderItems": [
+      {
+        "name": "Adidas Mens Long Sleeve Hoodie",
+        "image": "/images/product-3.jpg",
+        "price": 59,
+        "qty": 1,
+        "product": {
+          "$oid": "333333333333333333333333"
+        },
+        "_id": {
+          "$oid": "64aec7927f409f12eb2f4e04"
+        }
+      }
+    ],
+    "user": {
+      "$oid": "64ac3fb7fe2e9505288635f7"
+    },
+    "shipping": {
+      "address": "שדות מיכה 1",
+      "city": "שדות מיכה",
+      "postalCode": "9981000",
+      "country": "ישראל"
+    },
+    "payment": {
+      "paymentMethod": "Paypal"
+    },
+    "itemsPrice": 59,
+    "taxPrice": 10.03,
+    "shippingPrice": 10,
+    "totalPrice": 79.03,
+    "isPaid": false,
+    "isDelivered": false,
+    "createdAt": {
+      "$date": "2023-07-12T15:32:34.713Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-12T15:32:34.713Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "64aec8b93afc2ae2dca29453"
+    },
+    "orderItems": [
+      {
+        "name": "Under Armour Mens Sportstyle Tricot Joggers",
+        "image": "/images/product-4.jpg",
+        "price": 90,
+        "qty": 1,
+        "product": {
+          "$oid": "444444444444444444444444"
+        },
+        "_id": {
+          "$oid": "64aec8b93afc2ae2dca29454"
+        }
+      }
+    ],
+    "user": {
+      "$oid": "64ac3fb7fe2e9505288635f7"
+    },
+    "shipping": {
+      "address": "שדות מיכה 1",
+      "city": "שדות מיכה",
+      "postalCode": "9981000",
+      "country": "ישראל"
+    },
+    "payment": {
+      "paymentMethod": "Paypal",
+      "paymentResult": {
+        "orderID": "EC-4E0772132K134951F",
+        "payerID": "98KRPM9XRGPE4",
+        "paymentID": "PAYID-MSXMRPI1YP889425X186194J"
+      }
+    },
+    "itemsPrice": 90,
+    "taxPrice": 15.3,
+    "shippingPrice": 10,
+    "totalPrice": 115.3,
+    "isPaid": true,
+    "isDelivered": false,
+    "createdAt": {
+      "$date": "2023-07-12T15:37:29.433Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-12T15:37:43.242Z"
+    },
+    "paidAt": {
+      "$date": "2023-07-12T15:37:43.238Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "64b15f3ff67a1f1870f74967"
+    },
+    "orderItems": [
+      {
+        "name": "Adidas Mens Long Sleeve Hoodie",
+        "image": "/images/product-3.jpg",
+        "price": 59,
+        "qty": 1,
+        "product": {
+          "$oid": "333333333333333333333333"
+        },
+        "_id": {
+          "$oid": "64b15f3ff67a1f1870f74968"
+        }
+      }
+    ],
+    "user": {
+      "$oid": "64ac3fb7fe2e9505288635f7"
+    },
+    "shipping": {
+      "address": "שדות מיכה 1",
+      "city": "שדות מיכה",
+      "postalCode": "9981000",
+      "country": "ישראל"
+    },
+    "payment": {
+      "paymentMethod": "Paypal",
+      "paymentResult": {
+        "orderID": "EC-0XV21746DA855492Y",
+        "payerID": "98KRPM9XRGPE4",
+        "paymentID": "PAYID-MSYV6RQ14S31421CC212050L"
+      }
+    },
+    "itemsPrice": 59,
+    "taxPrice": 10.03,
+    "shippingPrice": 10,
+    "totalPrice": 79.03,
+    "isPaid": true,
+    "isDelivered": true,
+    "createdAt": {
+      "$date": "2023-07-14T14:44:15.534Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-14T14:44:37.264Z"
+    },
+    "paidAt": {
+      "$date": "2023-07-14T14:44:32.882Z"
+    },
+    "deliveredAt": {
+      "$date": "2023-07-14T14:44:37.262Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "64b15f6ff67a1f1870f74985"
+    },
+    "orderItems": [
+      {
+        "name": "Hiskywin Full Zip Running Shirts Thermal Workout",
+        "image": "/images/product-1.jpg",
+        "price": 59,
+        "qty": 1,
+        "product": {
+          "$oid": "111111111111111111111111"
+        },
+        "_id": {
+          "$oid": "64b15f6ff67a1f1870f74986"
+        }
+      }
+    ],
+    "user": {
+      "$oid": "64ac3fb7fe2e9505288635f7"
+    },
+    "shipping": {
+      "address": "שדות מיכה 1",
+      "city": "שדות מיכה",
+      "postalCode": "9981000",
+      "country": "ישראל"
+    },
+    "payment": {
+      "paymentMethod": "Paypal",
+      "paymentResult": {
+        "orderID": "EC-5D677209L98834001",
+        "payerID": "98KRPM9XRGPE4",
+        "paymentID": "PAYID-MSYV65Q6J1510650X1926156"
+      }
+    },
+    "itemsPrice": 59,
+    "taxPrice": 10.03,
+    "shippingPrice": 10,
+    "totalPrice": 79.03,
+    "isPaid": true,
+    "isDelivered": true,
+    "createdAt": {
+      "$date": "2023-07-14T14:45:03.849Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-14T14:45:19.464Z"
+    },
+    "paidAt": {
+      "$date": "2023-07-14T14:45:15.519Z"
+    },
+    "deliveredAt": {
+      "$date": "2023-07-14T14:45:19.463Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "64b3fb80b436defbdc348636"
+    },
+    "orderItems": [
+      {
+        "name": "Hiskywin Full Zip Running Shirts Thermal Workout",
+        "image": "/images/product-1.jpg",
+        "price": 59,
+        "qty": 1,
+        "product": {
+          "$oid": "111111111111111111111111"
+        },
+        "_id": {
+          "$oid": "64b3fb80b436defbdc348637"
+        }
+      }
+    ],
+    "user": {
+      "$oid": "64ac3fb7fe2e9505288635f7"
+    },
+    "shipping": {
+      "address": "שדות מיכה 1",
+      "city": "שדות מיכה",
+      "postalCode": "9981000",
+      "country": "ישראל"
+    },
+    "payment": {
+      "paymentMethod": "Paypal"
+    },
+    "itemsPrice": 59,
+    "taxPrice": 10.03,
+    "shippingPrice": 10,
+    "totalPrice": 79.03,
+    "isPaid": false,
+    "isDelivered": false,
+    "createdAt": {
+      "$date": "2023-07-16T14:15:28.879Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-16T14:15:28.879Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "64b3fd2634bf294174c6fcf2"
+    },
+    "orderItems": [
+      {
+        "name": "Hiskywin Full Zip Running Shirts Thermal Workout",
+        "image": "/images/product-1.jpg",
+        "price": 59,
+        "qty": 2,
+        "product": {
+          "$oid": "111111111111111111111111"
+        },
+        "_id": {
+          "$oid": "64b3fd2634bf294174c6fcf3"
+        }
+      }
+    ],
+    "user": {
+      "$oid": "64ac3fb7fe2e9505288635f7"
+    },
+    "shipping": {
+      "address": "שדות מיכה 1",
+      "city": "שדות מיכה",
+      "postalCode": "9981000",
+      "country": "ישראל"
+    },
+    "payment": {
+      "paymentMethod": "Paypal",
+      "paymentResult": {
+        "orderID": "EC-7E134681UA8296533",
+        "payerID": "98KRPM9XRGPE4",
+        "paymentID": "PAYID-MSZ72LA45N43250N9566174X"
+      }
+    },
+    "itemsPrice": 118,
+    "taxPrice": 20.06,
+    "shippingPrice": 0,
+    "totalPrice": 138.06,
+    "isPaid": true,
+    "isDelivered": false,
+    "createdAt": {
+      "$date": "2023-07-16T14:22:30.458Z"
+    },
+    "updatedAt": {
+      "$date": "2023-07-16T14:22:49.056Z"
+    },
+    "paidAt": {
+      "$date": "2023-07-16T14:22:49.055Z"
+    }
   }
 ]

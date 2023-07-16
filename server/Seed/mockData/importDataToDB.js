@@ -5,7 +5,7 @@ import { readFileSync } from 'fs';
 import mongoose from 'mongoose';
 import User from '../../models/userModel';
 import Product from '../../models/productModel';
-// import Order from "../../models/orderModel";
+import Order from '../../models/orderModel';
 
 // 1) Connect to DB:
 dotenv.config('../../../.env');
@@ -17,7 +17,7 @@ mongoose.connection.on('connected', () => {
 mongoose.connection.once('open', () => seedData());
 
 // 2) Read Json files:
-// const orders = JSON.parse(readFileSync(`${__dirname}/orders.json`, "utf-8"));
+const orders = JSON.parse(readFileSync(`${__dirname}/orders.json`, 'utf-8'));
 const users = JSON.parse(readFileSync(`${__dirname}/users.json`, 'utf-8'));
 const products = JSON.parse(readFileSync(`${__dirname}/products.json`, 'utf-8'));
 
@@ -25,7 +25,7 @@ const importAllData = async () => {
   try {
     await User.create(users, { validateBeforeSave: false });
     await Product.create(products, { validateBeforeSave: false });
-    // await Order.create(orders, { validateBeforeSave: false });
+    await Order.create(orders, { validateBeforeSave: false });
     console.log('Data seeded in DB!');
   } catch (err) {
     console.log(err);

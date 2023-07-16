@@ -564,3 +564,6 @@ ul.categories {
   margin-bottom: 1rem;
   padding-bottom: 1rem;
 }
+.ct-chart-pie .ct-label {
+  font-size: 20px;
+}

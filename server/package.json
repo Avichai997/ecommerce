@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon --watch . --exec babel-node server.js",
-    "build": "rm -rf build && babel . -d build && cd ../client && npm install && npm run build",
-    "serve": "node build/server.js",
     "seed": "babel-node Seed/mockData/importDataToDB.js",
+    "build": "rimraf build && ncc build server.js -o build && xcopy .env build && rimraf build/code-points.mem",
+    "serve": "node build/index.js",
     "heroku-prebuild": "cd client && npm install --dev"
   },
   "dependencies": {
@@ -26,11 +26,13 @@
     "@babel/core": "^7.22.8",
     "@babel/node": "^7.22.6",
     "@babel/preset-env": "^7.22.7",
+    "@vercel/ncc": "^0.36.1",
     "eslint": "^8.44.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-import": "^2.27.5",
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "rimraf": "^5.0.1"
   },
   "engines": {
     "node": "v19.8.1",
