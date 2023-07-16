@@ -269,7 +269,7 @@ footer {
 .form-items {
   display: flex;
   flex-direction: column;
-  width: 32rem;
+  width: 60rem;
   padding: 2rem;
   border: 0.1rem #c0c0c0 solid;
   border-radius: 0.5rem;

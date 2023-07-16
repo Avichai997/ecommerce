@@ -6,7 +6,7 @@
     "orderItems": [
       {
         "name": "Adidas Mens Long Sleeve Hoodie",
-        "image": "/images/product-3.jpg",
+        "image": "/uploads/product-3.jpg",
         "price": 59,
         "qty": 1,
         "product": {
@@ -17,9 +17,7 @@
         }
       }
     ],
-    "user": {
-      "$oid": "64ac3fb7fe2e9505288635f7"
-    },
+    "user": "64ac3fb7fe2e9505288635f7",
     "shipping": {
       "address": "שדות מיכה 1",
       "city": "שדות מיכה",
@@ -53,7 +51,7 @@
     "orderItems": [
       {
         "name": "Hiskywin Full Zip Running Shirts Thermal Workout",
-        "image": "/images/product-1.jpg",
+        "image": "/uploads/product-1.jpg",
         "price": 59,
         "qty": 1,
         "product": {
@@ -64,9 +62,7 @@
         }
       }
     ],
-    "user": {
-      "$oid": "64ac3fb7fe2e9505288635f7"
-    },
+    "user": "64ac3fb7fe2e9505288635f7",
     "shipping": {
       "address": "שדות מיכה 1",
       "city": "שדות מיכה",
@@ -107,7 +103,7 @@
     "orderItems": [
       {
         "name": "Hiskywin Full Zip Running Shirts Thermal Workout",
-        "image": "/images/product-1.jpg",
+        "image": "/uploads/product-1.jpg",
         "price": 59,
         "qty": 3,
         "product": {
@@ -118,9 +114,7 @@
         }
       }
     ],
-    "user": {
-      "$oid": "64ac3fb7fe2e9505288635f7"
-    },
+    "user": "64ac3fb7fe2e9505288635f7",
     "shipping": {
       "address": "שדות מיכה 1",
       "city": "שדות מיכה",
@@ -157,7 +151,7 @@
     "orderItems": [
       {
         "name": "Under Armour Mens Sportstyle Tricot Joggers",
-        "image": "/images/product-4.jpg",
+        "image": "/uploads/product-4.jpg",
         "price": 90,
         "qty": 1,
         "product": {
@@ -168,9 +162,7 @@
         }
       }
     ],
-    "user": {
-      "$oid": "64ac3fb7fe2e9505288635f7"
-    },
+    "user": "64ac3fb7fe2e9505288635f7",
     "shipping": {
       "address": "שדות מיכה 1",
       "city": "שדות מיכה",
@@ -200,7 +192,7 @@
     "orderItems": [
       {
         "name": "Adidas Mens Long Sleeve Hoodie",
-        "image": "/images/product-3.jpg",
+        "image": "/uploads/product-3.jpg",
         "price": 59,
         "qty": 1,
         "product": {
@@ -211,9 +203,7 @@
         }
       }
     ],
-    "user": {
-      "$oid": "64ac3fb7fe2e9505288635f7"
-    },
+    "user": "64ac3fb7fe2e9505288635f7",
     "shipping": {
       "address": "שדות מיכה 1",
       "city": "שדות מיכה",
@@ -243,7 +233,7 @@
     "orderItems": [
       {
         "name": "Under Armour Mens Sportstyle Tricot Joggers",
-        "image": "/images/product-4.jpg",
+        "image": "/uploads/product-4.jpg",
         "price": 90,
         "qty": 1,
         "product": {
@@ -254,9 +244,7 @@
         }
       }
     ],
-    "user": {
-      "$oid": "64ac3fb7fe2e9505288635f7"
-    },
+    "user": "64ac3fb7fe2e9505288635f7",
     "shipping": {
       "address": "שדות מיכה 1",
       "city": "שדות מיכה",
@@ -294,7 +282,7 @@
     "orderItems": [
       {
         "name": "Adidas Mens Long Sleeve Hoodie",
-        "image": "/images/product-3.jpg",
+        "image": "/uploads/product-3.jpg",
         "price": 59,
         "qty": 1,
         "product": {
@@ -305,9 +293,7 @@
         }
       }
     ],
-    "user": {
-      "$oid": "64ac3fb7fe2e9505288635f7"
-    },
+    "user": "64ac3fb7fe2e9505288635f7",
     "shipping": {
       "address": "שדות מיכה 1",
       "city": "שדות מיכה",
@@ -348,7 +334,7 @@
     "orderItems": [
       {
         "name": "Hiskywin Full Zip Running Shirts Thermal Workout",
-        "image": "/images/product-1.jpg",
+        "image": "/uploads/product-1.jpg",
         "price": 59,
         "qty": 1,
         "product": {
@@ -359,9 +345,7 @@
         }
       }
     ],
-    "user": {
-      "$oid": "64ac3fb7fe2e9505288635f7"
-    },
+    "user": "64ac3fb7fe2e9505288635f7",
     "shipping": {
       "address": "שדות מיכה 1",
       "city": "שדות מיכה",
@@ -402,7 +386,7 @@
     "orderItems": [
       {
         "name": "Hiskywin Full Zip Running Shirts Thermal Workout",
-        "image": "/images/product-1.jpg",
+        "image": "/uploads/product-1.jpg",
         "price": 59,
         "qty": 1,
         "product": {
@@ -413,9 +397,7 @@
         }
       }
     ],
-    "user": {
-      "$oid": "64ac3fb7fe2e9505288635f7"
-    },
+    "user": "64ac3fb7fe2e9505288635f7",
     "shipping": {
       "address": "שדות מיכה 1",
       "city": "שדות מיכה",
@@ -445,7 +427,7 @@
     "orderItems": [
       {
         "name": "Hiskywin Full Zip Running Shirts Thermal Workout",
-        "image": "/images/product-1.jpg",
+        "image": "/uploads/product-1.jpg",
         "price": 59,
         "qty": 2,
         "product": {
@@ -456,9 +438,7 @@
         }
       }
     ],
-    "user": {
-      "$oid": "64ac3fb7fe2e9505288635f7"
-    },
+    "user": "64ac3fb7fe2e9505288635f7",
     "shipping": {
       "address": "שדות מיכה 1",
       "city": "שדות מיכה",

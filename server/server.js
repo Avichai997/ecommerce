@@ -32,10 +32,10 @@ app.use('/api/orders', orderRouter);
 app.get('/api/paypal/clientId', (req, res) => {
   res.send({ clientId: config.PAYPAL_CLIENT_ID });
 });
-app.use('/uploads', express.static(path.join(__dirname, '/../uploads')));
-app.use(express.static(path.join(__dirname, '/../client')));
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/../client/index.html'));
+app.use('/uploads', express.static(path.join(__dirname, './uploads')));
+
+app.all('*', (req, res, next) => {
+  next(`הכתובת ${req.originalUrl} לא קיימת בשרת!`);
 });
 
 // eslint-disable-next-line no-unused-vars
