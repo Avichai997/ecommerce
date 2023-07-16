@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon --watch . --exec babel-node server.js",
     "seed": "babel-node Seed/mockData/importDataToDB.js",
-    "build": "rimraf build && ncc build server.js -o build && xcopy .env build && rimraf build/code-points.mem",
+    "build": "npm i --force && rimraf build && ncc build server.js -o build && xcopy .env build && rimraf build/code-points.mem",
     "serve": "node build/index.js",
     "heroku-prebuild": "cd client && npm install --dev"
   },
