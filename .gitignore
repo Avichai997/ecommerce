@@ -2,22 +2,14 @@
 dist
 /dist
 node_modules
-/node_modules
 uploads/*.jpg
 uploads/*.png
-
-/.pnp
-.pnp.js
-
-# testing
-/coverage
 
 # production
 /dist
 /build
 
 # misc
-.DS_Store
 .env
 .env.local
 .env.development.local
@@ -27,10 +19,8 @@ uploads/*.png
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-frontend/node_modules/**
-frontend/build/**
+build
 package-lock.json
 yarn-lock.json
-frontend/package-lock.json
-frontend/yarn-lock.json
-frontend/main.js
+package-lock.json
+yarn-lock.json
