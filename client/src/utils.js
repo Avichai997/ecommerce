@@ -20,8 +20,7 @@ export const parseRequestUrl = () => {
 };
 
 export const rerender = async (component) => {
-  document.getElementById('main-container').innerHTML =
-    await component.render();
+  document.getElementById('main-container').innerHTML = await component.render();
   await component.after_render();
 };
 
@@ -41,14 +40,12 @@ export const showMessage = (message, callback) => {
   </div>
   `;
   document.getElementById('message-overlay').classList.add('active');
-  document
-    .getElementById('message-overlay-close-button')
-    .addEventListener('click', () => {
-      document.getElementById('message-overlay').classList.remove('active');
-      if (callback) {
-        callback();
-      }
-    });
+  document.getElementById('message-overlay-close-button').addEventListener('click', () => {
+    document.getElementById('message-overlay').classList.remove('active');
+    if (callback) {
+      callback();
+    }
+  });
 };
 
 export const redirectUser = () => {
@@ -58,4 +55,14 @@ export const redirectUser = () => {
   } else {
     document.location.hash = '/';
   }
+};
+
+export const debounce = (func, delay) => {
+  let timeoutId;
+  return (...args) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      func.apply(null, args);
+    }, delay);
+  };
 };

@@ -2,6 +2,7 @@ import { parseRequestUrl, showLoading, hideLoading, showMessage, rerender } from
 import { createReview, getProduct } from '../api';
 import Rating from '../components/Rating';
 import { getUserInfo } from '../localStorage';
+import { apiUrl } from '../config';
 
 const ProductScreen = {
   after_render: () => {
@@ -33,11 +34,12 @@ const ProductScreen = {
     const request = parseRequestUrl();
     showLoading();
     const product = await getProduct(request.id);
-    if (product.error) {
-      return `<div>${product.error}</div>`;
-    }
     hideLoading();
+
+    if (product.error) return `<div>${product.error}</div>`;
+
     const userInfo = getUserInfo();
+
     return `
     <div class="content">
       <div class="back-to-home-page">
@@ -45,7 +47,7 @@ const ProductScreen = {
       </div>
       <div class="details">
         <div class="details-image">
-          <img src="${product.image}" alt="${product.name}" />
+          <img src="${apiUrl}${product.image}" alt="${product.name}" />
         </div>
         <div class="details-info">
           <ul>
