@@ -2,7 +2,7 @@ import { getCartItems, getShipping, getPayment, cleanCart } from '../localStorag
 import CheckoutSteps from '../components/CheckoutSteps';
 import { showLoading, hideLoading, showMessage } from '../utils';
 import { createOrder } from '../api';
-import { apiUrl } from '../config';
+import { API } from '../config';
 
 const convertCartToOrder = () => {
   const orderItems = getCartItems();
@@ -84,7 +84,7 @@ const PlaceOrderScreen = {
                   (item) => `
                 <li>
                   <div class="cart-image">
-                    <img src="${apiUrl}${item.image}" alt="${item.name}" />
+                    <img src="${API}${item.image}" alt="${item.name}" />
                   </div>
                   <div class="cart-name">
                     <div>

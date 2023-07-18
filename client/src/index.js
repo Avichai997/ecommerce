@@ -16,6 +16,7 @@ import ProductListScreen from './screens/ProductListScreen';
 import ProductEditScreen from './screens/ProductEditScreen';
 import OrderListScreen from './screens/OrderListScreen';
 import Aside from './components/Aside';
+import FashionNewsScreen from './screens/FashionNewsScreen';
 
 const routes = {
   '/': HomeScreen,
@@ -33,6 +34,7 @@ const routes = {
   '/dashboard': DashboardScreen,
   '/productlist': ProductListScreen,
   '/orderlist': OrderListScreen,
+  '/fashion-news': FashionNewsScreen,
 };
 const router = async () => {
   showLoading();

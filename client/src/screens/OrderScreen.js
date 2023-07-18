@@ -1,7 +1,7 @@
 import { parseRequestUrl, showLoading, hideLoading, showMessage, rerender } from '../utils';
 import { getOrder, getPaypalClientId, payOrder, deliverOrder } from '../api';
 import { getUserInfo } from '../localStorage';
-import { apiUrl } from '../config';
+import { API } from '../config';
 
 const addPaypalSdk = async (totalPrice) => {
   const clientId = await getPaypalClientId();
@@ -137,7 +137,7 @@ const OrderScreen = {
                   (item) => `
                 <li>
                   <div class="cart-image">
-                    <img src="${apiUrl}${item.image}" alt="${item.name}" />
+                    <img src="${API}${item.image}" alt="${item.name}" />
                   </div>
                   <div class="cart-name">
                     <div>

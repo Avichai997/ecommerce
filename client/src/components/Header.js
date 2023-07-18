@@ -20,6 +20,7 @@ const Header = {
       </div>
       <div>
       ${name ? `<a href="/#/profile">${name}</a>` : `<a href="/#/signin">Sign-In</a>`}    
+        <a href="/#/fashion-news">Fashion-news</a>
         <a href="/#/cart">Cart</a>
         ${isAdmin ? `<a href="/#/dashboard">Dashboard</a>` : ''}
       </div>
