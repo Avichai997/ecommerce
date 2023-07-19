@@ -8,7 +8,8 @@
     "seed": "babel-node Seed/mockData/importDataToDB.js",
     "build": "npm i --force && rimraf build && ncc build server.js -o build && rimraf build/code-points.mem",
     "serve": "node build/index.js",
-    "heroku-prebuild": "cd client && npm install --dev"
+    "heroku-prebuild": "cd client && npm install --dev",
+    "merge": "git pull origin main && git merge main"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
