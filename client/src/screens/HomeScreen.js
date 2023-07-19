@@ -1,7 +1,7 @@
 import Rating from '../components/Rating';
 import { getProducts } from '../api';
 import { parseRequestUrl } from '../utils';
-import { apiUrl } from '../config';
+import { API } from '../config';
 
 const HomeScreen = {
   render: async () => {
@@ -19,10 +19,10 @@ const HomeScreen = {
       <li>
         <div class="product">
           <a href="/#/product/${product._id}">
-            <img src="${apiUrl}${product.image}" alt="${product.name}" />
+            <img src="${API}${product.image}" alt="${product.name}" />
           </a>
         <div class="product-name">
-          <a href="/#/product/1">
+          <a href="/#/product/${product._id}">
             ${product.name}
           </a>
         </div>

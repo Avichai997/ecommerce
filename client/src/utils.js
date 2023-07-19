@@ -1,4 +1,4 @@
-import { getCartItems } from './localStorage';
+import { getCartItems, getUserInfo } from './localStorage';
 
 export const parseRequestUrl = () => {
   const address = document.location.hash.slice(1).split('?')[0];
@@ -25,11 +25,11 @@ export const rerender = async (component) => {
 };
 
 export const showLoading = () => {
-  document.getElementById('loading-overlay').classList.add('active');
+  document.getElementById('spinner').classList.add('active');
 };
 
 export const hideLoading = () => {
-  document.getElementById('loading-overlay').classList.remove('active');
+  document.getElementById('spinner').classList.remove('active');
 };
 
 export const showMessage = (message, callback) => {
@@ -65,4 +65,12 @@ export const debounce = (func, delay) => {
       func.apply(null, args);
     }, delay);
   };
+};
+
+export const protectRoute = (response = null) => {
+  if (!getUserInfo().isAdmin) {
+    document.location.hash = '/';
+    showMessage('This route is only for Admin users!');
+    return false;
+  } else return true;
 };

@@ -1,5 +1,13 @@
-* {
+*,
+*::after,
+*::before {
   box-sizing: border-box;
+}
+:root {
+  --button-color: #af45ff;
+  --link-hover-color: #0045ff;
+  --rating-orange: gold;
+  --header-color: #021033;
 }
 html {
   font-size: 62.5%; /* 16px * 62.5 = 10px = 1rem */
@@ -14,7 +22,7 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: #f08040;
+  color: var(--button-color);
 }
 button {
   cursor: pointer;
@@ -33,7 +41,7 @@ button:hover {
   border: 0.1rem #404040 solid;
 }
 button.primary {
-  background-color: #f0c040;
+  background-color: var(--button-color);
 }
 button:disabled {
   cursor: not-allowed;
@@ -48,14 +56,17 @@ button:disabled {
   height: 100%;
   background-color: rgba(16, 16, 16, 0.5);
 }
+.spinner.active {
+  display: flex;
+}
 .overlay.active {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #ffffff;
+  color: white;
 }
 .overlay > div {
-  background-color: #ffffff;
+  background-color: white;
   color: #000000;
   border-radius: 0.5rem;
   display: flex;
@@ -87,20 +98,28 @@ button:disabled {
 }
 header {
   grid-area: header;
-  background-color: #203040;
-  color: #ffffff;
+  background-color: var(--header-color);
+  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem;
 }
 header a {
-  color: #ffffff;
+  color: white;
   text-decoration: none;
   padding-right: 1rem;
 }
+.links a {
+  background-color: var(--button-color);
+  padding: 5px;
+  border-radius: 5px;
+}
+.links a:hover {
+  background-color: white;
+}
 header a:hover {
-  color: #f08040;
+  color: var(--button-color);
 }
 .brand a {
   font-weight: bold;
@@ -108,11 +127,11 @@ header a:hover {
   padding-left: 1rem;
 }
 footer {
-  background-color: #203040;
+  background-color: var(--header-color);
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #ffffff;
+  color: white;
 }
 /* Products */
 .products {
@@ -128,13 +147,23 @@ footer {
   margin: 1rem;
   margin-bottom: 0;
   height: 42rem;
-  border-top: 0.2rem #e0e0e0 solid;
+  /* border-top: 0.2rem #e0e0e0 solid; */
 }
 .product {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   height: 100%;
+  background: #abaaac00;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 12px;
+  padding: 0 10px;
+  box-shadow: 1px 2px 10px 1px #6f6f6f87;
+  transition: 0.2s ease-in-out;
+}
+.product:hover {
+  box-shadow: 1px 2px 10px 4px #6f6f6f87;
+  border-radius: 20px;
 }
 .product img {
   max-height: 26rem;
@@ -156,7 +185,7 @@ footer {
 }
 /* Rating */
 .rating {
-  color: #ffc000;
+  color: var(--rating-orange);
   font-size: 1.8rem;
 }
 .rating span:last-child {
@@ -166,15 +195,26 @@ footer {
 .content {
   padding: 1rem;
 }
+
 /* Product Details */
+.back-to-home-page {
+  height: 30px;
+  width: fit-content;
+  background-color: var(--button-color);
+  padding: 5px;
+  border-radius: 10px;
+}
+.back-to-home-page a:hover {
+  color: black;
+}
 .details {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
 }
 .details-image {
-  flex: 2 1 60rem;
+  flex: 2 1 50rem;
 }
 .details-image img {
   max-width: 60rem;
@@ -182,7 +222,7 @@ footer {
 }
 .details-info,
 .details-action {
-  flex: 1 1 30rem;
+  /* flex: 1 1 30rem; */
 }
 .details-info ul,
 .details-action ul {
@@ -403,11 +443,12 @@ td {
   justify-content: space-between;
 }
 .dashboard-menu a:hover {
-  background-color: #c0c0c0;
+  background-color: #af45ff30;
 }
 .dashboard-menu li.selected a {
-  background-color: #c0c0c0;
-  color: #f08040;
+  background-color: #ae45ff52;
+  color: white;
+  font-weight: bolder;
 }
 .dashboard-content {
   flex: 4 1 80rem;
@@ -476,7 +517,7 @@ form.search-form input[type='text'] {
 form.search-form button {
   float: left;
   width: 40px;
-  background: #f0c040;
+  background: var(--button-color);
 
   border-left: none;
   cursor: pointer;
@@ -497,7 +538,7 @@ form.search-form::after {
 aside {
   position: fixed;
   width: 30rem;
-  background-color: #ffffff;
+  background-color: white;
   height: 100%;
   z-index: 1;
   transform: translateX(-30.1rem);
@@ -551,11 +592,11 @@ ul.categories {
   padding: 0.5rem;
   background: none;
   border: none;
-  color: #ffffff;
+  color: white;
   cursor: pointer;
 }
-/* review */
 
+/* review */
 .review {
   list-style-type: none;
   padding: 0;
@@ -566,4 +607,118 @@ ul.categories {
 }
 .ct-chart-pie .ct-label {
   font-size: 20px;
+}
+
+/* news */
+.news {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+}
+.news li {
+  flex: 0 1 30rem;
+  margin: 1rem;
+  margin-bottom: 0;
+  height: 42rem;
+}
+.new {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #af45ff14;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 12px;
+  padding: 0 10px;
+  box-shadow: 1px 2px 10px 1px #6f6f6f87;
+}
+.new img {
+  max-height: 30rem;
+  max-width: 28rem;
+  margin-top: 2rem;
+}
+.news li:nth-child(odd) .new img {
+  border-radius: 15px 35px;
+}
+.news li:nth-child(even) .new img {
+  border-radius: 35px 15px;
+}
+.new-name {
+  line-height: 2.2rem;
+}
+.new-brand {
+  font-size: 1.2rem;
+  color: #808080;
+}
+
+/* Loading spinner */
+.spinner {
+  width: 300px;
+  height: 300px;
+  font-size: 2rem;
+  overflow: hidden;
+  position: fixed;
+  animation: text-color 2s ease-in-out infinite alternate;
+  align-items: center;
+  justify-content: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.spinner-sector {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 15px solid transparent;
+  mix-blend-mode: overlay;
+  animation: rotate var(--duration) var(--timing) infinite;
+  pointer-events: none;
+}
+
+.spinner-sector-red {
+  border-top-color: lightcoral;
+  --duration: 1.5s;
+  --timing: ease-in-out;
+}
+
+.spinner-sector-blue {
+  border-left-color: lightblue;
+  --duration: 2s;
+  --timing: ease-in;
+}
+
+.spinner-sector-green {
+  border-right-color: lightgreen;
+  --duration: 2.5s;
+  --timing: ease-out;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes text-color {
+  0% {
+    color: rgba(0, 0, 0, 3);
+  }
+
+  50% {
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  100% {
+    color: rgba(0, 0, 0, 0.3);
+  }
 }

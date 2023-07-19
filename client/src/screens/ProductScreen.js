@@ -2,7 +2,7 @@ import { parseRequestUrl, showLoading, hideLoading, showMessage, rerender } from
 import { createReview, getProduct } from '../api';
 import Rating from '../components/Rating';
 import { getUserInfo } from '../localStorage';
-import { apiUrl } from '../config';
+import { API } from '../config';
 
 const ProductScreen = {
   after_render: () => {
@@ -47,8 +47,9 @@ const ProductScreen = {
       </div>
       <div class="details">
         <div class="details-image">
-          <img src="${apiUrl}${product.image}" alt="${product.name}" />
+          <img src="${API}${product.image}" alt="${product.name}" />
         </div>
+        <div class ="detail-right">
         <div class="details-info">
           <ul>
             <li>
@@ -90,6 +91,7 @@ const ProductScreen = {
                   }>Add to Cart </div>
             </ul>
         </div>
+      </div >
       </div>
       <div class="content">
       <h2>Reviews</h2>

@@ -1,7 +1,7 @@
-import { parseRequestUrl, showLoading, hideLoading, showMessage, rerender } from '../utils';
+import { parseRequestUrl, showLoading, hideLoading, showMessage, rerender, protectRoute } from '../utils';
 import { getOrder, getPaypalClientId, payOrder, deliverOrder } from '../api';
 import { getUserInfo } from '../localStorage';
-import { apiUrl } from '../config';
+import { API } from '../config';
 
 const addPaypalSdk = async (totalPrice) => {
   const clientId = await getPaypalClientId();
@@ -65,6 +65,7 @@ const handlePayment = (clientId, totalPrice) => {
   });
 };
 const OrderScreen = {
+  protect: () => protectRoute(),
   after_render: async () => {
     const request = parseRequestUrl();
     const deliverOrderBtn = document.getElementById('deliver-order-button');
@@ -137,7 +138,7 @@ const OrderScreen = {
                   (item) => `
                 <li>
                   <div class="cart-image">
-                    <img src="${apiUrl}${item.image}" alt="${item.name}" />
+                    <img src="${API}${item.image}" alt="${item.name}" />
                   </div>
                   <div class="cart-name">
                     <div>

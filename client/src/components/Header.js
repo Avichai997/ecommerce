@@ -5,6 +5,7 @@ const Header = {
   render: () => {
     const { name, isAdmin } = getUserInfo();
     const { value } = parseRequestUrl();
+    
     return ` 
       <div class="brand">
         <button id="aside-open-button">
@@ -18,8 +19,9 @@ const Header = {
         <button type="submit"><i class="fa fa-search"></i></button>
       </form>        
       </div>
-      <div>
+      <div class="links">
       ${name ? `<a href="/#/profile">${name}</a>` : `<a href="/#/signin">Sign-In</a>`}    
+        <a href="/#/fashion-news">Fashion-news</a>
         <a href="/#/cart">Cart</a>
         ${isAdmin ? `<a href="/#/dashboard">Dashboard</a>` : ''}
       </div>

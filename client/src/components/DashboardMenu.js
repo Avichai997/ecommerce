@@ -1,14 +1,22 @@
+import { getUserInfo } from '../localStorage';
+
 const DashboardMenu = {
   render: (props) => {
+    const { isAdmin } = getUserInfo();
+
     return `
     <div class="dashboard-menu">
       <ul>
-        <li class="${props.selected === 'dashboard' ? 'selected' : ''}">
-          <a href="/#/dashboard">Dashboard</a>
+      ${
+        isAdmin
+          ? `<li class="${props.selected === 'dashboard' ? 'selected' : ''}">
+        <a href="/#/dashboard">Dashboard</a>
         </li>
         <li class="${props.selected === 'orders' ? 'selected' : ''}">
-          <a href="/#/orderlist">Orders</a>
-        </li>
+        <a href="/#/orderlist">Orders</a>
+        </li>`
+          : ''
+      }
         <li class="${props.selected === 'products' ? 'selected' : ''}">
           <a href="/#/productlist">Products</a>
         </li>
@@ -17,4 +25,5 @@ const DashboardMenu = {
     `;
   },
 };
+
 export default DashboardMenu;

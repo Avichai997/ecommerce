@@ -2,7 +2,7 @@
 import { parseRequestUrl, rerender } from '../utils';
 import { getProduct } from '../api';
 import { getCartItems, setCartItems } from '../localStorage';
-import { apiUrl } from '../config';
+import { API } from '../config';
 
 const addToCart = (item, forceUpdate = false) => {
   let cartItems = getCartItems();
@@ -19,6 +19,7 @@ const addToCart = (item, forceUpdate = false) => {
     rerender(CartScreen);
   }
 };
+
 const removeFromCart = (id) => {
   setCartItems(getCartItems().filter((x) => x.product !== id));
   if (id === parseRequestUrl().id) {
@@ -78,7 +79,7 @@ const CartScreen = {
                       (item) =>
                         `<li>
                       <div class="cart-image">
-                        <img src="${apiUrl}${item.image}" alt="${item.name}" />
+                        <img src="${API}${item.image}" alt="${item.name}" />
                       </div>
                       <div class="cart-name">
                         <div>
