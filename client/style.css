@@ -20,10 +20,13 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: var(--link-hover-color);
+  color: var(--button-color);
 }
 button {
   cursor: pointer;
+}
+button:active {
+  font-weight: bolder;
 }
 input,
 button,
@@ -105,8 +108,16 @@ header a {
   text-decoration: none;
   padding-right: 1rem;
 }
+.links a {
+  background-color: var(--button-color);
+  padding: 5px;
+  border-radius: 10px;
+}
+.links a:hover {
+  background-color: white;
+}
 header a:hover {
-  color: var(--link-hover-color);
+  color: var(--button-color);
 }
 .brand a {
   font-weight: bold;
@@ -409,11 +420,12 @@ td {
   justify-content: space-between;
 }
 .dashboard-menu a:hover {
-  background-color: #c0c0c0;
+  background-color: #af45ff30;
 }
 .dashboard-menu li.selected a {
-  background-color: #c0c0c0;
-  color: var(--link-hover-color);
+  background-color: #ae45ff52;
+  color: white;
+  font-weight: bolder;
 }
 .dashboard-content {
   flex: 4 1 80rem;
