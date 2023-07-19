@@ -1,7 +1,15 @@
+@font-face {
+  font-family: rubik;
+  src: url(./src/assets/fonts/Rubik-Regular.ttf);
+}
+
 *,
 *::after,
 *::before {
   box-sizing: border-box;
+}
+*:not(.fa) {
+  font-family: rubik;
 }
 :root {
   --button-color: #af45ff;
@@ -125,6 +133,9 @@ header a:hover {
   font-weight: bold;
   font-size: 3rem;
   padding-left: 1rem;
+}
+#main-container {
+  margin-bottom: 20px;
 }
 footer {
   background-color: var(--header-color);
