@@ -2,9 +2,11 @@
 import { LineChart, PieChart } from 'chartist';
 import DashboardMenu from '../components/DashboardMenu';
 import { getSummary } from '../api';
+import { protectRoute } from '../utils';
 
 let summary = {};
 const DashboardScreen = {
+  protect: () => protectRoute(),
   after_render: () => {
     new LineChart(
       '.ct-chart-line',
@@ -33,6 +35,7 @@ const DashboardScreen = {
   },
   render: async () => {
     summary = await getSummary();
+
     return `
       <div class="dashboard">
         ${DashboardMenu.render({ selected: 'dashboard' })}

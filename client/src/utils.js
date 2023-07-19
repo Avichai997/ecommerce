@@ -1,4 +1,4 @@
-import { getCartItems } from './localStorage';
+import { getCartItems, getUserInfo } from './localStorage';
 
 export const parseRequestUrl = () => {
   const address = document.location.hash.slice(1).split('?')[0];
@@ -65,4 +65,12 @@ export const debounce = (func, delay) => {
       func.apply(null, args);
     }, delay);
   };
+};
+
+export const protectRoute = (response = null) => {
+  if (!getUserInfo().isAdmin) {
+    document.location.hash = '/';
+    showMessage('This route is only for Admin users!');
+    return false;
+  } else return true;
 };

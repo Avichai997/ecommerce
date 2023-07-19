@@ -19,6 +19,7 @@ const addToCart = (item, forceUpdate = false) => {
     rerender(CartScreen);
   }
 };
+
 const removeFromCart = (id) => {
   setCartItems(getCartItems().filter((x) => x.product !== id));
   if (id === parseRequestUrl().id) {

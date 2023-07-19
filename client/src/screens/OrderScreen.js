@@ -1,4 +1,4 @@
-import { parseRequestUrl, showLoading, hideLoading, showMessage, rerender } from '../utils';
+import { parseRequestUrl, showLoading, hideLoading, showMessage, rerender, protectRoute } from '../utils';
 import { getOrder, getPaypalClientId, payOrder, deliverOrder } from '../api';
 import { getUserInfo } from '../localStorage';
 import { API } from '../config';
@@ -65,6 +65,7 @@ const handlePayment = (clientId, totalPrice) => {
   });
 };
 const OrderScreen = {
+  protect: () => protectRoute(),
   after_render: async () => {
     const request = parseRequestUrl();
     const deliverOrderBtn = document.getElementById('deliver-order-button');

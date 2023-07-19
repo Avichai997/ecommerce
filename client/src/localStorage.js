@@ -46,16 +46,8 @@ export const getShipping = () => {
       };
   return shipping;
 };
-export const setShipping = ({
-  address = '',
-  city = '',
-  postalCode = '',
-  country = '',
-}) => {
-  localStorage.setItem(
-    'shipping',
-    JSON.stringify({ address, city, postalCode, country })
-  );
+export const setShipping = ({ address = '', city = '', postalCode = '', country = '' }) => {
+  localStorage.setItem('shipping', JSON.stringify({ address, city, postalCode, country }));
 };
 
 export const getPayment = () => {

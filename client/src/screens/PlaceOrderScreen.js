@@ -50,6 +50,7 @@ const PlaceOrderScreen = {
   render: () => {
     const { orderItems, shipping, payment, itemsPrice, shippingPrice, taxPrice, totalPrice } =
       convertCartToOrder();
+    
     return `
     <div>
       ${CheckoutSteps.render({

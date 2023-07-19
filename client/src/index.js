@@ -20,8 +20,8 @@ import FashionNewsScreen from './screens/FashionNewsScreen';
 
 const routes = {
   '/': HomeScreen,
-  '/product/:id/edit': ProductEditScreen,
   '/product/:id': ProductScreen,
+  '/product/:id/edit': ProductEditScreen,
   '/order/:id': OrderScreen,
   '/cart/:id': CartScreen,
   '/cart': CartScreen,
@@ -54,8 +54,12 @@ const router = async () => {
   await Aside.after_render();
 
   const main = document.getElementById('main-container');
-  main.innerHTML = await screen.render();
-  if (screen.after_render) await screen.after_render();
+  let isRouteProtected = true;
+  if (screen.protect) isRouteProtected = await screen.protect();
+  if (isRouteProtected) {
+    main.innerHTML = await screen.render();
+    if (screen.after_render) await screen.after_render();
+  }
   hideLoading();
 };
 

@@ -5,6 +5,7 @@ const Header = {
   render: () => {
     const { name, isAdmin } = getUserInfo();
     const { value } = parseRequestUrl();
+    
     return ` 
       <div class="brand">
         <button id="aside-open-button">

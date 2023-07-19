@@ -1,8 +1,9 @@
 import DashboardMenu from '../components/DashboardMenu';
 import { getOrders, deleteOrder } from '../api';
-import { showLoading, hideLoading, rerender, showMessage } from '../utils';
+import { showLoading, hideLoading, rerender, showMessage, protectRoute } from '../utils';
 
 const OrderListScreen = {
+  protect: () => protectRoute(),
   after_render: () => {
     const deleteButtons = document.getElementsByClassName('delete-button');
     Array.from(deleteButtons).forEach((deleteButton) => {
@@ -28,6 +29,7 @@ const OrderListScreen = {
   },
   render: async () => {
     const orders = await getOrders();
+
     return `
     <div class="dashboard">
     ${DashboardMenu.render({ selected: 'orders' })}

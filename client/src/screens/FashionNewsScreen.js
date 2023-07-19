@@ -31,6 +31,9 @@ const FashionNewsScreen = {
             News source: ${news.source.name}
           </div>
           <div class="new-brand">
+            Published at: ${news.publishedAt}
+          </div>
+          <div class="new-brand">
             author: ${news.author}
           </div>
           </div>
