@@ -49,6 +49,7 @@ const ProductScreen = {
         <div class="details-image">
           <img src="${API}${product.image}" alt="${product.name}" />
         </div>
+        <div class ="detail-right">
         <div class="details-info">
           <ul>
             <li>
@@ -90,6 +91,7 @@ const ProductScreen = {
                   }>Add to Cart </div>
             </ul>
         </div>
+      </div >
       </div>
       <div class="content">
       <h2>Reviews</h2>

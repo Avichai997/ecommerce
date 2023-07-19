@@ -25,11 +25,11 @@ export const rerender = async (component) => {
 };
 
 export const showLoading = () => {
-  document.getElementById('loading-overlay').classList.add('active');
+  document.getElementById('spinner').classList.add('active');
 };
 
 export const hideLoading = () => {
-  document.getElementById('loading-overlay').classList.remove('active');
+  document.getElementById('spinner').classList.remove('active');
 };
 
 export const showMessage = (message, callback) => {
