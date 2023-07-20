@@ -1,4 +1,4 @@
-# Quantom Tech Store (project - Full Stack App)
+# ecommerce (project - Full Stack App)
 
 ![](client/public/logo-addbg-preview.png)
 
