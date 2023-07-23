@@ -19,9 +19,9 @@ export const parseRequestUrl = () => {
   };
 };
 
-export const rerender = async (component) => {
-  document.getElementById('main-container').innerHTML = await component.render();
-  await component.after_render();
+export const rerender = async (component, socket = null) => {
+  document.getElementById('main-container').innerHTML = await component.render(socket);
+  await component.after_render(socket);
 };
 
 export const showLoading = () => {

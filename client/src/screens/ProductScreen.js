@@ -1,36 +1,51 @@
 import { parseRequestUrl, showLoading, hideLoading, showMessage, rerender } from '../utils';
-import { createReview, getProduct } from '../api';
+import { getProduct } from '../api';
 import Rating from '../components/Rating';
 import { getUserInfo } from '../localStorage';
 import { API } from '../config';
 
 const ProductScreen = {
-  after_render: () => {
+  after_render: (socket) => {
+    const { _id, name } = getUserInfo();
     const request = parseRequestUrl();
     document.getElementById('add-button').addEventListener('click', () => {
       document.location.hash = `/cart/${request.id}`;
+    });
+
+    socket.on('create-review-success', () => {
+      rerender(ProductScreen, socket);
     });
 
     if (document.getElementById('review-form')) {
       document.getElementById('review-form').addEventListener('submit', async (e) => {
         e.preventDefault();
         showLoading();
-        const data = await createReview(request.id, {
+
+        const review = {
+          user: _id,
+          name,
           comment: document.getElementById('comment').value,
           rating: document.getElementById('rating').value,
+        };
+
+        socket.emit('create-review', {
+          productId: request.id,
+          review,
         });
+        // socket.on('create-review-success', () => {
+        //   showMessage('Review Added Successfully', () => {
+        //     rerender(ProductScreen, socket);
+        //   });
+        // });
+        socket.on('create-review-fail', (error) => {
+          showMessage(error.message);
+        });
+
         hideLoading();
-        if (data.error) {
-          showMessage(data.error);
-        } else {
-          showMessage('Review Added Successfully', () => {
-            rerender(ProductScreen);
-          });
-        }
       });
     }
   },
-  render: async () => {
+  render: async (socket) => {
     const request = parseRequestUrl();
     showLoading();
     const product = await getProduct(request.id);

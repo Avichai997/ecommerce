@@ -55,24 +55,10 @@ productRouter.put(
   isAdmin,
   expressAsyncHandler(async (req, res) => {
     const productId = req.params.id;
-    const product = await Product.findById(productId);
-    if (product) {
-      product.name = req.body.name;
-      product.price = req.body.price;
-      product.image = req.body.image;
-      product.brand = req.body.brand;
-      product.category = req.body.category;
-      product.countInStock = req.body.countInStock;
-      product.description = req.body.description;
-      const updatedProduct = await product.save();
-      if (updatedProduct) {
-        res.send({ message: 'Product Updated', product: updatedProduct });
-      } else {
-        res.status(500).send({ message: 'Error in updaing product' });
-      }
-    } else {
-      res.status(404).send({ message: 'Product Not Found' });
-    }
+    const product = await Product.findByIdAndUpdate(productId, req.body);
+    if (!product) res.status(404).send({ message: 'Product Not Found' });
+
+    res.send({ message: 'Product Updated', product });
   })
 );
 productRouter.delete(
