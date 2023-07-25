@@ -35,6 +35,7 @@ const routes = {
   '/productlist': ProductListScreen,
   '/orderlist': OrderListScreen,
   '/fashion-news': FashionNewsScreen,
+  '/StatisticsScreen': StatisticsScreen,
 };
 const router = async () => {
   showLoading();
