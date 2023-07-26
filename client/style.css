@@ -672,6 +672,14 @@ ul.categories {
   margin: auto;
   padding: 10px 0;
 }
+.canvas-image {
+  height: 10%;
+  width: 20%;
+  border-radius: 20px;
+  display: flex;
+  margin: auto;
+  padding: 10px 0;
+}
 
 /* Loading spinner */
 .spinner {
