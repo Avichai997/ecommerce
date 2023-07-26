@@ -2,6 +2,7 @@ import Rating from '../components/Rating';
 import { getProducts } from '../api';
 import { parseRequestUrl } from '../utils';
 import { API } from '../config';
+import { Loader } from '@googlemaps/js-api-loader';
 
 const HomeScreen = {
   render: async () => {
@@ -12,8 +13,12 @@ const HomeScreen = {
     }
 
     // Add the map container div to the rendered HTML
+
     const mapContainerHTML = `
-      <div id="map" style="height: 300px;"></div>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcpns1lMrNW0KJoI-u8dB2DPJk52i8ZJY&callback=initMap" async defer></script>
+      <script src="map.js"></script>
+      <div id="map"></div>
+      
     `;
 
     const productsListHTML = products
