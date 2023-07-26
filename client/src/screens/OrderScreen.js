@@ -1,4 +1,12 @@
-import { parseRequestUrl, showLoading, hideLoading, showMessage, rerender, protectRoute } from '../utils';
+import $ from 'jquery';
+import {
+  parseRequestUrl,
+  showLoading,
+  hideLoading,
+  showMessage,
+  rerender,
+  protectRoute,
+} from '../utils';
 import { getOrder, getPaypalClientId, payOrder, deliverOrder } from '../api';
 import { getUserInfo } from '../localStorage';
 import { API } from '../config';

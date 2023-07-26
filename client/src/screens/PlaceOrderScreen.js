@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import { getCartItems, getShipping, getPayment, cleanCart } from '../localStorage';
 import CheckoutSteps from '../components/CheckoutSteps';
 import { showLoading, hideLoading, showMessage } from '../utils';
@@ -50,7 +51,7 @@ const PlaceOrderScreen = {
   render: () => {
     const { orderItems, shipping, payment, itemsPrice, shippingPrice, taxPrice, totalPrice } =
       convertCartToOrder();
-    
+
     return `
     <div>
       ${CheckoutSteps.render({

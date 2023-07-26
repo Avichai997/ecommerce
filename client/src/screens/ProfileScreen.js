@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import { updateUser, getMyOrders } from '../api';
 import { getUserInfo, setUserInfo, clearUser } from '../localStorage';
 import { showLoading, hideLoading, showMessage } from '../utils';

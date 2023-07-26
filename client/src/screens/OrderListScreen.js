@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import DashboardMenu from '../components/DashboardMenu';
 import { getOrders, deleteOrder } from '../api';
 import { showLoading, hideLoading, rerender, showMessage, protectRoute } from '../utils';

@@ -19,8 +19,10 @@ import OrderListScreen from './screens/OrderListScreen';
 import Aside from './components/Aside';
 import FashionNewsScreen from './screens/FashionNewsScreen';
 import { API } from './config';
+import { getUserInfo } from './localStorage';
 
 const socket = io(API);
+
 socket.on('connect', () => {
   console.log(`Connected as: ${socket.id}`);
 });
@@ -45,6 +47,9 @@ const routes = {
 };
 const router = async () => {
   showLoading();
+  const { token } = getUserInfo();
+  socket.auth = { token };
+
   const request = parseRequestUrl();
   const parseUrl =
     (request.resource ? `/${request.resource}` : '/') +
@@ -64,8 +69,8 @@ const router = async () => {
   let isRouteProtected = true;
   if (screen.protect) isRouteProtected = await screen.protect();
   if (isRouteProtected) {
-    main.innerHTML = await screen.render(socket);
-    if (screen.after_render) await screen.after_render(socket);
+    main.innerHTML = await screen.render({ socket });
+    if (screen.after_render) await screen.after_render({ socket });
   }
   hideLoading();
 };

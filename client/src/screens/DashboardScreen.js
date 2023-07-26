@@ -1,4 +1,5 @@
 /* eslint-disable no-new */
+import $ from 'jquery';
 import { LineChart, PieChart } from 'chartist';
 import DashboardMenu from '../components/DashboardMenu';
 import { getSummary } from '../api';

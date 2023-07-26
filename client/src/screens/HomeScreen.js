@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import Rating from '../components/Rating';
 import { getProducts } from '../api';
 import { parseRequestUrl } from '../utils';

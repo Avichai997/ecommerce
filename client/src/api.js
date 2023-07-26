@@ -1,7 +1,6 @@
-import axios from 'axios';
+import $ from 'jquery';
 import { API, newsApiKey } from './config';
 import { getUserInfo, setUserInfo } from './localStorage';
-import $ from 'jquery';
 import { showMessage } from './utils';
 
 async function fetchData({

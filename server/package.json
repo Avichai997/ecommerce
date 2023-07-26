@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --watch . --exec babel-node server.js",
-    "debug": "ndb babel-node server.js",
+    "debug": "ndb -r @babel/register server.js",
     "seed": "babel-node Seed/mockData/importDataToDB.js",
     "build": "npm i --force && rimraf build && ncc build server.js -o build && rimraf build/code-points.mem",
     "serve": "node build/index.js",

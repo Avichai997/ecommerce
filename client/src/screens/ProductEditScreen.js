@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import { parseRequestUrl, showLoading, showMessage, hideLoading, protectRoute } from '../utils';
 import { getProduct, updateProduct, uploadProductImage } from '../api';
 

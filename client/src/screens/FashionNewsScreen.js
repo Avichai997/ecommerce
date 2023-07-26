@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import { showLoading, hideLoading } from '../utils';
 import { getFashionNews } from '../api';
 

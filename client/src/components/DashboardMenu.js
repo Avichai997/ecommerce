@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import { getUserInfo } from '../localStorage';
 
 const DashboardMenu = {

@@ -14,7 +14,7 @@
 :root {
   --button-color: #af45ff;
   --link-hover-color: #0045ff;
-  --rating-orange: gold;
+  --review-orange: gold;
   --header-color: #021033;
 }
 html {
@@ -80,7 +80,8 @@ button:disabled {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  max-width: 40rem;
+  max-width: fit-content;
+  height: auto;
 }
 .overlay > div > * {
   margin: 2rem;
@@ -195,8 +196,35 @@ footer {
   font-size: 1.2rem;
 }
 /* Rating */
+#rating {
+  text-align: center;
+}
+.review-control {
+  border-radius: 6px;
+  background-color: rgba(223, 223, 223, 0.422);
+  padding: 4px;
+  margin-right: 2px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 14px;
+}
+.review-control:active {
+  background-color: rgba(223, 223, 223, 0.7);
+}
+.review-delete {
+  color: rgba(255, 0, 0, 0.516);
+}
+.review-delete:active {
+  color: red;
+}
+.review-edit {
+  color: rgba(0, 0, 0, 0.7);
+}
+.review-edit:active {
+  color: black;
+}
 .rating {
-  color: var(--rating-orange);
+  color: var(--review-orange);
   font-size: 1.8rem;
 }
 .rating span:last-child {
@@ -320,7 +348,7 @@ footer {
 .form-items {
   display: flex;
   flex-direction: column;
-  width: 60rem;
+  width: 50rem;
   padding: 2rem;
   border: 0.1rem #c0c0c0 solid;
   border-radius: 0.5rem;
