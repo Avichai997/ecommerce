@@ -15,7 +15,6 @@ const FashionNewsScreen = {
       <video class="video-container" controls>
       <source src="./src/assets/video/movie.mp4" type="video/mp4">
       </video>
-      <img class="canvas-image" src="./src/assets/video/cavas-image.jpg"></img>
     </div>
     <div>
     <ul class="news">
