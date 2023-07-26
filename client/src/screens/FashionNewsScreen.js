@@ -11,6 +11,12 @@ const FashionNewsScreen = {
     if (allNews.error) return `<div>${allNews.error}</div>`;
 
     return `
+    <div>
+      <video class="video-container" controls>
+      <source src="./src/assets/video/movie.mp4" type="video/mp4">
+    </video>
+    </div>
+    <div>
     <ul class="news">
       ${allNews.articles
         .filter((news) => news.urlToImage)
@@ -40,6 +46,7 @@ const FashionNewsScreen = {
         </li>`
         )
         .join('\n')}
+      </div>
     `;
   },
 };

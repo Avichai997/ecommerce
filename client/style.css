@@ -664,6 +664,14 @@ ul.categories {
   font-size: 1.2rem;
   color: #808080;
 }
+.video-container {
+  height: 10%;
+  width: 50%;
+  border-radius: 20px;
+  display: flex;
+  margin: auto;
+  padding: 10px 0;
+}
 
 /* Loading spinner */
 .spinner {
