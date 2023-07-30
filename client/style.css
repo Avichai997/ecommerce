@@ -241,7 +241,7 @@ footer {
   width: 100%;
   height: 80%;
   display: flex;
-  padding: 0px;
+  padding: 10px;
 }
 
 .back-to-home-page {
@@ -718,27 +718,26 @@ ul.categories {
 }
 .view-multi-column {
   display: flex;
-  text-shadow: 1px 1px #898989;
+  text-shadow: 2px 2px #af45ff40;
   font-style: italic;
   font-size: medium;
   column-count: 3;
   column-gap: 20px;
   padding: 20px;
-  background-color: #b3afaf;
+  background-color: #b3afaf66;
+  color: #0000009e;
   border-radius: 20px;
+  margin: 0px 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
 .view-multi-column p {
   margin: 5;
 }
-
 .view-multi-column::before,
 .view-multi-column::after {
   content: '';
   flex: 1;
 }
-
 @media screen and (max-width: 768px) {
   .view-multi-column {
     column-gap: 10px;
