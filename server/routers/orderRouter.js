@@ -1,7 +1,6 @@
 /* eslint-disable no-useless-return */
 import express from 'express';
-import expressAsyncHandler from 'express-async-handler';
-import { isAuth, isAdmin } from '../utils';
+import { isAuth, isAdmin, expressAsyncHandler} from '../utils';
 import Order from '../models/orderModel';
 import User from '../models/userModel';
 import Product from '../models/productModel';

@@ -1,6 +1,5 @@
 import express from 'express';
-import expressAsyncHandler from 'express-async-handler';
-import { isAuth, isAdmin } from '../utils';
+import { isAuth, isAdmin, expressAsyncHandler } from '../utils';
 import Product from '../models/productModel';
 
 const productRouter = express.Router();
@@ -144,6 +143,12 @@ export const deleteProductReview = async ({ io, productId, reviewId }) => {
   } catch (error) {
     io.emit('delete-review-fail', { message: error });
   }
+};
+
+export const initSocketProductEvents = (ioConn, socket) => {
+  socket.on('create-review', (params) => createProductReview({ io: ioConn, ...params }));
+  socket.on('edit-review', (params) => editProductReview({ io: ioConn, ...params }));
+  socket.on('delete-review', (params) => deleteProductReview({ io: ioConn, ...params }));
 };
 
 export default productRouter;
