@@ -8,9 +8,7 @@ const HomeScreen = {
   render: async () => {
     const { value } = parseRequestUrl();
     const products = await getProducts({ searchKeyword: value });
-    if (products.error) {
-      return `<div class="error">${products.error}</div>`;
-    }
+    if (products.error) return `<div class="errorMsg">${products.error}</div>`;
 
     return `
     <ul class="products">

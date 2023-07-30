@@ -1,7 +1,8 @@
 import { defineConfig } from 'vite';
 import { join } from 'path';
 
-const host = 'localhost', PORT = 3000;
+const host = 'localhost',
+  PORT = 3000;
 const openUrl = (port = PORT) => `http://localhost:${port}`;
 
 export default defineConfig(({}) => {
@@ -21,6 +22,14 @@ export default defineConfig(({}) => {
     },
     build: {
       outDir: 'build',
+      rollupOptions: {
+        output: {
+          // Disable timestamping (hash) in the output file names
+          entryFileNames: '[name].js',
+          chunkFileNames: '[name].js',
+          assetFileNames: '[name].[ext]',
+        },
+      },
     },
     resolve: {
       alias: {

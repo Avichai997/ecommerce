@@ -1,5 +1,5 @@
 import { getCartItems, getUserInfo } from './localStorage';
-import Review from './components/review';
+import Review from './components/Review';
 import $ from 'jquery';
 
 export const parseRequestUrl = () => {
@@ -56,8 +56,10 @@ export const showEditReview = (review) => {
       title: 'Edit Your review:',
       showCancelBtn: true,
       formId,
+      reviewId: review._id,
     })
   );
+
   $('#message-overlay').addClass('active');
   $('#cancel').on('click', () => hideEditReview());
   $(`#${formId} #comment`).val(review.comment);
@@ -94,11 +96,11 @@ export const protectRoute = (response = null) => {
   } else return true;
 };
 
-export function getReviewData(socketEvent) {
+export function getReviewData(socketEvent, id = false) {
   const user = getUserInfo();
   const formId = socketEvent.startsWith('create') ? 'add-review-form' : 'edit-review-form';
   return {
-    // id: $('.review-edit').attr('review_id'),
+    _id: $('#edit-review-form').attr('review-id') || undefined,
     user: user._id,
     name: user.name,
     comment: $(`#${formId} #comment`).val(),

@@ -17,6 +17,7 @@ async function fetchData({
     if (!['PUT', 'PATCH', 'POST', 'DELETE', 'GET'].includes(method))
       throw 'Fetch method not supported!';
 
+    const defaultApiError = 'Problem connecting to server...';
     if (useAuth) headers.Authorization = `Bearer ${getUserInfo().token}`;
 
     const isFormData = data instanceof FormData;
@@ -31,8 +32,8 @@ async function fetchData({
         data: isFormData ? data : JSON.stringify(data),
         success: (response) => resolve(response),
         error: (xhr, status, error) => {
-          console.error({ xhr, status, error });
-          reject(xhr.responseJSON.message);
+          console.error({ xhr, status, error: error || defaultApiError });
+          reject(xhr.responseJSON?.message || defaultApiError);
         },
       });
     });

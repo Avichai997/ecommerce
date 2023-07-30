@@ -10,7 +10,7 @@ import jwt from 'jsonwebtoken';
 import config from './config';
 import userRouter from './routers/userRouter';
 import orderRouter from './routers/orderRouter';
-import productRouter, { createProductReview, deleteProductReview } from './routers/productRouter';
+import productRouter, { createProductReview, deleteProductReview, editProductReview } from './routers/productRouter';
 import uploadRouter from './routers/uploadRouter';
 
 mongoose
@@ -53,6 +53,7 @@ io.use((socket, next) => {
 
 const initSocketEvents = (ioConn, socket) => {
   socket.on('create-review', (params) => createProductReview({ io: ioConn, ...params }));
+  socket.on('edit-review', (params) => editProductReview({ io: ioConn, ...params }));
   socket.on('delete-review', (params) => deleteProductReview({ io: ioConn, ...params }));
 };
 

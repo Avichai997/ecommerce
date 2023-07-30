@@ -7,6 +7,7 @@ import {
   rerender,
   showEditReview,
   getReviewData,
+  hideEditReview,
 } from '../utils';
 import { getProduct } from '../api';
 import Rating from '../components/Rating';
@@ -16,7 +17,6 @@ import { API } from '../config';
 
 const ProductScreen = {
   after_render: ({ socket }) => {
-    const user = getUserInfo();
     const { id: productId } = parseRequestUrl();
     $('#add-button').on('click', () => (document.location.hash = `/cart/${productId}`));
     $('.review-delete').on('click', function () {
@@ -24,20 +24,31 @@ const ProductScreen = {
       socket.emit('delete-review', { productId, reviewId });
     });
     $('.review-edit').on('click', async function () {
+      showLoading();
       const reviewId = $(this).attr('review_id');
       const product = await getProduct(productId);
       const review = product.reviews.find((review) => review._id === reviewId);
-      showEditReview(review);
+      hideLoading();
+      if (review) showEditReview(review);
+
+      $('#edit-review-form').on('submit', (e) => submitReviewForm(e, 'edit-review'));
     });
 
     socket.on('create-review-success', (product) => {
       $('html, body').animate({ scrollTop: $(document).height() }, 1000);
+      rerender(ProductScreen, { socket, product });
+  });
+  socket.on('edit-review-success', (product) => {
+      hideEditReview();
       rerender(ProductScreen, { socket, product });
     });
     socket.on('delete-review-success', (product) => {
       rerender(ProductScreen, { socket, product });
     });
     socket.on('create-review-fail', (error) => {
+      showMessage(error.message);
+    });
+    socket.on('edit-review-fail', (error) => {
       showMessage(error.message);
     });
     socket.on('delete-review-fail', (error) => {
@@ -57,16 +68,14 @@ const ProductScreen = {
     };
 
     $('#add-review-form').on('submit', (e) => submitReviewForm(e, 'create-review'));
-    $('#edit-review-form').on('submit', (e) => submitReviewForm(e, 'edit-review'));
   },
   render: async ({ product }) => {
     const { id: productId } = parseRequestUrl();
     showLoading();
-    // if(!product)
     product = product || (await getProduct(productId));
     hideLoading();
 
-    if (product.error) return `<div>${product.error}</div>`;
+    if (product.error) return `<div class="errorMsg">${product.error}</div>`;
 
     const userInfo = getUserInfo();
 
@@ -167,7 +176,7 @@ const ProductScreen = {
                 formId: 'add-review-form',
               })}`
             : ` <div>
-              Please <a href="/#/signin">Signin</a> to write a review.
+              <a href="/#/signin">Please Signin to write a review.</a>
             </div>`
         }
       </li>

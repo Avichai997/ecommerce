@@ -9,7 +9,7 @@ const FashionNewsScreen = {
     const allNews = await getFashionNews();
     hideLoading();
 
-    if (allNews.error) return `<div>${allNews.error}</div>`;
+    if (allNews.error) return `<div class="errorMsg">${allNews.error}</div>`;
 
     return `
     <ul class="news">

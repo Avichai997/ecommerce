@@ -1,10 +1,10 @@
 const Review = {
-  render: (props) => {
+  render: ({ title = '', formId, showCancelBtn = false, reviewId = null }) => {
     return `
     <div class="form-container">
-      <form id="${props.formId}">
+      <form id="${formId}" review-id="${reviewId}">
         <ul class="form-items">
-        <li> <h3>${props.title}</h3></li>
+        <li> <h3>${title}</h3></li>
           <li>
             <label for="rating">Rating</label>
             <select required name="rating" id="rating" >
@@ -24,7 +24,7 @@ const Review = {
             <button type="submit" class="primary">Submit</button>
           </li>
           ${
-            props.showCancelBtn
+            showCancelBtn
               ? `<li>
             <button type="button" id="cancel">Cancel changes</button>
             </li>`
