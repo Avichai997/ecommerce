@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import { getUserInfo, getShipping, setShipping } from '../localStorage';
 import CheckoutSteps from '../components/CheckoutSteps';
 

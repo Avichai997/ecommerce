@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import { getUserInfo } from '../localStorage';
 import { debounce, parseRequestUrl } from '../utils';
 
@@ -5,7 +6,7 @@ const Header = {
   render: () => {
     const { name, isAdmin } = getUserInfo();
     const { value } = parseRequestUrl();
-    
+
     return ` 
       <div class="brand">
         <button id="aside-open-button">

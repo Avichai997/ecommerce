@@ -1,18 +1,15 @@
+import $ from 'jquery';
 import { getUserInfo, setPayment } from '../localStorage';
 import CheckoutSteps from '../components/CheckoutSteps';
 
 const PaymentScreen = {
   after_render: () => {
-    document
-      .getElementById('payment-form')
-      .addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const paymentMethod = document.querySelector(
-          'input[name="payment-method"]:checked'
-        ).value;
-        setPayment({ paymentMethod });
-        document.location.hash = '/placeorder';
-      });
+    document.getElementById('payment-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
+      setPayment({ paymentMethod });
+      document.location.hash = '/placeorder';
+    });
   },
   render: () => {
     const { name } = getUserInfo();

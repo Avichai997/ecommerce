@@ -1,8 +1,8 @@
+import $ from 'jquery';
 import DashboardMenu from '../components/DashboardMenu';
 import { getProducts, createProduct, deleteProduct } from '../api';
 import { showLoading, hideLoading, rerender, showMessage } from '../utils';
 import { getUserInfo } from '../localStorage';
-import $ from 'jquery';
 
 const ProductListScreen = {
   after_render: () => {

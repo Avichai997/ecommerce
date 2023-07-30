@@ -29,6 +29,10 @@ export const isAuth = (req, res, next) => {
   }
 };
 
+export const isAuthSocket = (bearerToken, io, socket) => {
+  if (!bearerToken) io.to(socket.id);
+};
+
 export const isAdmin = (req, res, next) => {
   if (req.user && req.user.isAdmin) {
     next();

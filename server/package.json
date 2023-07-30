@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --watch . --exec babel-node server.js",
+    "debug": "ndb -r @babel/register server.js",
     "seed": "babel-node Seed/mockData/importDataToDB.js",
     "build": "npm i --force && rimraf build && ncc build server.js -o build && rimraf build/code-points.mem",
     "serve": "node build/index.js",
@@ -20,7 +21,8 @@
     "jsonwebtoken": "^9.0.1",
     "mongoose": "^7.3.3",
     "morgan": "^1.10.0",
-    "multer": "^1.4.2"
+    "multer": "^1.4.2",
+    "socket.io": "^4.7.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.22.6",
@@ -32,6 +34,7 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-import": "^2.27.5",
+    "ndb": "^1.1.5",
     "nodemon": "^3.0.1",
     "rimraf": "^5.0.1"
   },

@@ -1,27 +1,26 @@
+import $ from 'jquery';
 import { register } from '../api';
 import { getUserInfo, setUserInfo } from '../localStorage';
 import { showLoading, hideLoading, showMessage, redirectUser } from '../utils';
 
 const RegisterScreen = {
   after_render: () => {
-    document
-      .getElementById('register-form')
-      .addEventListener('submit', async (e) => {
-        e.preventDefault();
-        showLoading();
-        const data = await register({
-          name: document.getElementById('name').value,
-          email: document.getElementById('email').value,
-          password: document.getElementById('password').value,
-        });
-        hideLoading();
-        if (data.error) {
-          showMessage(data.error);
-        } else {
-          setUserInfo(data);
-          redirectUser();
-        }
+    document.getElementById('register-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      showLoading();
+      const data = await register({
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        password: document.getElementById('password').value,
       });
+      hideLoading();
+      if (data.error) {
+        showMessage(data.error);
+      } else {
+        setUserInfo(data);
+        redirectUser();
+      }
+    });
   },
   render: () => {
     if (getUserInfo().name) {

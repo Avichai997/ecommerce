@@ -1,4 +1,5 @@
 /* eslint-disable no-use-before-define */
+import $ from 'jquery';
 import { parseRequestUrl, rerender } from '../utils';
 import { getProduct } from '../api';
 import { getCartItems, setCartItems } from '../localStorage';

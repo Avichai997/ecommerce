@@ -1,4 +1,6 @@
 import { getCartItems, getUserInfo } from './localStorage';
+import Review from './components/Review';
+import $ from 'jquery';
 
 export const parseRequestUrl = () => {
   const address = document.location.hash.slice(1).split('?')[0];
@@ -19,9 +21,9 @@ export const parseRequestUrl = () => {
   };
 };
 
-export const rerender = async (component) => {
-  document.getElementById('main-container').innerHTML = await component.render();
-  await component.after_render();
+export const rerender = async (component, props) => {
+  document.getElementById('main-container').innerHTML = await component.render(props);
+  await component.after_render(props);
 };
 
 export const showLoading = () => {
@@ -33,19 +35,38 @@ export const hideLoading = () => {
 };
 
 export const showMessage = (message, callback) => {
-  document.getElementById('message-overlay').innerHTML = `
+  $('#message-overlay').html(`
   <div>
     <div id="message-overlay-content">${message}</div>
     <button id="message-overlay-close-button">OK</button>
   </div>
-  `;
-  document.getElementById('message-overlay').classList.add('active');
-  document.getElementById('message-overlay-close-button').addEventListener('click', () => {
-    document.getElementById('message-overlay').classList.remove('active');
-    if (callback) {
-      callback();
-    }
+  `);
+  $('#message-overlay').addClass('active');
+
+  $('#message-overlay-close-button').on('click', () => {
+    $('#message-overlay').removeClass('active');
+    if (callback) callback();
   });
+};
+
+export const showEditReview = (review) => {
+  const formId = 'edit-review-form';
+  $('#message-overlay').html(
+    Review.render({
+      title: 'Edit Your review:',
+      showCancelBtn: true,
+      formId,
+      reviewId: review._id,
+    })
+  );
+
+  $('#message-overlay').addClass('active');
+  $('#cancel').on('click', () => hideEditReview());
+  $(`#${formId} #comment`).val(review.comment);
+  $(`#${formId} #rating`).val(review.rating);
+};
+export const hideEditReview = () => {
+  $('#message-overlay').removeClass('active');
 };
 
 export const redirectUser = () => {
@@ -74,3 +95,15 @@ export const protectRoute = (response = null) => {
     return false;
   } else return true;
 };
+
+export function getReviewData(socketEvent, id = false) {
+  const user = getUserInfo();
+  const formId = socketEvent.startsWith('create') ? 'add-review-form' : 'edit-review-form';
+  return {
+    _id: $('#edit-review-form').attr('review-id') || undefined,
+    user: user._id,
+    name: user.name,
+    comment: $(`#${formId} #comment`).val(),
+    rating: $(`#${formId} #rating`).val(),
+  };
+}
