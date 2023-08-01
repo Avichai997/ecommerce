@@ -18,7 +18,10 @@ import { API } from '../config';
 const ProductScreen = {
   after_render: ({ socket }) => {
     const { id: productId } = parseRequestUrl();
-    $('#add-button').on('click', () => (document.location.hash = `/cart/${productId}`));
+    $('#add-button').on(
+      'click',
+      () => (document.location.hash = `/cart/${productId}`),
+    );
     $('.review-delete').on('click', function () {
       const reviewId = $(this).attr('review_id');
       socket.emit('delete-review', { productId, reviewId });
@@ -31,14 +34,16 @@ const ProductScreen = {
       hideLoading();
       if (review) showEditReview(review);
 
-      $('#edit-review-form').on('submit', (e) => submitReviewForm(e, 'edit-review'));
+      $('#edit-review-form').on('submit', (e) =>
+        submitReviewForm(e, 'edit-review'),
+      );
     });
 
     socket.on('create-review-success', (product) => {
       $('html, body').animate({ scrollTop: $(document).height() }, 1000);
       rerender(ProductScreen, { socket, product });
-  });
-  socket.on('edit-review-success', (product) => {
+    });
+    socket.on('edit-review-success', (product) => {
       hideEditReview();
       rerender(ProductScreen, { socket, product });
     });
@@ -67,7 +72,9 @@ const ProductScreen = {
       hideLoading();
     };
 
-    $('#add-review-form').on('submit', (e) => submitReviewForm(e, 'create-review'));
+    $('#add-review-form').on('submit', (e) =>
+      submitReviewForm(e, 'create-review'),
+    );
   },
   render: async ({ product }) => {
     const { id: productId } = parseRequestUrl();
@@ -121,7 +128,7 @@ const ProductScreen = {
                   ${
                     product.countInStock > 0
                       ? `<span class="success">In Stock (${product.countInStock} available)</span>`
-                      : `<span class="error">Unavailable</span>`
+                      : '<span class="error">Unavailable</span>'
                   }
               </li>
               <li>
@@ -134,7 +141,7 @@ const ProductScreen = {
       </div>
       <div class="content">
       <h2>Reviews</h2>
-      ${product.reviews.length === 0 ? `<div>There is no review.</div>` : ''}  
+      ${product.reviews.length === 0 ? "<div>There is no review.</div>" : ''}  
       <ul class="review">
       ${product.reviews
         .map(
@@ -163,7 +170,7 @@ const ProductScreen = {
                 </span>`
                 : ''
             }
-          </li>`
+          </li>`,
         )
         .join('\n')}
 

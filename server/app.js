@@ -39,7 +39,7 @@ io.use((socket, next) => {
 });
 
 io.on('connection', (socket) => {
-  //   console.log('user connected', socket.id);
+  console.log('Socket.io user connected: ', socket.id);
   initSocketProductEvents(io, socket);
 });
 
@@ -51,9 +51,9 @@ app.use('/api/products', productRouter);
 app.use('/api/orders', orderRouter);
 app.get('/api/paypal/clientId', (req, res) => res.send({ clientId: PAYPAL_CLIENT_ID }));
 
-app.all('*', (req, res) => {
-  res.status(404).send({ message: `הכתובת ${req.originalUrl} לא קיימת בשרת!` });
-});
+app.all('*', (req, res) =>
+  res.status(404).send({ message: `Address ${req.originalUrl} Don't exists in the server!` })
+);
 
 // eslint-disable-next-line no-unused-vars
 app.use((err, _req, res, _next) => {

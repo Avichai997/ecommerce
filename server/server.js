@@ -4,18 +4,11 @@ import http from 'http';
 import { Server } from 'socket.io';
 import jwt from 'jsonwebtoken';
 import app from './app';
-import config from './config';
+import { PORT, MONGODB_URL, JWT_SECRET } from './config';
 import { initSocketProductEvents } from './routers/productRouter';
 
-const { PORT, MONGODB_URL, JWT_SECRET } = config;
-
-// catch errors in program
-process.on('uncaughtException', (err) => {
-  console.log('UNCAUGHT EXCEPTION! 💥 Shutting down...');
-  console.log(err.name, err.message);
-  // console.log(err);
-  process.exit(1);
-});
+// 1) Connect to mongoose and server.
+const server = http.createServer(app);
 
 mongoose
   .set('strictQuery', true)
@@ -27,8 +20,7 @@ mongoose
     console.log(error.reason);
   });
 
-// Socket.io
-const server = http.createServer(app);
+// 2) Initialize Socket.io instance.
 const io = new Server(server, {
   cors: {
     origin: ['http://localhost:3000', 'https://ecommerce-fe-lyu8.onrender.com/'],
@@ -51,16 +43,25 @@ io.on('connection', (socket) => {
   initSocketProductEvents(io, socket);
 });
 
-// catch async errors
+// 3) Handler server crash/unknown errors.
+
+// Catch errors in program.
+process.on('uncaughtException', (err) => {
+  console.log('UNCAUGHT EXCEPTION! 💥 Shutting down...');
+  console.log(err.name, err.message);
+  process.exit(1);
+});
+
+// Catch async errors
 process.on('unhandledRejection', (err) => {
   console.log('UNHANDLED REJECTION! 💥 Shutting down...');
   console.log(err, err.name, err.message);
-  // Shutdown the server gracefully
   server.close(() => {
+    // Shutdown the server gracefully
     process.exit(1);
   });
 });
 
 server.listen(PORT, () => {
-  console.log('\x1b[32m', `App running on Port: ${config.PORT}...`);
+  console.log('\x1b[32m', `App running on Port: ${PORT}...`);
 });

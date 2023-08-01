@@ -24,7 +24,7 @@ export default defineConfig(({}) => {
       outDir: 'build',
       rollupOptions: {
         output: {
-          // Disable timestamping (hash) in the output file names
+          // Disable time stamping (hash) in the output file names
           entryFileNames: '[name].js',
           chunkFileNames: '[name].js',
           assetFileNames: '[name].[ext]',

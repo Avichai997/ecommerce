@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import config from './config';
+import { JWT_SECRET } from './config';
 
 export const generateToken = (user) =>
   jwt.sign(
@@ -9,7 +9,7 @@ export const generateToken = (user) =>
       email: user.email,
       isAdmin: user.isAdmin,
     },
-    config.JWT_SECRET
+    JWT_SECRET
   );
 
 export const isAuth = (req, res, next) => {
@@ -18,7 +18,7 @@ export const isAuth = (req, res, next) => {
     res.status(401).send({ message: 'Token is not supplied' });
   } else {
     const token = bearerToken.slice(7, bearerToken.length);
-    jwt.verify(token, config.JWT_SECRET, (err, data) => {
+    jwt.verify(token, JWT_SECRET, (err, data) => {
       if (err) {
         res.status(401).send({ message: 'Invalid Token' });
       } else {

@@ -1,7 +1,13 @@
 import $ from 'jquery';
 import DashboardMenu from '../components/DashboardMenu';
 import { getOrders, deleteOrder } from '../api';
-import { showLoading, hideLoading, rerender, showMessage, protectRoute } from '../utils';
+import {
+  showLoading,
+  hideLoading,
+  rerender,
+  showMessage,
+  protectRoute,
+} from '../utils';
 
 const OrderListScreen = {
   protect: () => protectRoute(),
@@ -12,7 +18,7 @@ const OrderListScreen = {
         if (confirm('Are you sure to delete this order?')) {
           showLoading();
           const data = await deleteOrder(deleteButton.id);
-          if (data.error) showMessage(data.error);
+          if (data?.error) showMessage(data.error);
           else rerender(OrderListScreen);
 
           hideLoading();
@@ -64,7 +70,7 @@ const OrderListScreen = {
               <button id="${order._id}" class="delete-button">Delete</button>
               </td>
             </tr>
-            `
+            `,
               )
               .join('\n')}
           </tbody>

@@ -1,5 +1,10 @@
 import $ from 'jquery';
-import { getCartItems, getShipping, getPayment, cleanCart } from '../localStorage';
+import {
+  getCartItems,
+  getShipping,
+  getPayment,
+  cleanCart,
+} from '../localStorage';
 import CheckoutSteps from '../components/CheckoutSteps';
 import { showLoading, hideLoading, showMessage } from '../utils';
 import { createOrder } from '../api';
@@ -8,7 +13,10 @@ import { API } from '../config';
 const convertCartToOrder = () => {
   const orderItems = getCartItems();
   if (orderItems.length === 0) {
-    showMessage('Your cart is empty!', () => (document.location.hash = '/cart'));
+    showMessage(
+      'Your cart is empty!',
+      () => (document.location.hash = '/cart'),
+    );
   }
   const shipping = getShipping();
   if (!shipping.address) {
@@ -23,6 +31,7 @@ const convertCartToOrder = () => {
   const ISRAEL_TAX_FEE = 0.17;
   const taxPrice = Math.round(ISRAEL_TAX_FEE * itemsPrice * 100) / 100;
   const totalPrice = itemsPrice + shippingPrice + taxPrice;
+
   return {
     orderItems,
     shipping,
@@ -35,22 +44,31 @@ const convertCartToOrder = () => {
 };
 const PlaceOrderScreen = {
   after_render: async () => {
-    document.getElementById('place-order-button').addEventListener('click', async () => {
-      const order = convertCartToOrder();
-      showLoading();
-      const data = await createOrder(order);
-      hideLoading();
-      if (data.error) {
-        showMessage(data.error);
-      } else {
-        cleanCart();
-        document.location.hash = `/order/${data.order._id}`;
-      }
-    });
+    document
+      .getElementById('place-order-button')
+      .addEventListener('click', async () => {
+        const order = convertCartToOrder();
+        showLoading();
+        const data = await createOrder(order);
+        hideLoading();
+        if (data.error) {
+          showMessage(data.error);
+        } else {
+          cleanCart();
+          document.location.hash = `/order/${data.order._id}`;
+        }
+      });
   },
   render: () => {
-    const { orderItems, shipping, payment, itemsPrice, shippingPrice, taxPrice, totalPrice } =
-      convertCartToOrder();
+    const {
+      orderItems,
+      shipping,
+      payment,
+      itemsPrice,
+      shippingPrice,
+      taxPrice,
+      totalPrice,
+    } = convertCartToOrder();
 
     return `
     <div>
@@ -96,7 +114,7 @@ const PlaceOrderScreen = {
                   </div>
                   <div class="cart-price"> $${item.price}</div>
                 </li>
-                `
+                `,
                 )
                 .join('\n')}
             </ul>

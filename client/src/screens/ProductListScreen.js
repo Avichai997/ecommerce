@@ -36,7 +36,11 @@ const ProductListScreen = {
     <div class="dashboard-content">
       <h1>Products</h1>
 
-      ${isAdmin ? `<button id="create-product-button" class="primary">Create Product</button>` : ''}
+      ${
+        isAdmin
+          ? '<button id="create-product-button" class="primary">Create Product</button>'
+          : ''
+      }
       
       <div class="product-list">
         <table>
@@ -47,7 +51,7 @@ const ProductListScreen = {
               <th>PRICE</th>
               <th>CATEGORY</th>
               <th>BRAND</th>
-              ${isAdmin ? `<th class='tr-action'>ACTION</th>` : ''}
+              ${isAdmin ? "<th class='tr-action'>ACTION</th>" : ''}
             <tr>
           </thead>
           <tbody>
@@ -72,7 +76,7 @@ const ProductListScreen = {
                         </td>`
                         : ''
                     }
-                  </tr>`
+                  </tr>`,
               )
               .join('\n')}
           </tbody>

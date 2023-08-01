@@ -5,25 +5,27 @@ import { showLoading, hideLoading, showMessage } from '../utils';
 
 const ProfileScreen = {
   after_render: () => {
-    document.getElementById('signout-button').addEventListener('click', () => {
+    document.getElementById('sign-out-button').addEventListener('click', () => {
       clearUser();
       document.location.hash = '/';
     });
-    document.getElementById('profile-form').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      showLoading();
-      const data = await updateUser({
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        password: document.getElementById('password').value,
+    document
+      .getElementById('profile-form')
+      .addEventListener('submit', async (e) => {
+        e.preventDefault();
+        showLoading();
+        const data = await updateUser({
+          name: document.getElementById('name').value,
+          email: document.getElementById('email').value,
+          password: document.getElementById('password').value,
+        });
+        hideLoading();
+        if (data.error) showMessage(data.error);
+        else {
+          setUserInfo(data);
+          document.location.hash = '/';
+        }
       });
-      hideLoading();
-      if (data.error) showMessage(data.error);
-      else {
-        setUserInfo(data);
-        document.location.hash = '/';
-      }
-    });
   },
   render: async () => {
     const { name, email } = getUserInfo();
@@ -57,7 +59,7 @@ const ProfileScreen = {
             <button type="submit" class="primary">Update</button>
           </li>
           <li>
-          <button type="button" id="signout-button">Sign Out</button>
+          <button type="button" id="sign-out-button">Sign Out</button>
         </li>        
         </ul>
       </form>
@@ -79,7 +81,7 @@ const ProfileScreen = {
           <tbody>
             ${
               orders.length === 0
-                ? `<tr><td colspan="6">No Order Found.</tr>`
+                ? '<tr><td colspan="6">No Order Found.</tr>'
                 : orders
                     .map(
                       (order) => `
@@ -91,7 +93,7 @@ const ProfileScreen = {
                           <td>${order.deliveryAt || 'No'}</td>
                           <td><a href="/#/order/${order._id}">DETAILS</a> </td>
                         </tr>
-                        `
+                        `,
                     )
                     .join('\n')
             }

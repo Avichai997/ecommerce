@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import { showLoading, hideLoading } from '../utils';
 import { getFashionNews } from '../api';
 
@@ -13,43 +12,44 @@ const FashionNewsScreen = {
 
     return `
     <div>
+      <img class="canvas-image" src="./src/assets/images/cavas-image.jpg"></img>
       <video class="video-container" controls>
-      <source src="./src/assets/video/movie.mp4" type="video/mp4">
-    </video>
-    <img class="canvas-image" src="./src/assets/images/cavas-image.jpg"></img>
+       <source src="./src/assets/video/movie.mp4" type="video/mp4">
+      </video>
     </div>
+
     <div>
-    <ul class="news">
-      ${allNews.articles
-        .filter((news) => news.urlToImage)
-        .map(
-          (news) => `
-        <li>
-          <div class="new">
-            <a href="${news.urlToImage}" target="_blank">
-              <img src="${news.urlToImage}" alt="${news.title}" />
-            </a>
-          <div class="new-name">
-            <a href="${news.url}" target="_blank">
-              ${news.title}
-            </a>
-          </div>
-          
-          <div class="new-brand">
-            News source: ${news.source.name}
-          </div>
-          <div class="new-brand">
-            Published at: ${news.publishedAt}
-          </div>
-          <div class="new-brand">
-            author: ${news.author}
-          </div>
-          </div>
-        </li>`
-        )
-        .join('\n')}
-      </div>
-    `;
+      <ul class="news">
+        ${allNews.articles
+          .filter((news) => news.urlToImage)
+          .map(
+            (news) => `
+            <li>
+              <div class="new">
+                <a href="${news.urlToImage}" target="_blank">
+                  <img src="${news.urlToImage}" alt="${news.title}" />
+                </a>
+              <div class="new-name">
+                <a href="${news.url}" target="_blank">
+                  ${news.title}
+                </a>
+              </div>
+              
+              <div class="new-brand">
+                News source: ${news.source.name}
+              </div>
+              <div class="new-brand">
+                Published at: ${news.publishedAt}
+              </div>
+              <div class="new-brand">
+                author: ${news.author}
+              </div>
+              </div>
+            </li>`,
+          )
+          .join('\n')}
+      </ul>
+    </div>`;
   },
 };
 
