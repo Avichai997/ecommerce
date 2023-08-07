@@ -91,9 +91,4 @@ export const deleteProductReview = async ({ io, productId, reviewId }) => {
     io.emit('delete-review-fail', { message: error });
   }
 };
-export const initSocketProductEvents = (ioConn, socket) => {
-  //   socket.on('create-review', (params) => createProductReview({ io: ioConn, ...params }));
-  socket.on('create-review', (params) => console.log('first'));
-  socket.on('edit-review', (params) => editProductReview({ io: ioConn, ...params }));
-  socket.on('delete-review', (params) => deleteProductReview({ io: ioConn, ...params }));
-};
+

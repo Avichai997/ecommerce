@@ -5,7 +5,7 @@ import { Server } from 'socket.io';
 import jwt from 'jsonwebtoken';
 import app from './app';
 import { PORT, MONGODB_URL, JWT_SECRET } from './config';
-import { initSocketProductEvents } from './controllers/productController';
+import { initSocketProductEvents } from './routers/productRouter';
 
 // 1) Connect to mongoose and server.
 
