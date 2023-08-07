@@ -346,31 +346,7 @@ footer {
   font-size: 1.3rem;
   padding: 0.5rem;
 }
-/* Form */
-.form-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  height: 100%;
-}
-.form-items {
-  display: flex;
-  flex-direction: column;
-  width: 50rem;
-  padding: 2rem;
-  border: 0.1rem #c0c0c0 solid;
-  border-radius: 0.5rem;
-  list-style-type: none;
-}
-.form-items li {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
-}
-.form-container h1 {
-  font-size: 2.5rem;
-}
+
 /* Checkout */
 .checkout-steps {
   display: flex;
@@ -440,6 +416,36 @@ footer {
   font-weight: bold;
   color: #c04000;
 }
+
+/* Form */
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.form-items {
+  display: flex;
+  flex-direction: column;
+  width: 50rem;
+  padding: 2rem;
+  border: 0.1rem #c0c0c0 solid;
+  border-radius: 0.5rem;
+  list-style-type: none;
+}
+
+.form-items li {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.form-container h1 {
+  font-size: 2.5rem;
+}
+
 /* Profile */
 .profile {
   display: flex;
