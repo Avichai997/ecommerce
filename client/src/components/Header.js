@@ -4,8 +4,8 @@ import { debounce, parseRequestUrl } from '../utils';
 
 const Header = {
   render: () => {
-    const { name, isAdmin } = getUserInfo();
-    const { value } = parseRequestUrl();
+    const { name, isAdmin } = getUserInfo(); 
+    const { value } = parseRequestUrl(); 
 
     return ` 
       <div class="brand">
