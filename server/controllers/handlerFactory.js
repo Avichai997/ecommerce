@@ -5,12 +5,6 @@ import APIFeatures from './APIFeatures';
 
 const DOC_NOT_FOUND = 'Document not found!';
 
-export const createOne = (Model) =>
-  expressAsyncHandler(async (req, res) => {
-    const doc = await Model.create(req.body);
-    return res.status(201).json(doc);
-  });
-
 export const getAll = (Model, populateOptions) =>
   expressAsyncHandler(async (req, res) => {
     let filter = {};
@@ -39,12 +33,20 @@ export const getOne = (Model, populateOptions) =>
     return res.status(200).json(doc);
   });
 
+export const createOne = (Model) =>
+  expressAsyncHandler(async (req, res) => {
+    const doc = await Model.create(req.body);
+    return res.status(201).json(doc);
+  });
+
 export const updateOne = (Model) =>
   expressAsyncHandler(async (req, res, next) => {
     delete req.body._id;
     delete req.body.id;
 
+    console.log(req.params.id);
     const document = await Model.findById(req.params.id);
+    console.log(document);
     if (!document) return next(new AppError(DOC_NOT_FOUND, 404));
 
     const doc = await Model.findByIdAndUpdate(req.params.id, req.body, {

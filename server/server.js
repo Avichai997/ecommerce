@@ -5,10 +5,9 @@ import { Server } from 'socket.io';
 import jwt from 'jsonwebtoken';
 import app from './app';
 import { PORT, MONGODB_URL, JWT_SECRET } from './config';
-import { initSocketProductEvents } from './routers/productRouter';
+import { initSocketProductEvents } from './controllers/productController';
 
 // 1) Connect to mongoose and server.
-const server = http.createServer(app);
 
 mongoose
   .set('strictQuery', true)
@@ -21,12 +20,14 @@ mongoose
   });
 
 // 2) Initialize Socket.io instance.
+const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
     origin: ['http://localhost:3000', 'https://ecommerce-fe-lyu8.onrender.com/'],
-    methods: ['GET', 'POST', ' PUT', 'DELETE'],
+    methods: ['GET', 'POST', 'PUT', ' PATCH', 'DELETE'],
   },
 });
+
 io.use((socket, next) => {
   const { token } = socket.handshake.auth;
   if (!token) next(new Error('No token supplied!'));
@@ -39,7 +40,7 @@ io.use((socket, next) => {
 });
 
 io.on('connection', (socket) => {
-  console.log('user connected', socket.id);
+  console.log('Socket.io user connected: ', socket.id);
   initSocketProductEvents(io, socket);
 });
 

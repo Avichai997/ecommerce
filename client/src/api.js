@@ -67,11 +67,12 @@ export const getProduct = async (id) => {
 
   return product;
 };
-export const createProduct = async () => {
+export const createProduct = async (productData) => {
   const product = await fetchData({
     url: `${API}/api/products`,
     method: 'POST',
     useAuth: true,
+    data: productData,
   });
 
   return product;
@@ -79,7 +80,7 @@ export const createProduct = async () => {
 export const updateProduct = async (product) => {
   const updatedProduct = await fetchData({
     url: `${API}/api/products/${product._id}`,
-    method: 'PUT',
+    method: 'PATCH',
     useAuth: true,
     data: product,
   });
@@ -150,7 +151,7 @@ export const updateUser = async ({ name, email, password }) => {
 
   const updatedUser = await fetchData({
     url: `${API}/api/users/${_id}`,
-    method: 'PUT',
+    method: 'PATCH',
     useAuth: true,
     data: {
       name,
@@ -214,7 +215,7 @@ export const getPaypalClientId = async () => {
 export const payOrder = async (orderId, paymentResult) => {
   const payedOrder = await fetchData({
     url: `${API}/api/orders/${orderId}/pay`,
-    method: 'PUT',
+    method: 'PATCH',
     useAuth: true,
     data: paymentResult,
   });
@@ -224,7 +225,7 @@ export const payOrder = async (orderId, paymentResult) => {
 export const deliverOrder = async (orderId) => {
   const deliveredOrder = await fetchData({
     url: `${API}/api/orders/${orderId}/deliver`,
-    method: 'PUT',
+    method: 'PATCH',
     useAuth: true,
   });
 

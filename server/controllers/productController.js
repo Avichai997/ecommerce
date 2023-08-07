@@ -1,13 +1,99 @@
-import Order from '../models/orderModel';
-import { getAll, getOne, updateOne, deleteOne, createOne } from './handlerFactory';
+import Product from '../models/productModel';
+import { expressAsyncHandler } from '../utils';
+import { getOne, updateOne, deleteOne, createOne } from './handlerFactory';
 
-// export const getOrderSummary = (req, _res, next) => {
-//   req.params.id = req.user._id;
-//   next();
-// };
+export const getAllProducts = expressAsyncHandler(async (req, res) => {
+  const searchKeyword = req.query.searchKeyword
+    ? {
+        name: {
+          $regex: req.query.searchKeyword,
+          $options: 'i',
+        },
+      }
+    : {};
+  const products = await Product.find({ ...searchKeyword });
 
-export const getAllOrders = getAll(Order, 'user');
-export const getOrder = getOne(Order);
-export const createOrder = createOne(Order);
-export const updateOrder = updateOne(Order);
-export const deleteOrder = deleteOne(Order);
+  res.status(201).json(products);
+});
+
+// export const getAllProducts = getAll(Product, 'user');
+export const getProduct = getOne(Product);
+export const createProduct = createOne(Product);
+export const updateProduct = updateOne(Product);
+export const deleteProduct = deleteOne(Product);
+
+function updateProductReviewStats(product) {
+  if (!product)
+    throw Error('oldProduct not passed as argument to the function: "updateProductReviewStats"');
+
+  /* eslint-disable no-param-reassign */
+  product.rating = product.reviews.reduce((a, c) => c.rating + a, 0) / product.reviews.length;
+  product.numReviews = product.reviews.length;
+  /* eslint-enable no-param-reassign */
+}
+
+export const createProductReview = async ({ io, productId, review }) => {
+  try {
+    // 1) Find Product.
+    const product = await Product.findById(productId);
+    if (!product) throw Error('Product does not exist.');
+
+    // 2) Update & save Product.
+    // eslint-disable-next-line no-param-reassign
+    delete review._id;
+    product.reviews.push(review);
+    updateProductReviewStats(product);
+    const updatedProduct = await product.save();
+
+    console.log(`review: ${review._id} created`);
+    io.emit('create-review-success', updatedProduct);
+  } catch (error) {
+    io.emit('create-review-fail', { message: error });
+  }
+};
+
+export const editProductReview = async ({ io, productId, review }) => {
+  try {
+    console.log('edit start!');
+    // 1) Find Product.
+    const product = await Product.findById(productId);
+    if (!product) throw Error('Product does not exist.');
+
+    // 2) Find Review in the reviews array.
+    const oldReviewIndex = product.reviews.findIndex((r) => r.id === review._id);
+    if (oldReviewIndex === -1) throw Error('Review does not exist. try again');
+
+    // 3) Update & save Product.
+    product.reviews[oldReviewIndex] = review;
+    updateProductReviewStats(product);
+    const updatedProduct = await product.save();
+
+    console.log(`review: ${review._id} edited`);
+    io.emit('edit-review-success', updatedProduct);
+  } catch (error) {
+    io.emit('edit-review-fail', { message: error });
+  }
+};
+
+export const deleteProductReview = async ({ io, productId, reviewId }) => {
+  try {
+    // 1) Find Product.
+    const product = await Product.findById(productId);
+    if (!product) throw Error('Product does not exist.');
+
+    // 2) Update & save Product.
+    product.reviews = product.reviews.filter((review) => review.id !== reviewId);
+    updateProductReviewStats(product);
+    const updatedProduct = await product.save();
+
+    io.emit('delete-review-success', updatedProduct);
+  } catch (error) {
+    io.emit('delete-review-fail', { message: error });
+  }
+};
+export const initSocketProductEvents = (ioConn, socket) => {
+  //   socket.on('create-review', (params) => createProductReview({ io: ioConn, ...params }));
+  socket.on('create-review', (params) => console.log('first'));
+  socket.on('edit-review', (params) => editProductReview({ io: ioConn, ...params }));
+  socket.on('delete-review', (params) => deleteProductReview({ io: ioConn, ...params }));
+};

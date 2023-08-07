@@ -73,7 +73,6 @@ export const hideEditReview = () => {
 };
 
 export const redirectUser = () => {
-  console.log(getCartItems().length);
   if (getCartItems().length !== 0) {
     document.location.hash = '/shipping';
   } else {

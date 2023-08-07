@@ -9,23 +9,21 @@ const ProfileScreen = {
       clearUser();
       document.location.hash = '/';
     });
-    document
-      .getElementById('profile-form')
-      .addEventListener('submit', async (e) => {
-        e.preventDefault();
-        showLoading();
-        const data = await updateUser({
-          name: document.getElementById('name').value,
-          email: document.getElementById('email').value,
-          password: document.getElementById('password').value,
-        });
-        hideLoading();
-        if (data.error) showMessage(data.error);
-        else {
-          setUserInfo(data);
-          document.location.hash = '/';
-        }
+    document.getElementById('profile-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      showLoading();
+      const data = await updateUser({
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        password: document.getElementById('password').value,
       });
+      hideLoading();
+      if (data?.error) showMessage(data?.error);
+      else {
+        setUserInfo(data);
+        document.location.hash = '/';
+      }
+    });
   },
   render: async () => {
     const { name, email } = getUserInfo();
@@ -93,7 +91,7 @@ const ProfileScreen = {
                           <td>${order.deliveryAt || 'No'}</td>
                           <td><a href="/#/order/${order._id}">DETAILS</a> </td>
                         </tr>
-                        `,
+                        `
                     )
                     .join('\n')
             }

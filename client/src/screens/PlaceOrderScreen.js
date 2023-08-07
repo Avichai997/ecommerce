@@ -51,8 +51,8 @@ const PlaceOrderScreen = {
         showLoading();
         const data = await createOrder(order);
         hideLoading();
-        if (data.error) {
-          showMessage(data.error);
+        if (data?.error) {
+          showMessage(data?.error);
         } else {
           cleanCart();
           document.location.hash = `/order/${data.order._id}`;

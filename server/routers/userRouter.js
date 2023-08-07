@@ -67,7 +67,7 @@ userRouter.post(
   })
 );
 
-userRouter.put(
+userRouter.patch(
   '/:id',
   isAuth,
   expressAsyncHandler(async (req, res) => {

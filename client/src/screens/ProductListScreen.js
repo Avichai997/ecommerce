@@ -7,8 +7,14 @@ import { getUserInfo } from '../localStorage';
 const ProductListScreen = {
   after_render: () => {
     $('#create-product-button').on('click', async () => {
-      const data = await createProduct();
-      document.location.hash = `/product/${data.product._id}/edit`;
+      const data = await createProduct({
+        name: 'sample product',
+        description: 'sample desc',
+        category: 'sample category',
+        brand: 'sample brand',
+        image: '/images/product-1.jpg',
+      });
+      document.location.hash = `/product/${data._id}/edit`;
     });
 
     $('.edit-button').on('click', function () {
@@ -19,7 +25,7 @@ const ProductListScreen = {
       if (confirm('Are you sure to delete this product?')) {
         showLoading();
         const data = await deleteProduct(this.id);
-        if (data.error) showMessage(data.error);
+        if (data?.error) showMessage(data?.error);
         else rerender(ProductListScreen);
 
         hideLoading();
@@ -36,11 +42,7 @@ const ProductListScreen = {
     <div class="dashboard-content">
       <h1>Products</h1>
 
-      ${
-        isAdmin
-          ? '<button id="create-product-button" class="primary">Create Product</button>'
-          : ''
-      }
+      ${isAdmin ? '<button id="create-product-button" class="primary">Create Product</button>' : ''}
       
       <div class="product-list">
         <table>
@@ -48,6 +50,7 @@ const ProductListScreen = {
             <tr>
               <th>ID</th>
               <th>NAME</th>
+              <th>IN STOCK</th>
               <th>PRICE</th>
               <th>CATEGORY</th>
               <th>BRAND</th>
@@ -61,6 +64,7 @@ const ProductListScreen = {
                   `<tr>
                     <td>${product._id}</td>
                     <td>${product.name}</td>
+                    <td>${product.countInStock}</td>
                     <td>${product.price}</td>
                     <td>${product.category}</td>
                     <td>${product.brand}</td>
@@ -76,7 +80,7 @@ const ProductListScreen = {
                         </td>`
                         : ''
                     }
-                  </tr>`,
+                  </tr>`
               )
               .join('\n')}
           </tbody>

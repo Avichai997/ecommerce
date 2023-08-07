@@ -18,8 +18,8 @@ orderRouter.route('/').get(getAllOrders).post(isAuth, createOrder);
 orderRouter.use(isAuth);
 
 orderRouter.get('/myOrders', getAllOrders).get('/summary', isAdmin, getOrderSummary);
-orderRouter.put('/:id/pay', payOrder);
-orderRouter.put('/:id/deliver', deliverOrder);
+orderRouter.patch('/:id/pay', payOrder);
+orderRouter.patch('/:id/deliver', deliverOrder);
 orderRouter.route('/:id').get(getOrder).delete(isAdmin, deleteOrder);
 
 export default orderRouter;

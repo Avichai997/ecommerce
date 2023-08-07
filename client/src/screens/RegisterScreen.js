@@ -13,8 +13,8 @@ const RegisterScreen = {
         password: document.getElementById('password').value,
       });
       hideLoading();
-      if (data.error) {
-        showMessage(data.error);
+      if (data?.error) {
+        showMessage(data?.error);
       } else {
         setUserInfo(data);
         redirectUser();
