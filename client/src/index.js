@@ -5,7 +5,6 @@ import { parseRequestUrl, showLoading, hideLoading } from './utils';
 import Error404Screen from './screens/Error404Screen';
 import CartScreen from './screens/CartScreen';
 import Header from './components/Header';
-import RegisterScreen from './screens/RegisterScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import ShippingScreen from './screens/ShippingScreen';
 import PaymentScreen from './screens/PaymentScreen';
@@ -20,6 +19,8 @@ import FashionNewsScreen from './screens/FashionNewsScreen';
 import { API } from './config';
 import { getUserInfo } from './localStorage';
 import SigninScreen from './screens/SigninScreen';
+import RegisterScreen from './screens/RegisterScreen';
+
 
 
 const socket = io(API);
