@@ -12,7 +12,7 @@ const HomeScreen = {
 
     return `
     <div>
-      <img class="welcome-image" src="./src/assets/images/front-image.jpg"></img>
+      <img class="welcome-image" src="public/front-image.jpg"></img>
     </div>
     <div class="view-multi-column">
       <p>Welcome to our trendy and fashion-forward e-commerce store, your ultimate destination for all things stylish and apparel-related! Step into a world of exquisite fashion</p>
@@ -47,7 +47,7 @@ const HomeScreen = {
         </div>
         </div>
       </li>
-      `,
+      `
         )
         .join('\n')}
     `;
