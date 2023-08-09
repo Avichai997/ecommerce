@@ -8,6 +8,7 @@ async function fetchData({
   method = 'GET',
   headers = {
     'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
   },
   useAuth = false,
   data = {},
