@@ -2,6 +2,7 @@ export const getCartItems = () => {
   const cartItems = localStorage.getItem('cartItems')
     ? JSON.parse(localStorage.getItem('cartItems'))
     : [];
+
   return cartItems;
 };
 export const setCartItems = (cartItems) => {
@@ -24,7 +25,7 @@ export const setUserInfo = ({
       password,
       token,
       isAdmin,
-    })
+    }),
   );
 };
 export const clearUser = () => {
@@ -44,10 +45,19 @@ export const getShipping = () => {
         postalCode: '',
         country: '',
       };
+
   return shipping;
 };
-export const setShipping = ({ address = '', city = '', postalCode = '', country = '' }) => {
-  localStorage.setItem('shipping', JSON.stringify({ address, city, postalCode, country }));
+export const setShipping = ({
+  address = '',
+  city = '',
+  postalCode = '',
+  country = '',
+}) => {
+  localStorage.setItem(
+    'shipping',
+    JSON.stringify({ address, city, postalCode, country }),
+  );
 };
 
 export const getPayment = () => {
@@ -56,6 +66,7 @@ export const getPayment = () => {
     : {
         paymentMethod: 'paypal',
       };
+
   return payment;
 };
 export const setPayment = ({ paymentMethod = 'paypal' }) => {

@@ -159,7 +159,6 @@ footer {
   margin: 1rem;
   margin-bottom: 0;
   height: 42rem;
-  /* border-top: 0.2rem #e0e0e0 solid; */
 }
 .product {
   display: flex;
@@ -706,7 +705,7 @@ ul.categories {
   border-radius: 20px;
   display: flex;
   margin: auto;
-  padding: 10px 0;
+  margin: 10px auto;
 }
 .canvas-image {
   height: 10%;

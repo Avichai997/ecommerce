@@ -10,7 +10,9 @@ const addToCart = (item, forceUpdate = false) => {
   const existItem = cartItems.find((x) => x.product === item.product);
   if (existItem) {
     if (forceUpdate) {
-      cartItems = cartItems.map((x) => (x.product === existItem.product ? item : x));
+      cartItems = cartItems.map((x) =>
+        x.product === existItem.product ? item : x,
+      );
     }
   } else {
     cartItems = [...cartItems, item];
@@ -93,11 +95,15 @@ const CartScreen = {
                           <select class="qty-select" id="${item.product}">
                             ${[...Array(item.countInStock).keys()].map((x) =>
                               item.qty === x + 1
-                                ? `<option selected value="${x + 1}">${x + 1}</option>`
-                                : `<option  value="${x + 1}">${x + 1}</option>`
+                                ? `<option selected value="${x + 1}">${
+                                    x + 1
+                                  }</option>`
+                                : `<option  value="${x + 1}">${x + 1}</option>`,
                             )}  
                           </select>
-                          <button type="button" class="delete-button" id="${item.product}">
+                          <button type="button" class="delete-button" id="${
+                            item.product
+                          }">
                             Delete
                           </button>
                         </div>
@@ -105,7 +111,7 @@ const CartScreen = {
                       <div class="cart-price">
                         $${item.price}
                       </div>
-                    </li>`
+                    </li>`,
                     )
                     .join('\n')
             } 

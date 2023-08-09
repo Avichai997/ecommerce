@@ -12,7 +12,7 @@ const OrderListScreen = {
         if (confirm('Are you sure to delete this order?')) {
           showLoading();
           const data = await deleteOrder(deleteButton.id);
-          if (data.error) showMessage(data.error);
+          if (data?.error) showMessage(data?.error);
           else rerender(OrderListScreen);
 
           hideLoading();

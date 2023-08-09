@@ -4,16 +4,18 @@ import CheckoutSteps from '../components/CheckoutSteps';
 
 const ShippingScreen = {
   after_render: () => {
-    document.getElementById('shipping-form').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      setShipping({
-        address: document.getElementById('address').value,
-        city: document.getElementById('city').value,
-        postalCode: document.getElementById('postalCode').value,
-        country: document.getElementById('country').value,
+    document
+      .getElementById('shipping-form')
+      .addEventListener('submit', async (e) => {
+        e.preventDefault();
+        setShipping({
+          address: document.getElementById('address').value,
+          city: document.getElementById('city').value,
+          postalCode: document.getElementById('postalCode').value,
+          country: document.getElementById('country').value,
+        });
+        document.location.hash = '/payment';
       });
-      document.location.hash = '/payment';
-    });
   },
   render: () => {
     const { name } = getUserInfo();
@@ -31,7 +33,7 @@ const ShippingScreen = {
             <h1>Shipping</h1>
           </li>
           <li>
-            <label for="address">Adress</label>
+            <label for="address">Address</label>
             <input type="text" name="address" id="address" value="${address}" />
           </li>
           <li>

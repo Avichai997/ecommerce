@@ -1,0 +1,101 @@
+{
+  "info": {
+    "_postman_id": "fc9b3b5d-71e0-499a-b9be-cb6bfa6b97eb",
+    "name": "Other",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "News API",
+      "id": "c2f7d61d-f66d-4061-801e-7ed27fbaa2b5",
+      "protocolProfileBehavior": { "disableBodyPruning": true },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://newsapi.org/v2/everything?apiKey=69e5879cf11f435b9c8eab245ce6ffe6&q=fashion",
+          "protocol": "https",
+          "host": ["newsapi", "org"],
+          "path": ["v2", "everything"],
+          "query": [
+            { "key": "apiKey", "value": "69e5879cf11f435b9c8eab245ce6ffe6" },
+            { "key": "country", "value": "il", "disabled": true },
+            { "key": "q", "value": "fashion" }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Upload image",
+      "id": "585ac6e6-6635-47f6-9315-d50ac7149c1a",
+      "protocolProfileBehavior": { "disableBodyPruning": true },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "image",
+              "type": "file",
+              "src": "/C:/Users/Avichai Iluz/Downloads/ecommerce/server/uploads/1689715839487.jpg"
+            }
+          ]
+        },
+        "url": { "raw": "{{URL}}/uploads", "host": ["{{URL}}"], "path": ["uploads"] }
+      },
+      "response": []
+    },
+    {
+      "name": "Paypal clientId",
+      "id": "a2276f45-578c-4385-9138-17c7d89b4cf8",
+      "protocolProfileBehavior": { "disableBodyPruning": true },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "image",
+              "type": "file",
+              "src": "/C:/Users/Avichai Iluz/Downloads/ecommerce/server/uploads/product-3.jpg"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{URL}}/paypal/clientId",
+          "host": ["{{URL}}"],
+          "path": ["paypal", "clientId"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get uploaded image",
+      "id": "790ca75f-9b45-4f2f-a3dd-e1c46b7eb21c",
+      "protocolProfileBehavior": { "disableBodyPruning": true },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/uploads/1689714640873.jpg",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["uploads", "1689714640873.jpg"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
