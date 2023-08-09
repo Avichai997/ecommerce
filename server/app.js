@@ -18,7 +18,11 @@ app.use(morgan('dev'));
 app.use('/uploads', express.static(path.join(__dirname, './uploads')));
 
 // Implement CORS
-const whitelist = ['http://localhost:3000', 'https://ecommerce-fe-lyu8.onrender.com/'];
+const whitelist = [
+  'http://localhost:3000',
+  'http://localhost:3001',
+  'https://ecommerce-fe-lyu8.onrender.com/',
+];
 const corsOptions = {
   credentials: true, // allow cookies
   origin: (origin, callback) => {
