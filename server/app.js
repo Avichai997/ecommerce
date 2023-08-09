@@ -15,8 +15,10 @@ const app = express();
 // Middleware
 app.use(morgan('dev'));
 
+app.use('/uploads', express.static(path.join(__dirname, './uploads')));
+
 // Implement CORS
-const whitelist = ['http://localhost:3000', 'https://ecommerce-be-p5y2.onrender.com/'];
+const whitelist = ['http://localhost:3000', 'https://ecommerce-fe-lyu8.onrender.com/'];
 const corsOptions = {
   credentials: true, // allow cookies
   origin: (origin, callback) => {
@@ -30,12 +32,9 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-
-app.use(cors());
 app.use(bodyParser.json());
 
 // Routes
-app.use('/uploads', express.static(path.join(__dirname, './uploads')));
 app.use('/api/uploads', uploadRouter);
 app.use('/api/users', userRouter);
 app.use('/api/products', productRouter);
