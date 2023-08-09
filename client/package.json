@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm i --legacy-peer-deps && rimraf build && vite build",
+    "build": "npm i && rimraf build && vite build",
     "preview": "vite preview",
     "merge": "git pull origin main && git merge main"
   },
