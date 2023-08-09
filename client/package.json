@@ -7,8 +7,7 @@
     "dev": "vite",
     "build": "npm i --force && rimraf build && vite build",
     "preview": "vite preview",
-    "merge": "git pull origin main && git merge main",
-    "lint": "eslint --fix . && cspell --cache --no-progress . && prettier --write --cache ."
+    "merge": "git pull origin main && git merge main"
   },
   "devDependencies": {
     "@cspell/dict-he": "^2.0.0",

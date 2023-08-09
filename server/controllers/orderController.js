@@ -27,6 +27,8 @@ export const payOrder = expressAsyncHandler(async (req, res) => {
   const order = await Order.findById(req.params.id);
   if (!order) res.status(404).send({ message: 'Order Not Found.' });
 
+  if (order.isPaid) res.status(404).send({ message: 'Order already paid' });
+
   // update order data
   order.isPaid = true;
   order.paidAt = Date.now();

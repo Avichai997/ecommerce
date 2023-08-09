@@ -31,6 +31,10 @@
     "cSpell.autoFormatConfigFile": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnPaste": true,
-    "editor.mouseWheelZoom": true
+    "editor.mouseWheelZoom": true,
+    "javascript.preferences.quoteStyle": "single",
+    "typescript.preferences.quoteStyle": "single",
+    "prettier.jsxSingleQuote": true,
+    "prettier.singleQuote": true
   }
 }

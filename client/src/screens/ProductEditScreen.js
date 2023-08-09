@@ -78,7 +78,7 @@ const ProductEditScreen = {
             </li>
             <li>
               <label for="countInStock">Count In Stock</label>
-              <input type="text" name="countInStock" value="${product.countInStock}" id="countInStock" />
+              <input type="number" name="countInStock" value="${product.countInStock}" id="countInStock" min="0"   />
             </li>
             <li>
               <label for="category">Category</label>
