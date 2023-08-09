@@ -72,7 +72,12 @@ const router = async (socket) => {
 };
 
 $(function () {
-  const socket = io(API);
+  const socket = io(API, {
+    cors: {
+      origin: API,
+      methods: ['GET', 'POST'],
+    },
+  });
 
   socket.on('connect', () => console.log(`Connected as: ${socket.id}`));
   socket.on('disconnect', () => console.log('Connection Failed'));
