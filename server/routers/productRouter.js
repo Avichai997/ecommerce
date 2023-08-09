@@ -15,9 +15,12 @@ const productRouter = express.Router();
 
 productRouter.get('/', getAllProducts);
 productRouter.get('/:id', getProduct);
-productRouter.post('/', isAuth, isAdmin, createProduct);
-productRouter.patch('/:id', isAuth, isAdmin, updateProduct);
-productRouter.delete('/:id', isAuth, isAdmin, deleteProduct);
+
+productRouter.use(isAuth, isAdmin);
+
+productRouter.post('/', createProduct);
+productRouter.patch('/:id', updateProduct);
+productRouter.delete('/:id', deleteProduct);
 
 export const initSocketProductEvents = (ioConn, socket) => {
   socket.on('create-review', (params) => createProductReview({ io: ioConn, ...params }));

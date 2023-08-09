@@ -18,12 +18,12 @@
   "ignorePaths": ["*.{csproj,csproj.user,sln}", "server/Seed/Postman Backup", "server/build"],
   "words": [
     "Avichai",
+    "createadmin",
     "Cywf",
     "ecommerce",
     "Ecommerce",
     "esbenp",
     "hotspot",
-    "virtuals",
     "iconify",
     "Iluz",
     "Ldidclezc",
