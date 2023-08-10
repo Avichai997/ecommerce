@@ -16,18 +16,14 @@ const Header = {
       </div>
       <div class="search">
       <form class="search-form"  id="search-form">
-        <input type="text" name="q" id="q" value="${
+        <input type="text" name="searchKeyword" id="searchKeyword" value="${
           value || ''
         }" placeholder="search our store..."/> 
         <button type="submit"><i class="fa fa-search"></i></button>
       </form>        
       </div>
       <div class="links">
-      ${
-        name
-          ? `<a href="/#/profile">${name}</a>`
-          : '<a href="/#/signin">Sign-In</a>'
-      }    
+      ${name ? `<a href="/#/profile">${name}</a>` : '<a href="/#/signin">Sign-In</a>'}    
         <a href="/#/fashion-news">Fashion-news</a>
         <a href="/#/cart">Cart</a>
         ${isAdmin ? '<a href="/#/dashboard">Dashboard</a>' : ''}
@@ -39,16 +35,16 @@ const Header = {
       .getElementById('search-form')
       .addEventListener('submit', async (e) => {
         e.preventDefault();
-        const searchKeyword = document.getElementById('q').value;
-        document.location.hash = `/?q=${searchKeyword}`;
+        const searchKeyword = document.getElementById('searchKeyword').value;
+        document.location.hash = `/?searchKeyword=${searchKeyword}`;
       });
 
-    document.getElementById('q').addEventListener(
+    document.getElementById('searchKeyword').addEventListener(
       'input',
       debounce(async (e) => {
         e.preventDefault();
-        document.location.hash = `/?q=${e.target.value}`;
-      }, 500),
+        document.location.hash = `/?searchKeyword=${e.target.value}`;
+      }, 500)
     );
 
     document
@@ -58,8 +54,8 @@ const Header = {
       });
 
     // focus the end of input of the inputElement
-    if (document.location.hash.startsWith('#/?q=')) {
-      const inputElement = document.getElementById('q');
+    if (document.location.hash.includes('searchKeyword=')) {
+      const inputElement = document.getElementById('searchKeyword');
       inputElement.focus();
       const length = inputElement.value.length;
       inputElement.setSelectionRange(length, length);

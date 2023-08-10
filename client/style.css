@@ -728,6 +728,7 @@ ul.categories {
   border-radius: 20px;
   margin: 0px 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
 }
 .view-multi-column p {
   margin: 5;

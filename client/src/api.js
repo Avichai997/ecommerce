@@ -11,7 +11,7 @@ async function fetchData({
     'Access-Control-Allow-Origin': '*',
   },
   useAuth = false,
-  data = {},
+  data,
 }) {
   try {
     if (!url) throw 'no url provided to request!';
@@ -55,7 +55,7 @@ async function fetchData({
 // products
 export const getProducts = async ({ searchKeyword = '' }) => {
   let queryString = '?';
-  if (searchKeyword) queryString += `searchKeyword=${searchKeyword}&`;
+  if (searchKeyword) queryString += `searchKeyword=${searchKeyword}`;
 
   const products = await fetchData({
     url: `${API}/api/products${queryString}`,

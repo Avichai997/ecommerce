@@ -45,7 +45,7 @@ const FashionNewsScreen = {
                 author: ${news.author}
               </div>
               </div>
-            </li>`,
+            </li>`
           )
           .join('\n')}
       </ul>

@@ -1,27 +1,27 @@
 import Product from '../models/productModel';
-import { expressAsyncHandler } from '../utils';
-import { getOne, updateOne, deleteOne, createOne } from './handlerFactory';
+import { getOne, updateOne, deleteOne, createOne, getAll } from './handlerFactory';
 
-export const getAllProducts = expressAsyncHandler(async (req, res) => {
-  const searchKeyword = req.query.searchKeyword
-    ? {
-        name: {
-          $regex: req.query.searchKeyword,
-          $options: 'i',
-        },
-      }
-    : {};
-  const products = await Product.find({ ...searchKeyword });
+// export const getAllProducts = expressAsyncHandler(async (req, res) => {
+//   const searchKeyword = req.query.searchKeyword
+//     ? {
+//         name: {
+//           $regex: req.query.searchKeyword,
+//           $options: 'i',
+//         },
+//       }
+//     : {};
+//   const products = await Product.find({ ...searchKeyword });
 
-  res.status(201).json(products);
-});
+//   res.status(201).json(products);
+// });
 
-// export const getAllProducts = getAll(Product, 'user');
+export const getAllProducts = getAll(Product);
 export const getProduct = getOne(Product);
 export const createProduct = createOne(Product);
 export const updateProduct = updateOne(Product);
 export const deleteProduct = deleteOne(Product);
 
+// Socket.io products controllers:
 function updateProductReviewStats(product) {
   if (!product)
     throw Error('oldProduct not passed as argument to the function: "updateProductReviewStats"');
@@ -91,4 +91,3 @@ export const deleteProductReview = async ({ io, productId, reviewId }) => {
     io.emit('delete-review-fail', { message: error });
   }
 };
-

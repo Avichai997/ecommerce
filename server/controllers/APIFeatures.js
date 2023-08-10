@@ -13,9 +13,20 @@ class APIFeatures {
     let queryStr = JSON.stringify(queryObj);
     queryStr = queryStr
       .replace(/\b(gte|gt|lte|lt|in|nin|eq|ne|exists)\b/g, (match) => `$${match}`)
-      .replace(/("\[|\]")/g, (match) => `${match.replace('"', '')}`);
+      .replace(/("\[|\]")/g, (match) => `${match.replace('"', '')}`)
+      .replace(/("\{|\}")/g, (match) => `${match.replace('"', '')}`);
 
-    this.query = this.query.find(JSON.parse(queryStr));
+    const queryObject = JSON.parse(queryStr);
+
+    if (queryObject.searchKeyword) {
+      queryObject.name = {
+        $regex: queryObject.searchKeyword,
+        $options: 'i',
+      };
+      delete queryObject.searchKeyword;
+    }
+
+    this.query = this.query.find(queryObject);
 
     return this;
   }

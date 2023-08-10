@@ -14,11 +14,7 @@ const HomeScreen = {
     <div>
       <img class="welcome-image" src="public/front-image.jpg"></img>
     </div>
-    <div class="view-multi-column">
-      <p>Welcome to our trendy and fashion-forward e-commerce store, your ultimate destination for all things stylish and apparel-related! Step into a world of exquisite fashion</p>
-      <p>Our e-commerce platform is dedicated to fulfilling your fashion desires and helping you express your unique style effortlessly. Whether you're a fashion enthusiast looking to stay ahead of the latest trends or someone seeking timeless classics, we've got you covered with a diverse collection that caters to every taste and occasion.</p>
-      <p>At our clothing store, we believe that fashion is more than just clothes; it's a reflection of your personality and a way to make a statement. With our carefully curated selection of apparel, you can create chic ensembles that exude confidence and leave a lasting impression.</p>
-    </div>
+    
     <ul class="products">
       ${products
         .map(
@@ -50,6 +46,13 @@ const HomeScreen = {
       `
         )
         .join('\n')}
+    </ul>
+
+    <div class="view-multi-column">
+      <p>Welcome to our trendy and fashion-forward e-commerce store, your ultimate destination for all things stylish and apparel-related! Step into a world of exquisite fashion</p>
+      <p>Our e-commerce platform is dedicated to fulfilling your fashion desires and helping you express your unique style effortlessly. Whether you're a fashion enthusiast looking to stay ahead of the latest trends or someone seeking timeless classics, we've got you covered with a diverse collection that caters to every taste and occasion.</p>
+      <p>At our clothing store, we believe that fashion is more than just clothes; it's a reflection of your personality and a way to make a statement. With our carefully curated selection of apparel, you can create chic ensembles that exude confidence and leave a lasting impression.</p>
+    </div>
     `;
   },
 };
