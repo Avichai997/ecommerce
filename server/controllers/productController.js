@@ -1,20 +1,6 @@
 import Product from '../models/productModel';
 import { getOne, updateOne, deleteOne, createOne, getAll } from './handlerFactory';
 
-// export const getAllProducts = expressAsyncHandler(async (req, res) => {
-//   const searchKeyword = req.query.searchKeyword
-//     ? {
-//         name: {
-//           $regex: req.query.searchKeyword,
-//           $options: 'i',
-//         },
-//       }
-//     : {};
-//   const products = await Product.find({ ...searchKeyword });
-
-//   res.status(201).json(products);
-// });
-
 export const getAllProducts = getAll(Product);
 export const getProduct = getOne(Product);
 export const createProduct = createOne(Product);
@@ -27,7 +13,7 @@ function updateProductReviewStats(product) {
     throw Error('oldProduct not passed as argument to the function: "updateProductReviewStats"');
 
   /* eslint-disable no-param-reassign */
-  product.rating = product.reviews.reduce((a, c) => c.rating + a, 0) / product.reviews.length;
+  product.rating = product.reviews.reduce((a, c) => c.rating + a, 0) / product.reviews.length || 0;
   product.numReviews = product.reviews.length;
   /* eslint-enable no-param-reassign */
 }

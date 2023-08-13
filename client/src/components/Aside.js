@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 const Aside = {
   render: async () => {
     return `
@@ -10,14 +8,26 @@ const Aside = {
     <div class="aside-body">
       <ul class="categories">
         <li>
-          <a href="/#/?q=shirt"
+          <a href="/#/"
+            >All Products
+            <span><i class="fa fa-chevron-right"></i></span>
+          </a>
+        </li>
+        <li>
+          <a href="/#/?category=Shirts"
             >Shirts
             <span><i class="fa fa-chevron-right"></i></span>
           </a>
         </li>
         <li>
-          <a href="/#/?q=pant"
+          <a href="/#/?category=Pants"
             >Pants
+            <span><i class="fa fa-chevron-right"></i></span>
+          </a>
+        </li> 
+        <li>
+          <a href="/#/?category=Shoes"
+            >Shoes
             <span><i class="fa fa-chevron-right"></i></span>
           </a>
         </li> 
@@ -26,11 +36,9 @@ const Aside = {
   },
   after_render: async () => {
     document.getElementById('aside-container').classList.remove('open');
-    document
-      .getElementById('aside-close-button')
-      .addEventListener('click', async () => {
-        document.getElementById('aside-container').classList.remove('open');
-      });
+    document.getElementById('aside-close-button').addEventListener('click', async () => {
+      document.getElementById('aside-container').classList.remove('open');
+    });
   },
 };
 

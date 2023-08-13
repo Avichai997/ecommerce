@@ -1,472 +1,70 @@
 [
   {
-    "_id": {
-      "$oid": "64aeb5eccb57e65dbb4a8b02"
+    "shipping": {
+      "address": "דרך יצחק רבין 20",
+      "city": "בית שמש",
+      "postalCode": "9958583",
+      "country": "ישראל"
     },
+    "payment": {
+      "paymentResult": {
+        "orderID": "EC-6WN064998T802512N",
+        "payerID": "98KRPM9XRGPE4",
+        "paymentID": "PAYID-MTMRQYA2CX37941NB895323L"
+      },
+      "paymentMethod": "Paypal"
+    },
+    "_id": "64d918594d97246a0821a479",
     "orderItems": [
       {
-        "name": "Adidas Mens Long Sleeve Hoodie",
+        "name": "Boss black T-shirt Porche old school",
+        "image": "/uploads/product-1.jpg",
+        "price": 123,
+        "qty": 1,
+        "product": "64d90cb1e92d0b2dfe590fe8",
+        "_id": "64d918594d97246a0821a47a",
+        "id": "64d918594d97246a0821a47a"
+      },
+      {
+        "name": "Leather sneakers with logo in white",
+        "image": "/uploads/product-6.jpg",
+        "price": 416,
+        "qty": 1,
+        "product": "64d913dc9f36929b52afeae1",
+        "_id": "64d918594d97246a0821a47b",
+        "id": "64d918594d97246a0821a47b"
+      },
+      {
+        "name": "DOLCE & GABBANA Slim jeans",
         "image": "/uploads/product-3.jpg",
-        "price": 59,
+        "price": 568,
         "qty": 1,
-        "product": {
-          "$oid": "333333333333333333333333"
-        },
-        "_id": {
-          "$oid": "64aeb5eccb57e65dbb4a8b03"
-        }
+        "product": "64d910bfbb3d5be335a7d4c9",
+        "_id": "64d918594d97246a0821a47c",
+        "id": "64d918594d97246a0821a47c"
       }
     ],
-    "user": "64ac3fb7fe2e9505288635f7",
-    "shipping": {
-      "address": "שדות מיכה 1",
-      "city": "שדות מיכה",
-      "postalCode": "9981000",
-      "country": "ישראל"
+    "user": {
+      "_id": "64ac3fb7fe2e9505288635f7",
+      "name": "avichai iluz",
+      "email": "avichai997@gmail.com",
+      "password": "Motorola1!",
+      "isAdmin": true,
+      "createdAt": "2023-08-13T17:37:17.978Z",
+      "updatedAt": "2023-08-13T17:37:17.978Z",
+      "__v": 0,
+      "id": "64ac3fb7fe2e9505288635f7"
     },
-    "payment": {
-      "paymentMethod": "Paypal",
-      "paymentResult": {}
-    },
-    "itemsPrice": 59,
-    "taxPrice": 10.03,
-    "shippingPrice": 10,
-    "totalPrice": 79.03,
-    "isPaid": true,
-    "isDelivered": false,
-    "createdAt": {
-      "$date": "2023-07-12T14:17:16.462Z"
-    },
-    "updatedAt": {
-      "$date": "2023-07-12T15:24:16.764Z"
-    },
-    "paidAt": {
-      "$date": "2023-07-12T15:24:16.760Z"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "64aeb763cb57e65dbb4a8b38"
-    },
-    "orderItems": [
-      {
-        "name": "Hiskywin Full Zip Running Shirts Thermal Workout",
-        "image": "/uploads/product-1.jpg",
-        "price": 59,
-        "qty": 1,
-        "product": {
-          "$oid": "111111111111111111111111"
-        },
-        "_id": {
-          "$oid": "64aeb763cb57e65dbb4a8b39"
-        }
-      }
-    ],
-    "user": "64ac3fb7fe2e9505288635f7",
-    "shipping": {
-      "address": "שדות מיכה 1",
-      "city": "שדות מיכה",
-      "postalCode": "9981000",
-      "country": "ישראל"
-    },
-    "payment": {
-      "paymentMethod": "Paypal",
-      "paymentResult": {
-        "orderID": "EC-4H632309X3717964P",
-        "payerID": "98KRPM9XRGPE4",
-        "paymentID": "PAYID-MSXLOZY4UD889292J5173234"
-      }
-    },
-    "itemsPrice": 59,
-    "taxPrice": 10.03,
-    "shippingPrice": 10,
-    "totalPrice": 79.03,
-    "isPaid": true,
-    "isDelivered": true,
-    "createdAt": {
-      "$date": "2023-07-12T14:23:31.367Z"
-    },
-    "updatedAt": {
-      "$date": "2023-07-12T14:23:53.815Z"
-    },
-    "paidAt": {
-      "$date": "2023-07-12T14:23:46.137Z"
-    },
-    "deliveredAt": {
-      "$date": "2023-07-12T14:23:53.814Z"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "64aec4d9d76ea35a2ad5e9ce"
-    },
-    "orderItems": [
-      {
-        "name": "Hiskywin Full Zip Running Shirts Thermal Workout",
-        "image": "/uploads/product-1.jpg",
-        "price": 59,
-        "qty": 3,
-        "product": {
-          "$oid": "111111111111111111111111"
-        },
-        "_id": {
-          "$oid": "64aec4d9d76ea35a2ad5e9cf"
-        }
-      }
-    ],
-    "user": "64ac3fb7fe2e9505288635f7",
-    "shipping": {
-      "address": "שדות מיכה 1",
-      "city": "שדות מיכה",
-      "postalCode": "9981000",
-      "country": "ישראל"
-    },
-    "payment": {
-      "paymentResult": {
-        "payerID": "98KRPM9XRGPE4",
-        "paymentID": "PAYID-MSXMJYQ64W0423970780091L",
-        "orderID": "EC-58R46857LF970745D"
-      }
-    },
-    "itemsPrice": 177,
-    "taxPrice": 30.09,
+    "itemsPrice": 1107,
+    "taxPrice": 188.19,
     "shippingPrice": 0,
-    "totalPrice": 207.09,
-    "isPaid": true,
-    "isDelivered": false,
-    "createdAt": {
-      "$date": "2023-07-12T15:20:57.514Z"
-    },
-    "updatedAt": {
-      "$date": "2023-07-12T15:21:28.248Z"
-    },
-    "paidAt": {
-      "$date": "2023-07-12T15:21:28.248Z"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "64aec61f563d1628124d74dc"
-    },
-    "orderItems": [
-      {
-        "name": "Under Armour Mens Sportstyle Tricot Joggers",
-        "image": "/uploads/product-4.jpg",
-        "price": 90,
-        "qty": 1,
-        "product": {
-          "$oid": "444444444444444444444444"
-        },
-        "_id": {
-          "$oid": "64aec61f563d1628124d74dd"
-        }
-      }
-    ],
-    "user": "64ac3fb7fe2e9505288635f7",
-    "shipping": {
-      "address": "שדות מיכה 1",
-      "city": "שדות מיכה",
-      "postalCode": "9981000",
-      "country": "ישראל"
-    },
-    "payment": {
-      "paymentMethod": "Paypal"
-    },
-    "itemsPrice": 90,
-    "taxPrice": 15.3,
-    "shippingPrice": 10,
-    "totalPrice": 115.3,
-    "isPaid": false,
-    "isDelivered": false,
-    "createdAt": {
-      "$date": "2023-07-12T15:26:23.058Z"
-    },
-    "updatedAt": {
-      "$date": "2023-07-12T15:26:23.058Z"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "64aec7927f409f12eb2f4e03"
-    },
-    "orderItems": [
-      {
-        "name": "Adidas Mens Long Sleeve Hoodie",
-        "image": "/uploads/product-3.jpg",
-        "price": 59,
-        "qty": 1,
-        "product": {
-          "$oid": "333333333333333333333333"
-        },
-        "_id": {
-          "$oid": "64aec7927f409f12eb2f4e04"
-        }
-      }
-    ],
-    "user": "64ac3fb7fe2e9505288635f7",
-    "shipping": {
-      "address": "שדות מיכה 1",
-      "city": "שדות מיכה",
-      "postalCode": "9981000",
-      "country": "ישראל"
-    },
-    "payment": {
-      "paymentMethod": "Paypal"
-    },
-    "itemsPrice": 59,
-    "taxPrice": 10.03,
-    "shippingPrice": 10,
-    "totalPrice": 79.03,
-    "isPaid": false,
-    "isDelivered": false,
-    "createdAt": {
-      "$date": "2023-07-12T15:32:34.713Z"
-    },
-    "updatedAt": {
-      "$date": "2023-07-12T15:32:34.713Z"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "64aec8b93afc2ae2dca29453"
-    },
-    "orderItems": [
-      {
-        "name": "Under Armour Mens Sportstyle Tricot Joggers",
-        "image": "/uploads/product-4.jpg",
-        "price": 90,
-        "qty": 1,
-        "product": {
-          "$oid": "444444444444444444444444"
-        },
-        "_id": {
-          "$oid": "64aec8b93afc2ae2dca29454"
-        }
-      }
-    ],
-    "user": "64ac3fb7fe2e9505288635f7",
-    "shipping": {
-      "address": "שדות מיכה 1",
-      "city": "שדות מיכה",
-      "postalCode": "9981000",
-      "country": "ישראל"
-    },
-    "payment": {
-      "paymentMethod": "Paypal",
-      "paymentResult": {
-        "orderID": "EC-4E0772132K134951F",
-        "payerID": "98KRPM9XRGPE4",
-        "paymentID": "PAYID-MSXMRPI1YP889425X186194J"
-      }
-    },
-    "itemsPrice": 90,
-    "taxPrice": 15.3,
-    "shippingPrice": 10,
-    "totalPrice": 115.3,
-    "isPaid": true,
-    "isDelivered": false,
-    "createdAt": {
-      "$date": "2023-07-12T15:37:29.433Z"
-    },
-    "updatedAt": {
-      "$date": "2023-07-12T15:37:43.242Z"
-    },
-    "paidAt": {
-      "$date": "2023-07-12T15:37:43.238Z"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "64b15f3ff67a1f1870f74967"
-    },
-    "orderItems": [
-      {
-        "name": "Adidas Mens Long Sleeve Hoodie",
-        "image": "/uploads/product-3.jpg",
-        "price": 59,
-        "qty": 1,
-        "product": {
-          "$oid": "333333333333333333333333"
-        },
-        "_id": {
-          "$oid": "64b15f3ff67a1f1870f74968"
-        }
-      }
-    ],
-    "user": "64ac3fb7fe2e9505288635f7",
-    "shipping": {
-      "address": "שדות מיכה 1",
-      "city": "שדות מיכה",
-      "postalCode": "9981000",
-      "country": "ישראל"
-    },
-    "payment": {
-      "paymentMethod": "Paypal",
-      "paymentResult": {
-        "orderID": "EC-0XV21746DA855492Y",
-        "payerID": "98KRPM9XRGPE4",
-        "paymentID": "PAYID-MSYV6RQ14S31421CC212050L"
-      }
-    },
-    "itemsPrice": 59,
-    "taxPrice": 10.03,
-    "shippingPrice": 10,
-    "totalPrice": 79.03,
+    "totalPrice": 1295.19,
     "isPaid": true,
     "isDelivered": true,
-    "createdAt": {
-      "$date": "2023-07-14T14:44:15.534Z"
-    },
-    "updatedAt": {
-      "$date": "2023-07-14T14:44:37.264Z"
-    },
-    "paidAt": {
-      "$date": "2023-07-14T14:44:32.882Z"
-    },
-    "deliveredAt": {
-      "$date": "2023-07-14T14:44:37.262Z"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "64b15f6ff67a1f1870f74985"
-    },
-    "orderItems": [
-      {
-        "name": "Hiskywin Full Zip Running Shirts Thermal Workout",
-        "image": "/uploads/product-1.jpg",
-        "price": 59,
-        "qty": 1,
-        "product": {
-          "$oid": "111111111111111111111111"
-        },
-        "_id": {
-          "$oid": "64b15f6ff67a1f1870f74986"
-        }
-      }
-    ],
-    "user": "64ac3fb7fe2e9505288635f7",
-    "shipping": {
-      "address": "שדות מיכה 1",
-      "city": "שדות מיכה",
-      "postalCode": "9981000",
-      "country": "ישראל"
-    },
-    "payment": {
-      "paymentMethod": "Paypal",
-      "paymentResult": {
-        "orderID": "EC-5D677209L98834001",
-        "payerID": "98KRPM9XRGPE4",
-        "paymentID": "PAYID-MSYV65Q6J1510650X1926156"
-      }
-    },
-    "itemsPrice": 59,
-    "taxPrice": 10.03,
-    "shippingPrice": 10,
-    "totalPrice": 79.03,
-    "isPaid": true,
-    "isDelivered": true,
-    "createdAt": {
-      "$date": "2023-07-14T14:45:03.849Z"
-    },
-    "updatedAt": {
-      "$date": "2023-07-14T14:45:19.464Z"
-    },
-    "paidAt": {
-      "$date": "2023-07-14T14:45:15.519Z"
-    },
-    "deliveredAt": {
-      "$date": "2023-07-14T14:45:19.463Z"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "64b3fb80b436defbdc348636"
-    },
-    "orderItems": [
-      {
-        "name": "Hiskywin Full Zip Running Shirts Thermal Workout",
-        "image": "/uploads/product-1.jpg",
-        "price": 59,
-        "qty": 1,
-        "product": {
-          "$oid": "111111111111111111111111"
-        },
-        "_id": {
-          "$oid": "64b3fb80b436defbdc348637"
-        }
-      }
-    ],
-    "user": "64ac3fb7fe2e9505288635f7",
-    "shipping": {
-      "address": "שדות מיכה 1",
-      "city": "שדות מיכה",
-      "postalCode": "9981000",
-      "country": "ישראל"
-    },
-    "payment": {
-      "paymentMethod": "Paypal"
-    },
-    "itemsPrice": 59,
-    "taxPrice": 10.03,
-    "shippingPrice": 10,
-    "totalPrice": 79.03,
-    "isPaid": false,
-    "isDelivered": false,
-    "createdAt": {
-      "$date": "2023-07-16T14:15:28.879Z"
-    },
-    "updatedAt": {
-      "$date": "2023-07-16T14:15:28.879Z"
-    }
-  },
-  {
-    "_id": {
-      "$oid": "64b3fd2634bf294174c6fcf2"
-    },
-    "orderItems": [
-      {
-        "name": "Hiskywin Full Zip Running Shirts Thermal Workout",
-        "image": "/uploads/product-1.jpg",
-        "price": 59,
-        "qty": 2,
-        "product": {
-          "$oid": "111111111111111111111111"
-        },
-        "_id": {
-          "$oid": "64b3fd2634bf294174c6fcf3"
-        }
-      }
-    ],
-    "user": "64ac3fb7fe2e9505288635f7",
-    "shipping": {
-      "address": "שדות מיכה 1",
-      "city": "שדות מיכה",
-      "postalCode": "9981000",
-      "country": "ישראל"
-    },
-    "payment": {
-      "paymentMethod": "Paypal",
-      "paymentResult": {
-        "orderID": "EC-7E134681UA8296533",
-        "payerID": "98KRPM9XRGPE4",
-        "paymentID": "PAYID-MSZ72LA45N43250N9566174X"
-      }
-    },
-    "itemsPrice": 118,
-    "taxPrice": 20.06,
-    "shippingPrice": 0,
-    "totalPrice": 138.06,
-    "isPaid": true,
-    "isDelivered": false,
-    "createdAt": {
-      "$date": "2023-07-16T14:22:30.458Z"
-    },
-    "updatedAt": {
-      "$date": "2023-07-16T14:22:49.056Z"
-    },
-    "paidAt": {
-      "$date": "2023-07-16T14:22:49.055Z"
-    }
+    "createdAt": "2023-08-13T17:52:25.832Z",
+    "updatedAt": "2023-08-13T17:52:56.870Z",
+    "paidAt": "2023-08-13T17:52:53.096Z",
+    "deliveredAt": "2023-08-13T17:52:56.869Z",
+    "id": "64d918594d97246a0821a479"
   }
 ]

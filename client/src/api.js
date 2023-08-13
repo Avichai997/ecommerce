@@ -53,10 +53,7 @@ async function fetchData({
 }
 
 // products
-export const getProducts = async ({ searchKeyword = '' }) => {
-  let queryString = '?';
-  if (searchKeyword) queryString += `searchKeyword=${searchKeyword}`;
-
+export const getProducts = async (queryString = '') => {
   const products = await fetchData({
     url: `${API}/api/products${queryString}`,
   });
