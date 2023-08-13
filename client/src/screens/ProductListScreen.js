@@ -12,7 +12,7 @@ const ProductListScreen = {
         description: 'sample desc',
         category: 'sample category',
         brand: 'sample brand',
-        image: '/images/product-1.jpg',
+        image: '/uploads/product-1.jpg',
       });
       document.location.hash = `/product/${data._id}/edit`;
     });
