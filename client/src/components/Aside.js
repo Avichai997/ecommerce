@@ -25,6 +25,12 @@ const Aside = {
             <span><i class="fa fa-chevron-right"></i></span>
           </a>
         </li> 
+        <li>
+          <a href="/#/?category=Shoes"
+            >Shoes
+            <span><i class="fa fa-chevron-right"></i></span>
+          </a>
+        </li> 
       </ul>
     </div>`;
   },

@@ -68,6 +68,7 @@ const HomeScreen = {
         <label for="rating-filter">Rating:</label>
         <select name="rating-filter" id="rating-filter">
           <option value="rating=All">All</option>
+          <option value="rating=0">0</option>
           <option value="rating=1">1</option>
           <option value="rating=1.5">1.5</option>
           <option value="rating=2">2</option>

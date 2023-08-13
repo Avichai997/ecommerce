@@ -34,7 +34,7 @@ const ProductListScreen = {
   },
   render: async () => {
     const { isAdmin } = getUserInfo();
-    const products = await getProducts({});
+    const products = await getProducts();
 
     return `
     <div class="dashboard">
