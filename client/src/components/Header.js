@@ -1,11 +1,13 @@
 import $ from 'jquery';
 import { getUserInfo } from '../localStorage';
 import { debounce, parseRequestUrl } from '../utils';
+import Aside from './Aside';
 
 const Header = {
   render: () => {
     const { name, isAdmin } = getUserInfo();
-    const { value } = parseRequestUrl();
+    const match = /searchKeyword=([^&]+)/.exec(document.location.hash);
+    const searchKeywordValue = match ? match[1] : '';
 
     return ` 
       <div class="brand">
@@ -16,9 +18,7 @@ const Header = {
       </div>
       <div class="search">
       <form class="search-form"  id="search-form">
-        <input type="text" name="searchKeyword" id="searchKeyword" value="${
-          value || ''
-        }" placeholder="search our store..."/> 
+        <input type="text" name="searchKeyword" id="searchKeyword" value="${searchKeywordValue}" placeholder="search our store..."/> 
         <button type="submit"><i class="fa fa-search"></i></button>
       </form>        
       </div>
@@ -31,27 +31,42 @@ const Header = {
     `;
   },
   after_render: () => {
-    document
-      .getElementById('search-form')
-      .addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const searchKeyword = document.getElementById('searchKeyword').value;
-        document.location.hash = `/?searchKeyword=${searchKeyword}`;
-      });
+    function setSearchUrl() {
+      const match = /searchKeyword=([^&]+)/.exec(document.location.hash);
+      const oldSearchKeyword = match ? match[1] : '';
+      const newSearchKeyword = document.getElementById('searchKeyword').value;
+      if (oldSearchKeyword)
+        document.location.hash = document.location.hash.replace(
+          `searchKeyword=${oldSearchKeyword}`,
+          `searchKeyword=${newSearchKeyword}`
+        );
+      else {
+        if (document.location.hash === '' || document.location.hash === '#/')
+          document.location.hash = `#/?searchKeyword=${newSearchKeyword}`;
+        else
+          document.location.hash = `${document.location.hash
+            .replace(`searchKeyword=`, '')
+            .replace(`&searchKeyword=`, '')}&searchKeyword=${newSearchKeyword}`
+            .replace('#/?&', '#/?')
+            .replace('&&', '&');
+      }
+    }
+    document.getElementById('search-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      setSearchUrl();
+    });
 
     document.getElementById('searchKeyword').addEventListener(
       'input',
       debounce(async (e) => {
         e.preventDefault();
-        document.location.hash = `/?searchKeyword=${e.target.value}`;
+        setSearchUrl();
       }, 500)
     );
 
-    document
-      .getElementById('aside-open-button')
-      .addEventListener('click', async () => {
-        document.getElementById('aside-container').classList.add('open');
-      });
+    document.getElementById('aside-open-button').addEventListener('click', async () => {
+      document.getElementById('aside-container').classList.add('open');
+    });
 
     // focus the end of input of the inputElement
     if (document.location.hash.includes('searchKeyword=')) {
