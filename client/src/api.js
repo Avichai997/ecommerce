@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { API, newsApiKey } from './config';
+import { API, NEWS_API_KEY } from './config';
 import { getUserInfo, setUserInfo } from './localStorage';
 import { showMessage } from './utils';
 
@@ -8,6 +8,7 @@ async function fetchData({
   method = 'GET',
   headers = {
     'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
   },
   useAuth = false,
   data,
@@ -46,27 +47,30 @@ async function fetchData({
       document.location.hash = '/';
       showMessage('This route is only for logged in or Admin users!');
     }
+
     return { error: error };
   }
 }
 
 // products
-export const getProducts = async ({ searchKeyword = '' }) => {
-  let queryString = '?';
-  if (searchKeyword) queryString += `searchKeyword=${searchKeyword}&`;
+export const getProducts = async (queryString = '') => {
+  const products = await fetchData({
+    url: `${API}/api/products${queryString}`,
+  });
 
-  const products = await fetchData({ url: `${API}/api/products${queryString}` });
   return products;
 };
 export const getProduct = async (id) => {
   const product = await fetchData({ url: `${API}/api/products/${id}` });
+
   return product;
 };
-export const createProduct = async () => {
+export const createProduct = async (productData) => {
   const product = await fetchData({
     url: `${API}/api/products`,
     method: 'POST',
     useAuth: true,
+    data: productData,
   });
 
   return product;
@@ -74,7 +78,7 @@ export const createProduct = async () => {
 export const updateProduct = async (product) => {
   const updatedProduct = await fetchData({
     url: `${API}/api/products/${product._id}`,
-    method: 'PUT',
+    method: 'PATCH',
     useAuth: true,
     data: product,
   });
@@ -145,7 +149,7 @@ export const updateUser = async ({ name, email, password }) => {
 
   const updatedUser = await fetchData({
     url: `${API}/api/users/${_id}`,
-    method: 'PUT',
+    method: 'PATCH',
     useAuth: true,
     data: {
       name,
@@ -170,6 +174,7 @@ export const createOrder = async (order) => {
 };
 export const getOrders = async () => {
   const orders = await fetchData({ url: `${API}/api/orders`, useAuth: true });
+
   return orders;
 };
 export const deleteOrder = async (orderId) => {
@@ -177,29 +182,38 @@ export const deleteOrder = async (orderId) => {
     url: `${API}/api/orders/${orderId}`,
     method: 'DELETE',
     useAuth: true,
-    data: order,
   });
 
   return order;
 };
 export const getOrder = async (id) => {
-  const order = await fetchData({ url: `${API}/api/orders/${id}`, useAuth: true });
+  const order = await fetchData({
+    url: `${API}/api/orders/${id}`,
+    useAuth: true,
+  });
+
   return order;
 };
 export const getMyOrders = async () => {
-  const myOrders = await fetchData({ url: `${API}/api/orders/mine`, useAuth: true });
+  const { _id } = getUserInfo();
+  const myOrders = await fetchData({
+    url: `${API}/api/orders/myOrders?user=${_id}`,
+    useAuth: true,
+  });
+
   return myOrders;
 };
 
 // payments with Paypal
 export const getPaypalClientId = async () => {
   const response = await fetchData({ url: `${API}/api/paypal/clientId` });
+
   return response.clientId;
 };
 export const payOrder = async (orderId, paymentResult) => {
   const payedOrder = await fetchData({
     url: `${API}/api/orders/${orderId}/pay`,
-    method: 'PUT',
+    method: 'PATCH',
     useAuth: true,
     data: paymentResult,
   });
@@ -209,9 +223,8 @@ export const payOrder = async (orderId, paymentResult) => {
 export const deliverOrder = async (orderId) => {
   const deliveredOrder = await fetchData({
     url: `${API}/api/orders/${orderId}/deliver`,
-    method: 'PUT',
+    method: 'PATCH',
     useAuth: true,
-    data: paymentResult,
   });
 
   return deliveredOrder;
@@ -219,14 +232,19 @@ export const deliverOrder = async (orderId) => {
 
 // dashboard's aggregated data
 export const getSummary = async () => {
-  const summary = await fetchData({ url: `${API}/api/orders/summary`, useAuth: true });
+  const summary = await fetchData({
+    url: `${API}/api/orders/summary`,
+    useAuth: true,
+  });
+
   return summary;
 };
 
 export const getFashionNews = async () => {
   const news = await fetchData({
-    url: `https://newsapi.org/v2/everything?q=fashion&apiKey=${newsApiKey}`,
+    url: `https://newsapi.org/v2/everything?q=fashion&apiKey=${NEWS_API_KEY}`,
     headers: {},
   });
+
   return news;
 };

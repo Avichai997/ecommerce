@@ -17,7 +17,7 @@ const DashboardScreen = {
       },
       {
         showArea: true,
-      }
+      },
     );
     new PieChart(
       '.ct-chart-pie',
@@ -31,7 +31,7 @@ const DashboardScreen = {
         startAngle: 270,
         showLabel: true,
         donutSolid: true,
-      }
+      },
     );
   },
   render: async () => {

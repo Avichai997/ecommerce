@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import { register } from '../api';
 import { getUserInfo, setUserInfo } from '../localStorage';
 import { showLoading, hideLoading, showMessage, redirectUser } from '../utils';
@@ -14,8 +13,8 @@ const RegisterScreen = {
         password: document.getElementById('password').value,
       });
       hideLoading();
-      if (data.error) {
-        showMessage(data.error);
+      if (data?.error) {
+        showMessage(data?.error);
       } else {
         setUserInfo(data);
         redirectUser();
@@ -26,6 +25,7 @@ const RegisterScreen = {
     if (getUserInfo().name) {
       redirectUser();
     }
+
     return `
     <div class="form-container">
       <form id="register-form">

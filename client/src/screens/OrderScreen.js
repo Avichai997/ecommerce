@@ -52,13 +52,13 @@ const handlePayment = (clientId, totalPrice) => {
           ],
         });
       },
-      onAuthorize(data, actions) {
+      onAuthorize({ orderID, payerID, paymentID }, actions) {
         return actions.payment.execute().then(async () => {
           showLoading();
           await payOrder(parseRequestUrl().id, {
-            orderID: data.orderID,
-            payerID: data.payerID,
-            paymentID: data.paymentID,
+            orderID,
+            payerID,
+            paymentID,
           });
           hideLoading();
           showMessage('Payment was successful.', () => {
@@ -67,7 +67,7 @@ const handlePayment = (clientId, totalPrice) => {
         });
       },
     },
-    '#paypal-button'
+    '#paypal-button',
   ).then(() => {
     hideLoading();
   });
@@ -106,6 +106,7 @@ const OrderScreen = {
     if (!isPaid) {
       addPaypalSdk(totalPrice);
     }
+
     return `
     <div>
     <h1>Order ${_id}</h1>
@@ -120,7 +121,7 @@ const OrderScreen = {
             ${
               isDelivered
                 ? `<div class="success">Delivered at ${deliveredAt}</div>`
-                : `<div class="error">Not Delivered</div>`
+                : '<div class="error">Not Delivered</div>'
             }
              
           </div>
@@ -132,7 +133,7 @@ const OrderScreen = {
             ${
               isPaid
                 ? `<div class="success">Paid at ${paidAt}</div>`
-                : `<div class="error">Not Paid</div>`
+                : '<div class="error">Not Paid</div>'
             }
           </div>
           <div>
@@ -156,7 +157,7 @@ const OrderScreen = {
                   </div>
                   <div class="cart-price"> $${item.price}</div>
                 </li>
-                `
+                `,
                 )
                 .join('\n')}
             </ul>
@@ -175,7 +176,7 @@ const OrderScreen = {
                  <li>
                  ${
                    isPaid && !isDelivered && isAdmin
-                     ? `<button id="deliver-order-button" class="primary fw">Deliver Order</button>`
+                     ? '<button id="deliver-order-button" class="primary fw">Deliver Order</button>'
                      : ''
                  }
                  <li>

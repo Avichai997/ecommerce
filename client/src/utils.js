@@ -12,6 +12,7 @@ export const parseRequestUrl = () => {
   const url = address.toLowerCase() || '/';
   const r = url.split('/');
   const q = queryString.split('=');
+
   return {
     resource: r[1],
     id: r[2],
@@ -22,7 +23,9 @@ export const parseRequestUrl = () => {
 };
 
 export const rerender = async (component, props) => {
-  document.getElementById('main-container').innerHTML = await component.render(props);
+  document.getElementById('main-container').innerHTML = await component.render(
+    props,
+  );
   await component.after_render(props);
 };
 
@@ -57,7 +60,7 @@ export const showEditReview = (review) => {
       showCancelBtn: true,
       formId,
       reviewId: review._id,
-    })
+    }),
   );
 
   $('#message-overlay').addClass('active');
@@ -70,7 +73,6 @@ export const hideEditReview = () => {
 };
 
 export const redirectUser = () => {
-  console.log(getCartItems().length);
   if (getCartItems().length !== 0) {
     document.location.hash = '/shipping';
   } else {
@@ -80,6 +82,7 @@ export const redirectUser = () => {
 
 export const debounce = (func, delay) => {
   let timeoutId;
+
   return (...args) => {
     clearTimeout(timeoutId);
     timeoutId = setTimeout(() => {
@@ -92,13 +95,17 @@ export const protectRoute = (response = null) => {
   if (!getUserInfo().isAdmin) {
     document.location.hash = '/';
     showMessage('This route is only for Admin users!');
+
     return false;
   } else return true;
 };
 
 export function getReviewData(socketEvent, id = false) {
   const user = getUserInfo();
-  const formId = socketEvent.startsWith('create') ? 'add-review-form' : 'edit-review-form';
+  const formId = socketEvent.startsWith('create')
+    ? 'add-review-form'
+    : 'edit-review-form';
+
   return {
     _id: $('#edit-review-form').attr('review-id') || undefined,
     user: user._id,

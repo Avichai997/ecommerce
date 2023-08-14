@@ -35,10 +35,9 @@ const ProductScreen = {
     });
 
     socket.on('create-review-success', (product) => {
-      $('html, body').animate({ scrollTop: $(document).height() }, 1000);
       rerender(ProductScreen, { socket, product });
-  });
-  socket.on('edit-review-success', (product) => {
+    });
+    socket.on('edit-review-success', (product) => {
       hideEditReview();
       rerender(ProductScreen, { socket, product });
     });
@@ -121,7 +120,7 @@ const ProductScreen = {
                   ${
                     product.countInStock > 0
                       ? `<span class="success">In Stock (${product.countInStock} available)</span>`
-                      : `<span class="error">Unavailable</span>`
+                      : '<span class="error">Unavailable</span>'
                   }
               </li>
               <li>
@@ -134,7 +133,7 @@ const ProductScreen = {
       </div>
       <div class="content">
       <h2>Reviews</h2>
-      ${product.reviews.length === 0 ? `<div>There is no review.</div>` : ''}  
+      ${product.reviews.length === 0 ? '<div>There is no review.</div>' : ''}  
       <ul class="review">
       ${product.reviews
         .map(

@@ -5,20 +5,26 @@ import { showLoading, hideLoading, showMessage } from '../utils';
 
 const ProfileScreen = {
   after_render: () => {
-    document.getElementById('signout-button').addEventListener('click', () => {
+    $('#sign-out-button').on('click', () => {
       clearUser();
       document.location.hash = '/';
     });
-    document.getElementById('profile-form').addEventListener('submit', async (e) => {
+    $('#profile-form').on('submit', async (e) => {
       e.preventDefault();
+      const userData = {
+        name: $('#name').val(),
+        email: $('#email').val(),
+        password: $('#password').val(),
+      };
+      if (!userData.name || !userData.email || !userData.password)
+        return showMessage('one of the values are missing!');
+
       showLoading();
-      const data = await updateUser({
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        password: document.getElementById('password').value,
-      });
+
+      const data = await updateUser(userData);
+
       hideLoading();
-      if (data.error) showMessage(data.error);
+      if (data?.error) showMessage(data?.error);
       else {
         setUserInfo(data);
         document.location.hash = '/';
@@ -51,13 +57,13 @@ const ProfileScreen = {
           </li>
           <li>
             <label for="password">Password</label>
-            <input type="password" name="password" autocomplete="new-password" id="password" />
+            <input type="password" name="password" autocomplete="password" id="password" />
           </li>
           <li>
             <button type="submit" class="primary">Update</button>
           </li>
           <li>
-          <button type="button" id="signout-button">Sign Out</button>
+          <button type="button" id="sign-out-button">Sign Out</button>
         </li>        
         </ul>
       </form>
@@ -79,7 +85,7 @@ const ProfileScreen = {
           <tbody>
             ${
               orders.length === 0
-                ? `<tr><td colspan="6">No Order Found.</tr>`
+                ? '<tr><td colspan="6">No Order Found.</tr>'
                 : orders
                     .map(
                       (order) => `

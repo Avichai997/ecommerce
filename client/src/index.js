@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import io from 'socket.io-client';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
@@ -21,12 +22,6 @@ import FashionNewsScreen from './screens/FashionNewsScreen';
 import { API } from './config';
 import { getUserInfo } from './localStorage';
 
-const socket = io(API);
-
-socket.on('connect', () => {
-  console.log(`Connected as: ${socket.id}`);
-});
-
 const routes = {
   '/': HomeScreen,
   '/product/:id': ProductScreen,
@@ -45,7 +40,8 @@ const routes = {
   '/orderlist': OrderListScreen,
   '/fashion-news': FashionNewsScreen,
 };
-const router = async () => {
+
+const router = async (socket) => {
   showLoading();
   const { token } = getUserInfo();
   socket.auth = { token };
@@ -75,5 +71,14 @@ const router = async () => {
   hideLoading();
 };
 
-window.addEventListener('load', router);
-window.addEventListener('hashchange', router);
+$(function () {
+  const socket = io(API);
+
+  socket.on('connect', () => console.log(`Connected as: ${socket.id}`));
+  socket.on('disconnect', () => console.log('Connection Failed'));
+  socket.on('connect_failed', () => console.log('Disconnected'));
+
+  router(socket);
+
+  window.addEventListener('hashchange', () => router(socket));
+});

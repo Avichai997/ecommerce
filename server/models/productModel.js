@@ -29,7 +29,11 @@ const productSchema = new mongoose.Schema(
     numReviews: { type: Number, default: 0, required: true },
     reviews: [reviewSchema],
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
+  }
 );
 const Product = mongoose.model('Product', productSchema);
 export default Product;

@@ -6,38 +6,41 @@ const ProductEditScreen = {
   protect: () => protectRoute(),
   after_render: () => {
     const request = parseRequestUrl();
-    document.getElementById('edit-product-form').addEventListener('submit', async (e) => {
+    $('#edit-product-form').on('submit', async (e) => {
       e.preventDefault();
       showLoading();
+
       const data = await updateProduct({
         _id: request.id,
-        name: document.getElementById('name').value,
-        price: document.getElementById('price').value,
-        image: document.getElementById('image').value,
-        brand: document.getElementById('brand').value,
-        category: document.getElementById('category').value,
-        countInStock: document.getElementById('countInStock').value,
-        description: document.getElementById('description').value,
+        name: $('#name').val(),
+        price: $('#price').val(),
+        image: $('#image').val(),
+        brand: $('#brand').val(),
+        category: $('#category').val(),
+        countInStock: $('#countInStock').val(),
+        description: $('#description').val(),
       });
+
       hideLoading();
-      if (data.error) {
-        showMessage(data.error);
+      if (data?.error) {
+        showMessage(data?.error);
       } else {
         document.location.hash = '/productlist';
       }
     });
-    document.getElementById('image-file').addEventListener('change', async (e) => {
+
+    $('#image-file').on('change', async (e) => {
       const file = e.target.files[0];
       const formData = new FormData();
       formData.append('image', file);
       showLoading();
       const data = await uploadProductImage(formData);
       hideLoading();
-      if (data.error) {
-        showMessage(data.error);
+      if (data?.error) {
+        showMessage(data?.error);
       } else {
         showMessage('Image uploaded successfully.');
-        document.getElementById('image').value = data.image;
+        $('#image').val(data.image);
       }
     });
   },
@@ -75,7 +78,7 @@ const ProductEditScreen = {
             </li>
             <li>
               <label for="countInStock">Count In Stock</label>
-              <input type="text" name="countInStock" value="${product.countInStock}" id="countInStock" />
+              <input type="number" name="countInStock" value="${product.countInStock}" id="countInStock" min="0"   />
             </li>
             <li>
               <label for="category">Category</label>

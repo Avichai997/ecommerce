@@ -1,38 +1,40 @@
 {
-	"folders": [
-		{
-			"path": "."
-		}
-	],
-	"settings": {
-		"restoreTerminals.keepExistingTerminalsOpen": false,
-		"restoreTerminals.terminals": [
-			{
-				"splitTerminals": [
-					{
-						"name": "Server",
-						"commands": ["cd server", "npm i", "npm run dev"]
-					},
-					{
-						"name": "Client",
-						"commands": ["cd client", "npm i", "npm run dev"]
-					}
-				]
-			}
-		],
-		"typescript.tsdk": "Source/client/node_modules/typescript/lib",
-		"eslint.workingDirectories": [
-			{
-				"mode": "auto"
-			}
-		],
-		"editor.formatOnSave": true,
-		"editor.formatOnSaveMode": "file",
-		"files.autoSave": "afterDelay",
-		"cSpell.autoFormatConfigFile": true,
-		"editor.defaultFormatter": "esbenp.prettier-vscode",
-		"editor.formatOnPaste": true,
-		"editor.mouseWheelZoom": true,
-		"prettier.printWidth": 100
-	}
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "restoreTerminals.keepExistingTerminalsOpen": false,
+    "restoreTerminals.terminals": [
+      {
+        "splitTerminals": [
+          {
+            "name": "Server",
+            "commands": ["cd server", "npm i", "npm run dev"]
+          },
+          {
+            "name": "Client",
+            "commands": ["cd client", "npm i", "npm run dev"]
+          }
+        ]
+      }
+    ],
+    "eslint.workingDirectories": [
+      {
+        "mode": "auto"
+      }
+    ],
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
+    "files.autoSave": "afterDelay",
+    "cSpell.autoFormatConfigFile": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnPaste": true,
+    "editor.mouseWheelZoom": true,
+    "javascript.preferences.quoteStyle": "single",
+    "typescript.preferences.quoteStyle": "single",
+    "prettier.jsxSingleQuote": true,
+    "prettier.singleQuote": true
+  }
 }

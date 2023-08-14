@@ -41,6 +41,8 @@ const orderSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
   }
 );
 const Order = mongoose.model('Order', orderSchema);
