@@ -14,11 +14,6 @@ We enjoyed working together, we learned a lot from each other, each supported an
 | _Nadav chen_   | `'Front-End Developer + DevOps'` | 'Coding is not just about what you can create, but what you can imagine.' |
 | _Ariel Aviv_   | `'Front-End Developer'`          | ''                                                                 |
 
-# Files & Folders
-
-- **Client** - Front End...
-- 
--
 
 ## languages
 JavaScript , HTML , CSS , jquery
