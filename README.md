@@ -10,30 +10,46 @@ We enjoyed working together, we learned a lot from each other, each supported an
 
 | Name           | Role                             | quote                                                                     |
 | -------------- | -------------------------------- | ------------------------------------------------------------------------- |
-| _Avichai Iluz_ | `'Back-End Developer + Data'`    | 'bla bla'                                                                 |
+| _Avichai Iluz_ | `'Back-End Developer + Data'`    | ''                                                                |
 | _Nadav chen_   | `'Front-End Developer + DevOps'` | 'Coding is not just about what you can create, but what you can imagine.' |
-| _Ariel Aviv_   | `'Front-End Developer'`          | 'bla bla'                                                                 |
+| _Ariel Aviv_   | `'Front-End Developer'`          | ''                                                                 |
 
 # Files & Folders
 
 - **Client** - Front End...
--
+- 
 -
 
-# Technologies
-
-## Programming languages
+## languages
+JavaScript , HTML , CSS , jquery
 
 ## Tools and environments
+- NodeJs
+- Git
+- jquery
+
+### Front End:
+- Vite - development environment (NPM package)
+- Socket.io (NPM package)
+
+### Back End:
+- babel (NPM package)
+- Express (Node.js)
+- mongoose
+- JWT (JSON Web Tokens)
+
+### Code Editors/IDEs:
+Visual Studio Code
 
 ## Database
+- MongoDB
 
 **mongoDB**
 ![](https://www.pngall.com/wp-content/uploads/13/Mongodb-PNG-Image-HD.png)
 
 # Synchronization
 
-Synchronization is one of the biggest Issues in our projet we used **Google Drive** and **GitHub** (Git) to collaborate with each other, and integrate easily into our workflow... The synchronization mechanism takes place every minute in the background, downloading, merging, and uploading file modifications.
+Synchronization is one of the most significant issues in our project we used **Google Drive** and **GitHub** (Git) to collaborate with each other, and integrate easily into our workflow... The synchronization mechanism occurs every minute in the background, downloading, merging, and uploading file modifications.
 
 # Getting Started
 
