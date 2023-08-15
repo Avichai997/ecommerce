@@ -73,8 +73,7 @@ const handlePayment = (clientId, totalPrice) => {
   });
 };
 const OrderScreen = {
-  protect: () => protectRoute(),
-  after_render: async () => {
+    after_render: async () => {
     const request = parseRequestUrl();
     const deliverOrderBtn = document.getElementById('deliver-order-button');
     if (deliverOrderBtn) {

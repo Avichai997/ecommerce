@@ -19,7 +19,6 @@ import ProductEditScreen from './screens/ProductEditScreen';
 import OrderListScreen from './screens/OrderListScreen';
 import Aside from './components/Aside';
 import FashionNewsScreen from './screens/FashionNewsScreen';
-import About from './screens/About';
 import { API } from './config';
 import { getUserInfo } from './localStorage';
 
@@ -40,7 +39,6 @@ const routes = {
   '/productlist': ProductListScreen,
   '/orderlist': OrderListScreen,
   '/fashion-news': FashionNewsScreen,
-  '/about': About,
 };
 
 const router = async (socket) => {
