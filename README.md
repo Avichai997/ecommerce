@@ -10,9 +10,9 @@ We enjoyed working together, we learned a lot from each other, each supported an
 
 | Name           | Role                             | quote                                                                     |
 | -------------- | -------------------------------- | ------------------------------------------------------------------------- |
-| _Avichai Iluz_ | `'Back-End Developer + Data'`    | ''                                                                |
+| _Avichai Iluz_ | `'Back-End Developer + Data'`    | 'Design is not just what it looks like and feels like. Design is how it works'   |
 | _Nadav chen_   | `'Front-End Developer + DevOps'` | 'Coding is not just about what you can create, but what you can imagine.' |
-| _Ariel Aviv_   | `'Front-End Developer'`          | ''                                                                 |
+| _Ariel Aviv_   | `'Front-End Developer'`          | 'Any fool can write code that a computer can understand. Good programmers write code that humans can understand'      |
 
 
 ## languages
