@@ -1113,7 +1113,6 @@ iframe {
   width: 32px;
   height: 32px;
   background-image: url('/src/assets/images/facebook-icon.png');
-  /* Replace with your Facebook icon image */
   background-size: cover;
   margin-right: 10px;
 }
