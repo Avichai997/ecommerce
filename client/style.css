@@ -156,21 +156,25 @@ header a {
 header a:hover {
   color: var(--button-color);
 }
+
 .brand {
   display: flex;
   align-items: center;
 }
+
 .brand a {
   font-weight: bold;
   font-size: 3rem;
   padding-left: 1rem;
 }
+
 @media (max-width: 850px) {
   .brand a {
     font-size: 90%;
     padding: 0;
   }
 }
+
 #main-container {
   margin-bottom: 20px;
 }
@@ -699,11 +703,13 @@ form.search-form input[type='text'] {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
+
 @media (max-width: 850px) {
   form.search-form input[type='text'] {
     width: 60%;
   }
 }
+
 form.search-form button {
   float: left;
   width: 40px;
@@ -1043,9 +1049,34 @@ iframe {
 }
 
 .about-container p {
-  font-size: 1.8rem;
+  font-size: 2.0rem;
   font-weight: bold;
-  color: #555;
+  text-shadow: #000000;
+  color: #fff;
+  background-color: #575757;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
   margin-bottom: 2rem;
   animation: fadeIn 1.5s ease-in-out;
+}
+
+.about-container h3 {
+  font-size: 24px;
+  /* Initial font size */
+  color: #333;
+  /* Text color */
+  margin-bottom: 5px;
+  /* Add some space below the element */
+  transition: font-size 0.3s ease;
+  /* Smooth transition for font size */
+}
+
+/* Add hover effect for the h3 element */
+.about-container h3:hover {
+  font-size: 30px;
+  /* Larger font size on hover */
+  cursor:pointer ;
+  color: #c434cc;
+  /* Change text color on hover */
 }

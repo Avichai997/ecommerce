@@ -24,10 +24,12 @@ const About = {
         <div class="about-container">
         <h1>About US</h1>
                 <p>
+                
                 Welcome to our fashion ecommerce website! We are a passionate team dedicated to
                 bringing you the latest trends and styles in the world of fashion. Our mission is to provide
                 you with a seamless shopping experience and help you express your unique sense of style.
-                Get to know the faces behind the brand:
+                Get to know the faces behind the brand
+
                 </p>
         <h2>Our Team</h2>
         <div class="about-team-member">
