@@ -1114,7 +1114,7 @@ iframe {
 .facebook-badge-icon {
   width: 32px;
   height: 32px;
-  background-image: url('public/facebook-icon.png');
+  background-image: url('facebook-icon.png');
   background-size: cover;
   margin-right: 10px;
 }
