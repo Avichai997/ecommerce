@@ -22,15 +22,26 @@ const About = {
 
     return `<div>
         <div class="about-container">
+        <div class="about-sub-container">
         <h1>About US</h1>
                 <p>
-                
+
                 Welcome to our fashion ecommerce website! We are a passionate team dedicated to
                 bringing you the latest trends and styles in the world of fashion. Our mission is to provide
                 you with a seamless shopping experience and help you express your unique sense of style.
                 Get to know the faces behind the brand
 
                 </p>
+        </div>
+        <div class="facebook-badge-container">
+        <div class="facebook-badge-header">
+            <div class="facebook-badge-icon"></div>
+            <div class="facebook-badge-title">Follow Us on Facebook</div>
+        </div>
+        <div class="facebook-badge-body">
+            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100095308253237&tabs&width=340&height=130&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=511370415862232" width="340" height="130" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+        </div>
+        </div>
         <h2>Our Team</h2>
         <div class="about-team-member">
             <img src="./src/assets/images/nadavchen.jpg" alt="NadavChen">
@@ -57,6 +68,7 @@ const About = {
             </div>
         </div>
     </div>
+    
     <div class="map-container">
         <iframe
             width="600"
@@ -68,7 +80,7 @@ const About = {
             src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBcpns1lMrNW0KJoI-u8dB2DPJk52i8ZJY&q=Space+Needle,Seattle+WA">
         </iframe>
     </div>
-
+    
         </div>`;
   },
 };
