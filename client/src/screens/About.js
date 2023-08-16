@@ -1,3 +1,4 @@
+import { CLIENT_URL } from '../config';
 import { showLoading, hideLoading } from '../utils';
 
 const About = {
@@ -44,7 +45,7 @@ const About = {
         </div>
         <h2>Our Team</h2>
         <div class="about-team-member">
-            <img src="./src/assets/images/nadavchen.jpg" alt="NadavChen">
+            <img src="${CLIENT_URL}/nadavchen.jpg" alt="NadavChen">
             <div>
                 <h3>Nadav Chen</h3>
                 <p>Co-founder & DevOps & Frontend Developer</p>
@@ -52,7 +53,7 @@ const About = {
             </div>
         </div>
         <div class="about-team-member">
-            <img src="./src/assets/images/avichai.jpg" alt="Avichai">
+            <img src="${CLIENT_URL}/avichai.jpg" alt="Avichai">
             <div>
                 <h3>Avichai</h3>
                 <p>Co-founder & Back-End Developer</p>
@@ -60,7 +61,7 @@ const About = {
             </div>
         </div>
         <div class="about-team-member">
-            <img src="./src/assets/images/ariel.jpg" alt="ArielAviv">
+            <img src="${CLIENT_URL}/ariel.jpg" alt="ArielAviv">
             <div>
                 <h3>Arial Aviv</h3>
                 <p>Co-founder & Frontend Developer</p>

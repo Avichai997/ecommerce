@@ -1,6 +1,6 @@
 @font-face {
   font-family: rubik;
-  src: url(./src/assets/fonts/Rubik-Regular.ttf);
+  src: url(public/Rubik-Regular.ttf);
 }
 
 *,
@@ -1113,7 +1113,7 @@ iframe {
 .facebook-badge-icon {
   width: 32px;
   height: 32px;
-  background-image: url('/src/assets/images/facebook-icon.png');
+  background-image: url('public/facebook-icon.png');
   background-size: cover;
   margin-right: 10px;
 }

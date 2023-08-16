@@ -1,5 +1,6 @@
 import { showLoading, hideLoading } from '../utils';
 import { getFashionNews } from '../api';
+import { CLIENT_URL } from '../config';
 
 const FashionNewsScreen = {
   after_render: () => {},
@@ -12,9 +13,9 @@ const FashionNewsScreen = {
 
     return `
     <div>
-      <img class="canvas-image" src="./src/assets/images/cavas-image.jpg"></img>
+      <img class="canvas-image" src="${CLIENT_URL}/cavas-image.jpg"></img>
       <video class="video-container" controls>
-       <source src="./src/assets/video/movie.mp4" type="video/mp4">
+       <source src="${CLIENT_URL}/movie.mp4" type="video/mp4">
       </video>
     </div>
 

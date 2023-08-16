@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import Rating from '../components/Rating';
 import { getProducts } from '../api';
-import { API } from '../config';
+import { API, CLIENT_URL } from '../config';
 
 const HomeScreen = {
   after_render: async () => {
@@ -37,7 +37,7 @@ const HomeScreen = {
 
         $('#price-filter').val('sort=' + SortPriceVal);
         RatingVal && $('#rating-filter').val('rating=' + RatingVal);
-        document.location.hash = newHash.replaceAll('&&', "&");
+        document.location.hash = newHash.replaceAll('&&', '&');
       });
 
     const SortPriceVal = SortPriceRegexp.exec(document.location.hash)?.[1] || '';
@@ -55,7 +55,7 @@ const HomeScreen = {
     return `
 
     <div>
-      <img class="welcome-image" src="public/front-image.jpg"></img>
+      <img class="welcome-image" src="${CLIENT_URL}/front-image.jpg"></img>
     </div>
     <div class="products-filters">
       <div class="filter-select">
