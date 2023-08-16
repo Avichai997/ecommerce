@@ -19,25 +19,25 @@ We enjoyed working together, we learned a lot from each other, each supported an
 JavaScript , HTML , CSS , jquery
 
 ## Tools and environments
-- NodeJs
-- Git
-- jquery
+- NodeJs - JavaScript runtime environment.
+- Git - source management
+- jquery -  is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling
 
 ### Front End:
 - Vite - development environment (NPM package)
-- Socket.io (NPM package)
+- Socket.io (NPM package) - in most cases, the connection will be established with WebSocket, providing a low-overhead communication channel between the server and the client.
 
 ### Back End:
 - babel (NPM package)
-- Express (Node.js)
-- mongoose
-- JWT (JSON Web Tokens)
+- Express (Node.js) - is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications
+- mongoose -  provides a straight-forward, schema-based solution to model your application data
+- JWT (JSON Web Tokens) - s a compact URL-safe means of representing claims to be transferred between two parties. The claims in a JWT are encoded as a JSON
 
 ### Code Editors/IDEs:
 Visual Studio Code
 
 ## Database
-- MongoDB
+- MongoDB - with a developer data platform built on the leading modern database.
 
 **mongoDB**
 ![](https://www.pngall.com/wp-content/uploads/13/Mongodb-PNG-Image-HD.png)
