@@ -3,16 +3,40 @@ import { showLoading, hideLoading } from '../utils';
 
 const About = {
   after_render: () => {
-    function onLinkedInLoad() {
-      console.log('LinkedIn badge script has loaded!');
-      // Perform any actions or initialization here
+    function initMap() {
+      const map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 31.9314, lng: 34.8015 }, // Center the map on Israel
+        zoom: 8, // Zoom level
+      });
+
+      // Add markers with labels
+      const marker1 = new google.maps.Marker({
+        position: { lat: 31.9314, lng: 34.8015 }, // המכללה למנהל ראשון לציון ישראל
+        map: map,
+        label: {
+          text: 'Opening Hours: 9 AM - 6 PM',
+          color: 'black',
+          fontWeight: 'bold',
+        },
+      });
+
+      const marker2 = new google.maps.Marker({
+        position: { lat: 31.7683, lng: 35.2137 }, // ירושלים ממילא
+        map: map,
+        label: {
+          text: 'Opening Hours: 10 AM - 7 PM',
+          color: 'black',
+          fontWeight: 'bold',
+        },
+      });
     }
     var linkedinScript = document.createElement('script');
-    linkedinScript.src = 'https://platform.linkedin.com/badges/js/profile.js';
+    linkedinScript.src =
+      'https://maps.googleapis.com/maps/api/js?key=AIzaSyBcpns1lMrNW0KJoI-u8dB2DPJk52i8ZJY';
     linkedinScript.async = true;
     linkedinScript.defer = true;
     linkedinScript.type = 'text/javascript';
-    linkedinScript.onload = onLinkedInLoad;
+    linkedinScript.onload = initMap;
 
     document.head.appendChild(linkedinScript);
   },
@@ -23,6 +47,7 @@ const About = {
 
     return `<div>
         <div class="about-container">
+
         <div class="about-sub-container">
         <h1>About US</h1>
                 <p>
@@ -68,19 +93,10 @@ const About = {
         </div>
     </div>
     
-    <div class="map-container">
-        <iframe
-            width="600"
-            height="450"
-            style="border:0"
-            loading="lazy"
-            allowfullscreen
-            referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBcpns1lMrNW0KJoI-u8dB2DPJk52i8ZJY&q=Space+Needle,Seattle+WA">
-        </iframe>
-    </div>
+    <h1 style="font-weight:bold; display:flex; justify-content: center;">Our branches</h1>
+    <div id="map" style="width: 100%; height: 400px;"></div>
     
-        </div>`;
+    </div>`;
   },
 };
 
