@@ -42,3 +42,4 @@ export const expressAsyncHandler = (fn) => (req, res, next) => {
 };
 
 export const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
+export const nameRegex = /^[A-Za-z\s]+$/;

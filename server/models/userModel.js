@@ -1,14 +1,23 @@
 import mongoose from 'mongoose';
-import { passwordRegex } from '../utils';
+import { isEmail } from 'validator';
+import { nameRegex, passwordRegex } from '../utils';
 
 const userSchema = new mongoose.Schema(
   {
-    name: { type: String, required: true },
+    name: {
+      type: String,
+      required: true,
+      validate: {
+        validator: (name) => nameRegex.test(name),
+        message: () => 'Please enter a name that includes only letters and spaces.',
+      },
+    },
     email: {
       type: String,
       required: true,
       index: true,
       unique: true,
+      validate: [isEmail, 'Please enter correct email address'],
     },
     password: {
       type: String,
