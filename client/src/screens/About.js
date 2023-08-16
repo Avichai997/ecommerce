@@ -30,15 +30,15 @@ const About = {
         },
       });
     }
-    var linkedinScript = document.createElement('script');
-    linkedinScript.src =
+    var googleMapsScript = document.createElement('script');
+    googleMapsScript.src =
       'https://maps.googleapis.com/maps/api/js?key=AIzaSyBcpns1lMrNW0KJoI-u8dB2DPJk52i8ZJY';
-    linkedinScript.async = true;
-    linkedinScript.defer = true;
-    linkedinScript.type = 'text/javascript';
-    linkedinScript.onload = initMap;
+    googleMapsScript.async = true;
+    googleMapsScript.defer = true;
+    googleMapsScript.type = 'text/javascript';
+    googleMapsScript.onload = initMap;
 
-    document.head.appendChild(linkedinScript);
+    document.head.appendChild(googleMapsScript);
   },
   render: async () => {
     showLoading();

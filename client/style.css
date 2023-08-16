@@ -1,6 +1,6 @@
 @font-face {
   font-family: rubik;
-  src: url(Rubik-Regular.ttf);
+  src: url(./Rubik-Regular.ttf);
 }
 
 *,
@@ -1099,9 +1099,12 @@ iframe {
   border-radius: 10px;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  max-width: 400px;
   max-height: 200px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .facebook-badge-header {
@@ -1109,6 +1112,7 @@ iframe {
   align-items: center;
   padding: 10px;
   background-color: #1877f2;
+  width: 100%;
 }
 
 .facebook-badge-icon {
