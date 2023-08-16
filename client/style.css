@@ -154,8 +154,9 @@ footer {
 .filter-select {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 select {
   text-align-last: center;
