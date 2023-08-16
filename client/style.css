@@ -1080,3 +1080,21 @@ iframe {
   color: #c434cc;
   /* Change text color on hover */
 }
+
+.about-container a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #0077B5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* On hover, darken the button */
+.about-container a:hover {
+  background-color: #005D95;
+}
