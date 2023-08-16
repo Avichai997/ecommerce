@@ -130,10 +130,20 @@ header a {
 header a:hover {
   color: var(--button-color);
 }
+.brand {
+  display: flex;
+  align-items: center;
+}
 .brand a {
   font-weight: bold;
   font-size: 3rem;
   padding-left: 1rem;
+}
+@media (max-width: 850px) {
+  .brand a {
+    font-size: 90%;
+    padding: 0;
+  }
 }
 #main-container {
   margin-bottom: 20px;
@@ -574,6 +584,11 @@ form.search-form input[type='text'] {
   border-right: none;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+}
+@media (max-width: 850px) {
+  form.search-form input[type='text'] {
+    width: 60%;
+  }
 }
 form.search-form button {
   float: left;

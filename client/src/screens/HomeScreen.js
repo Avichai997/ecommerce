@@ -60,7 +60,7 @@ const HomeScreen = {
     <div class="products-filters">
       <div class="filter-select">
         Filtered category: <span style="font-weight: bolder">
-        ${CategoryVal}
+        ${CategoryVal || 'No category filter selected.'}
         </span>
       </div>
       <div class="filter-select">
