@@ -20,6 +20,7 @@ function updateProductReviewStats(product) {
 
 export const createProductReview = async ({ io, productId, review }) => {
   try {
+    console.log('vdsds')
     // 1) Find Product.
     const product = await Product.findById(productId);
     if (!product) throw Error('Product does not exist.');

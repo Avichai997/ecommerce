@@ -1,6 +1,6 @@
 @font-face {
   font-family: rubik;
-  src: url(public/Rubik-Regular.ttf);
+  src: url(Rubik-Regular.ttf);
 }
 
 *,
@@ -96,8 +96,9 @@ button:disabled {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  max-width: fit-content;
+  width: max-content;
   height: auto;
+  max-width: 900px;
 }
 
 .overlay > div > * {

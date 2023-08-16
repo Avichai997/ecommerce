@@ -40,3 +40,5 @@ export const isAdmin = (req, res, next) => {
 export const expressAsyncHandler = (fn) => (req, res, next) => {
   fn(req, res, next).catch(next);
 };
+
+export const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
