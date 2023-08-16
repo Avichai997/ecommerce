@@ -37,7 +37,7 @@ const HomeScreen = {
 
         $('#price-filter').val('sort=' + SortPriceVal);
         RatingVal && $('#rating-filter').val('rating=' + RatingVal);
-        document.location.hash = newHash;
+        document.location.hash = newHash.replaceAll('&&', "&");
       });
 
     const SortPriceVal = SortPriceRegexp.exec(document.location.hash)?.[1] || '';
@@ -50,12 +50,19 @@ const HomeScreen = {
     const products = await getProducts(queryString);
     if (products.error) return `<div class="errorMsg">${products.error}</div>`;
 
+    const CategoryVal = /category=([^&]+)/.exec(document.location.hash)?.[1] || '';
+
     return `
 
     <div>
       <img class="welcome-image" src="public/front-image.jpg"></img>
     </div>
     <div class="products-filters">
+      <div class="filter-select">
+        Filtered category: <span style="font-weight: bolder">
+        ${CategoryVal || 'No category filter selected.'}
+        </span>
+      </div>
       <div class="filter-select">
         <label for="price-filter">Sort by price:</label>
         <select name="price-filter" id="price-filter">

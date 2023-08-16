@@ -1,12 +1,11 @@
 import $ from 'jquery';
 import { getUserInfo } from '../localStorage';
 import { debounce, parseRequestUrl } from '../utils';
-import Aside from './Aside';
 
 const Header = {
   render: () => {
     const { name, isAdmin } = getUserInfo();
-    const match = /searchKeyword=([^&]+)/.exec(document.location.hash);
+    const match = /searchKeyword=([^&]+)/.exec(decodeURIComponent(document.location.hash));
     const searchKeywordValue = match ? match[1] : '';
 
     return ` 
