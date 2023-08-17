@@ -22,6 +22,7 @@ JavaScript , HTML , CSS , jquery
 - NodeJs - JavaScript runtime environment.
 - Git - source management
 - jquery -  is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling
+- Postman - is an API platform for building and using APIs.
 
 ### Front End:
 - Vite - development environment (NPM package)
